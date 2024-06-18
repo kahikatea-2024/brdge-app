@@ -29,8 +29,10 @@ npm run dev
 ### General file management
 
 Break down components as much as you reasonably can following the guideline here: https://www.componentdriven.org/#how\
-For smaller blocks use: /client/components/UI\
-For page elements use: /client/components/[component name]\
-For page layouts use /client/pages/[page name]
+For smaller blocks use: /client/components/UI/[UI Element Name]/ElementName.tsx\
+For page elements use: /client/components/[component name]/ComponentName.tsx\
+For page layouts use /client/pages/[page name]/PageName.tsx
+
+Every UI element should have a story file associated with it in the same subfolder.
 
 You can find the server running on [http://localhost:3000](http://localhost:3000) and the client running on [http://localhost:5173](http://localhost:5173).
