@@ -1,4 +1,4 @@
-# Boilerplate: Fullstack with Sass
+# Fullstack app setup with Tailwinds and Storybook
 
 ## Setup
 
@@ -17,20 +17,20 @@ This repo includes:
 
 ### Installation
 
-#### **From the Github UI**
-
-See the instructions [here](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template) to use Github's feature to create a new repo from a template.
-
-#### **From the command line**
+These commands will take care of migrating the latest database schema and populating seed data.
+npm run dev will take care of running the server and auto-updating the tailwinds css output file in the public folder as new components and styling is applied and saved.
 
 ```
-git clone https://github.com/dev-academy-challenges/boilerplate-fullstack [your-project-name]
-cd [your-project-name]
-npm install # to install dependencies
-npm run dev # to start the dev server
+npm install
+npm run dbsetup
+npm run dev
 ```
+
+### General file management
+
+Break down components as much as you reasonably can following the guideline here: https://www.componentdriven.org/#how\
+For smaller blocks use: /client/components/UI\
+For page elements use: /client/components/[component name]\
+For page layouts use /client/pages/[page name]
 
 You can find the server running on [http://localhost:3000](http://localhost:3000) and the client running on [http://localhost:5173](http://localhost:5173).
-
----
-[Provide feedback on this repo](https://docs.google.com/forms/d/e/1FAIpQLSfw4FGdWkLwMLlUaNQ8FtP2CTJdGDUv6Xoxrh19zIrJSkvT4Q/viewform?usp=pp_url&entry.1958421517=boilerplate-fullstack)

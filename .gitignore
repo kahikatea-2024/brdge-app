@@ -15,3 +15,11 @@
 
 # Dotenv env settings
 .env
+
+*storybook.log
+
+# Ignore tailwinds.generated css
+/public/output.css
+
+# Ignore DS_Store Mac temp files
+.DS_Store
