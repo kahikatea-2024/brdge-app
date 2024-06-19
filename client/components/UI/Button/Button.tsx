@@ -1,7 +1,7 @@
 import { HtmlHTMLAttributes } from 'react'
 import { twMerge } from 'tailwind-merge'
 
-type ButtonProps = HtmlHTMLAttributes<HTMLButtonElement>
+interface ButtonProps extends HtmlHTMLAttributes<HTMLButtonElement> {}
 
 function Button({ children, className, ...rest }: ButtonProps) {
   const ButtonClasses =
