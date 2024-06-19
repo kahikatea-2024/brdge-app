@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import tickimage from "/home/robert-hall/devacademy/Final-Project/brdge-app/client/images/tick-logo.png"
+import tickimage from '../../../images/tick-logo.png'
 
 import VerifiedTick from './VerifiedTick'
 import Background from '../Background/Background'
