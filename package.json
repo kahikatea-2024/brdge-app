@@ -15,13 +15,15 @@
     "dev:server": "tsx watch server/index.ts",
     "dev:css": "tailwindcss -i client/styles/main.css -o public/output.css --watch",
     "dbconfig": "npm run knex migrate:latest && npm run knex seed:run",
-    "build": "run-s build:client build:server",
+    "build": "run-s build:client build:server build:css",
     "build:client": "vite build",
     "build:server": "esbuild --packages=external --platform=node --format=esm --outfile=dist/server.js --bundle server/index.ts",
+    "build:css": "tailwindcss -i client/styles/main.css -o public/output.css ",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx .",
     "knex": "knex --knexfile ./server/db/knexfile.js",
     "format": "prettier -w '**/*.{js,jsx,ts,tsx}'",
-    "storybook": "storybook dev -p 6006",
+    "storybook": "run-p watch:storybook dev:css",
+    "watch:storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
   "eslintConfig": {
