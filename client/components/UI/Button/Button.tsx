@@ -4,14 +4,10 @@ import { twMerge } from 'tailwind-merge'
 type ButtonProps = HtmlHTMLAttributes<HTMLButtonElement>
 
 function Button({ children, className, ...rest }: ButtonProps) {
+  const ButtonClasses =
+    'bg-primary text-darkGrey w-auto rounded-full border border-lightGrey px-4 py-2 hover:shadow-[0px_0px_2px_2px_darkGrey]'
   return (
-    <button
-      className={twMerge(
-        'w-auto bg-primary text-white py-2 px-4 rounded-lg hover:shadow-[0px_0px_9px_2px_#FF17CE]',
-        className
-      )}
-      {...rest}
-    >
+    <button className={twMerge(ButtonClasses, className)} {...rest}>
       {children}
     </button>
   )
