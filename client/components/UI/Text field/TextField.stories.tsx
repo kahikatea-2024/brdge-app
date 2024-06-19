@@ -4,17 +4,20 @@ import Background from '../Background/Background'
 import TextField from './TextField'
 
 const meta: Meta<typeof TextField> = {
-  title: 'TextField',
+  title: 'searchBar',
   component: TextField,
 }
 
 type Story = StoryObj<typeof TextField>
 
-export const MyPrimary: Story = {
-  name: 'Primary',
+export const SearchBar: Story = {
   render: () => (
     <Background>
-      <TextField props="Primary" />,
+      <TextField
+        className="text-darkGray w-full bg-extraLightGrey focus:ring-2 focus:ring-blue-500"
+        // defaultValue="Search here"
+        placeholder="search"
+      />
     </Background>
   ),
 }
