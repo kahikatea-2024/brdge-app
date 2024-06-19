@@ -10,11 +10,26 @@ const meta: Meta<typeof Button> = {
 
 type Story = StoryObj<typeof Button>
 
-export const MyPrimary: Story = {
-  name: 'Primary',
+export const Primary: Story = {
   render: () => (
     <Background>
-      <Button>Primary</Button>,
+      <Button>Primary</Button>
+    </Background>
+  ),
+}
+
+export const Secondary: Story = {
+  render: () => (
+    <Background>
+      <Button className="bg-white">Secondary</Button>
+    </Background>
+  ),
+}
+
+export const Warning: Story = {
+  render: () => (
+    <Background>
+      <Button className="bg-warning">Warning</Button>
     </Background>
   ),
 }
