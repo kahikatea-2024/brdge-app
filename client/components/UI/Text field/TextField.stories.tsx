@@ -14,21 +14,9 @@ export const SearchBar: Story = {
   render: () => (
     <Background>
       <TextField
-        className="bg-extraLightGrey text-darkGray w-full focus:ring-2 focus:ring-blue-500"
+        className="text-darkGray w-full bg-extraLightGrey focus:ring-2 focus:ring-blue-500"
         // defaultValue="Search here"
         placeholder="search"
-      />
-    </Background>
-  ),
-}
-
-export const PostBar: Story = {
-  render: () => (
-    <Background>
-      <TextField
-        className="bg-darkGrey text-extraLightGrey focus:text-lg focus:ring-2 focus:ring-blue-500"
-        // defaultValue="Search here"
-        placeholder="What do you want to share?"
       />
     </Background>
   ),
