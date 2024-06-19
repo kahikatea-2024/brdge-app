@@ -36,3 +36,9 @@ For page layouts use /client/pages/[page name]/PageName.tsx
 Every UI element should have a story file associated with it in the same subfolder.
 
 You can find the server running on [http://localhost:3000](http://localhost:3000) and the client running on [http://localhost:5173](http://localhost:5173).
+
+
+### How We Create Branches
+
+Please use the ticket number and the name of the ticket for example:
+4/design-text-field
