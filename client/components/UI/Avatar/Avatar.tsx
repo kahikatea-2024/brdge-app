@@ -40,7 +40,9 @@ export default function Avatar({
         alt={alt}
         {...rest}
       />
-      {verified && <VerifiedTick className="absolute bottom-0 right-0" />}
+      {verified && (
+        <VerifiedTick className="absolute bottom-0 right-0" size={size} />
+      )}
     </div>
   )
 }
