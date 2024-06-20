@@ -12,13 +12,13 @@ export default function PostComponent() {
             src="https://i.pinimg.com/236x/5e/71/0b/5e710bb38b1cae44a3cae02342248eae.jpg"
           />
         </div>
-        <div className="w-full p-4">
+        <div className="flex w-full flex-col p-4">
           <PostField
-            className="w-full rounded-xl bg-darkGrey p-4 text-extraLightGrey focus:text-lg focus:ring-2 focus:ring-blue-500"
+            className="w-full rounded-xl bg-darkGrey p-4 text-extraLightGrey  focus:ring-2 focus:ring-blue-500"
             placeholder="What do you want to share?"
           />
-          <div className="">
-            <Button className="text-xs">Post</Button>
+          <div className="self-end pt-2">
+            <Button className="text-sm">Post</Button>
           </div>
         </div>
       </div>
