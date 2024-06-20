@@ -3,13 +3,17 @@ import PostText from '../UI/PostText/PostText'
 import image from '../../../public/images/Donkey_(Shrek).jpg'
 import ImagePost from '../UI/ImagePost/ImagePost'
 import postImage from '../../../public/images/Screenshot from 2024-06-20 15-06-10.png'
+import { HtmlHTMLAttributes } from 'react'
+import { twMerge } from 'tailwind-merge'
 
 const username = 'Donkey'
 
-export default function FeedPost() {
+interface FeedAttributes extends HtmlHTMLAttributes<HTMLDivElement> {}
+
+export default function FeedPost({ className, ...rest }: FeedAttributes) {
   return (
-    <>
-      <div className="flex flex-col rounded-md bg-lightGrey p-20">
+    <div className={twMerge(className)}>
+      <div className="flex flex-col rounded-md bg-lightGrey p-8">
         <div className="mb-2 flex items-center">
           <div className="pr-4">
             <Avatar size="medium" src={image} />
@@ -32,6 +36,6 @@ export default function FeedPost() {
         </div>
         <div className="pl-10 text-extraLightGrey">Comment</div>
       </div>
-    </>
+    </div>
   )
 }
