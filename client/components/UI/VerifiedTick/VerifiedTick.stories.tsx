@@ -4,7 +4,7 @@ import VerifiedTick from './VerifiedTick'
 import Background from '../Background/Background'
 
 const meta: Meta<typeof VerifiedTick> = {
-  title: 'VerifiedTick',
+  title: 'Design System/UI/VerifiedTick',
   component: VerifiedTick,
 }
 

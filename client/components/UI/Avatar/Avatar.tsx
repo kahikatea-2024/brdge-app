@@ -7,7 +7,7 @@ interface AvatarAttributes extends ImgHTMLAttributes<HTMLImageElement> {
   verified?: boolean
 }
 
-export default function ImagePost({
+export default function Avatar({
   className,
   alt,
   size,
@@ -40,7 +40,9 @@ export default function ImagePost({
         alt={alt}
         {...rest}
       />
-      {verified && <VerifiedTick className="absolute bottom-0 right-0" />}
+      {verified && (
+        <VerifiedTick className="absolute bottom-0 right-0" size={size} />
+      )}
     </div>
   )
 }
