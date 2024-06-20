@@ -1,18 +1,18 @@
 import ExperienceLogo from '../UI/Experience/ExperienceLogo'
-import work from '../../../public/images/work.png'
+import education from '../../../public/images/education.png'
 
-const nameOfPlace = 'Get out of My Swamp Enterprises'
-const positionOrQualification = 'Swampy Manager'
+const nameOfPlace = 'Green Orge Tech University'
+const positionOrQualification = 'Bachelor Degree Of Mythical Creature Computing'
 const location = 'Far Far Away'
-const duration = '2021 -  Current'
+const duration = '1986 -  1990'
 
-export default function Experience() {
+export default function Education() {
   return (
     <>
       <div className="bg-lightGrey">
         <div className="flex flex-col">
           <div className="flex flex-row">
-            <ExperienceLogo className="w-16 " src={work} />
+            <ExperienceLogo className="w-16 " src={education} />
             <div className="flex flex-col pl-4 pt-4 font-mono text-xl text-extraLightGrey">
               <p>{positionOrQualification}</p>
               <p className="pb-0 pl-0 text-sm">{nameOfPlace}</p>
