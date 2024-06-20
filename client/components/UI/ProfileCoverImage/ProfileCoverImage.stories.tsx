@@ -4,7 +4,7 @@ import ProfileCoverImage from './ProfileCoverImage'
 import Background from '../Background/Background'
 
 const meta: Meta<typeof ProfileCoverImage> = {
-  title: 'Profile Image Cover',
+  title: 'Design System/UI/Profile Image Cover',
   component: ProfileCoverImage,
 }
 
