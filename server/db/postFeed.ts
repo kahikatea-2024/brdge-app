@@ -20,7 +20,9 @@ export async function editPost(updatedPost: Post) {
 }
 
 //deletPost
-
+export async function deletePost(id: number) {
+  return db('feed_posts').where('feed_post_id', id).delete()
+}
 //getPostById
 export async function getPostById(id: number): Promise<Post> {
   const res = await db('feed_posts').where('feed_post_id', id).first()

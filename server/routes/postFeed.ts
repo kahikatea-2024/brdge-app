@@ -26,10 +26,10 @@ router.post('/', async (req, res) => {
   }
 })
 
-//editPost route - auth to be added
+//editPost route - auth to be added - pre-auth works in thunderclient
 router.patch('/:id', async (req, res) => {
   try {
-    const id = Number(req.params.id)
+    const feed_post_id = Number(req.params.id)
     const { user_id, content, post_date, image_url } = req.body
     const updatedPost = await db.editPost({
       feed_post_id,
@@ -46,6 +46,16 @@ router.patch('/:id', async (req, res) => {
 })
 
 //deletePost route
+router.delete('/:id', async (req, res) => {
+  try {
+    const id = Number(req.params.id)
+    await db.deletePost(id)
+    res.status(201).json('deleted')
+  } catch (error) {
+    console.error(`database error: ${error}`)
+    res.sendStatus(500)
+  }
+})
 
 //getPostbyId route - checked in thunderclient, can retrieve single post
 router.get('/:id', async (req, res) => {
