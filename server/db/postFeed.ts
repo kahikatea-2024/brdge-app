@@ -13,10 +13,10 @@ export async function addPost(newPost: PostData) {
 }
 //editPost -AUTH to be included
 export async function editPost(updatedPost: Post) {
-  const { feed_post_id, user_id, content, post_date, image_url } = updatedPost
+  const { feed_post_id, user_id, content, timestamp, image_url } = updatedPost
   return db('feed_posts')
     .where({ feed_post_id })
-    .update({ user_id, content, post_date, image_url })
+    .update({ user_id, content, timestamp, image_url })
 }
 
 //deletPost

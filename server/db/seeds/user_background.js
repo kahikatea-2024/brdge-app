@@ -27,5 +27,12 @@ export async function seed(knex) {
       duration: '2021 to present',
       position_or_qualification: 'Animal Control Operator',
     },
+    {
+      user_background_id: 4,
+      user_id: 3,
+      background_id: 3,
+      duration: '2021 to present',
+      position_or_qualification: 'Career Skills Facilitator',
+    },
   ])
 }

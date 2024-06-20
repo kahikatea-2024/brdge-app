@@ -30,12 +30,12 @@ router.post('/', async (req, res) => {
 router.patch('/:id', async (req, res) => {
   try {
     const feed_post_id = Number(req.params.id)
-    const { user_id, content, post_date, image_url } = req.body
+    const { user_id, content, timestamp, image_url } = req.body
     const updatedPost = await db.editPost({
       feed_post_id,
       user_id,
       content,
-      post_date,
+      timestamp,
       image_url,
     })
     res.status(200).json({ updated: updatedPost })
@@ -45,7 +45,7 @@ router.patch('/:id', async (req, res) => {
   }
 })
 
-//deletePost route
+//deletePost route -auth to be added - working in thunderclient
 router.delete('/:id', async (req, res) => {
   try {
     const id = Number(req.params.id)
