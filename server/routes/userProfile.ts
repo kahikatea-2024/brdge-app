@@ -32,3 +32,15 @@ router.get('/:id', async (req, res) => {
     res.sendStatus(500)
   }
 })
+
+//getUserBackgroundbyId - thunderclient working
+router.get('/:id/backgrounds', async (req, res) => {
+  try {
+    const id = Number(req.params.id)
+    const backgrounds = await db.getUserBackgroundbyId(id)
+    res.json(backgrounds)
+  } catch (error) {
+    console.error(`database error: ${error}`)
+    res.sendStatus(500)
+  }
+})

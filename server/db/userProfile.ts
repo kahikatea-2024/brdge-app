@@ -18,4 +18,16 @@ export async function getUserProfileById(id: number) {
 }
 
 //editUserProfile -AUTH to be included
-// export async function editUserProfile(updatedProfile) {}
+
+//getUserBackgroundbyId
+export async function getUserBackgroundbyId(id: number) {
+  const res = db('user_background')
+    .join(
+      'background',
+      'user_background.background_id',
+      'background.background_id',
+    )
+    .where('user_background.user_id', id)
+
+  return res
+}
