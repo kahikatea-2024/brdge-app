@@ -1,4 +1,4 @@
-import { HtmlHTMLAttributes, InputHTMLAttributes } from 'react'
+import { InputHTMLAttributes } from 'react'
 import { twMerge } from 'tailwind-merge'
 
 // interface TextFielProps extends HtmlHTMLAttributes<HTMLInputElement> {}
