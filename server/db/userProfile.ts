@@ -14,7 +14,8 @@ export async function getUserProfileByUsername(userName: string) {
 //getUserProfileById
 export async function getUserProfileById(id: number) {
   const res = db('profiles').where('user_id', id).first()
+  return res
 }
 
 //editUserProfile -AUTH to be included
-export async function editUserProfile(updatedProfile) {}
+// export async function editUserProfile(updatedProfile) {}

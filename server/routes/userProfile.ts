@@ -22,5 +22,13 @@ router.get('/search', async (req, res) => {
 export default router
 
 //getUserProfileById
-
-//
+router.get('/:id', async (req, res) => {
+  try {
+    const id = Number(req.params.id)
+    const profile = await db.getUserProfileById(id)
+    res.json(profile)
+  } catch (error) {
+    console.error(`database error: ${error}`)
+    res.sendStatus(500)
+  }
+})
