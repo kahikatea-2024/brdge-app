@@ -2,7 +2,7 @@ export interface Post {
   feed_post_id: number
   user_id: number
   content: string
-  post_date: string
+  timestamp: string
   image_url: string
 }
 

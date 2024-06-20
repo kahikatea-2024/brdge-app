@@ -8,7 +8,7 @@ export function up(knex) {
     table.integer('feed_post_id')
     table.integer('user_id')
     table.varchar('content')
-    table.date('post_date')
+    table.varchar('timestamp')
   })
 }
 
