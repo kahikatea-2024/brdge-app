@@ -6,7 +6,7 @@ import education from '../../../../public/images/education.png'
 import ExperienceLogo from './ExperienceLogo'
 
 const meta: Meta<typeof ExperienceLogo> = {
-  title: 'Design System/UI/Experience',
+  title: 'Design System/UI/ExperienceLogo',
   component: ExperienceLogo,
 }
 
