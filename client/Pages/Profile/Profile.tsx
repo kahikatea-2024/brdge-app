@@ -1,6 +1,6 @@
 import Education from '../../components/Education/Education'
 import Experience from '../../components/Experience/Experience'
-import NavBar from '../../components/Header/NavBar'
+import NavBar from '../../components/NavBar/NavBar'
 import Avatar from '../../components/UI/Avatar/Avatar'
 import ProfileCoverImage from '../../components/UI/ProfileCoverImage/ProfileCoverImage'
 import SocialMediaIcons from '../../components/UI/SocialMediaIcons/SocialMediaIcons'
