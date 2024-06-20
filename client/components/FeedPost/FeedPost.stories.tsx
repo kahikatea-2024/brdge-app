@@ -19,7 +19,7 @@ const mockPost = {
             if &quot;honk&quot; counts as code. Join us for pixel-powered fun
             and plenty of laughs in Far, Far Away! #DonkeysCodingChronicles
             #SwampyTechAdventure`,
-  post_date: '04 July',
+  timestamp: '04 July',
   image_url:
     'https://static1.colliderimages.com/wordpress/wp-content/uploads/2023/04/shrek-5-mike-myers.jpg?q=50&fit=contain&w=1140&h=&dpr=1.5',
 }

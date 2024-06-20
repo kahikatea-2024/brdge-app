@@ -18,14 +18,14 @@ export default function FeedPost({
   PostData,
   ...rest
 }: PostAttributes) {
-  const { content, post_date, image_url } = PostData
+  const { content, timestamp, image_url } = PostData
   //temp variables
   const image = 'images/Donkey_(Shrek).jpg'
 
   const PostStyling = 'mb-4 bg-lightGrey rounded-md'
 
   return (
-    <div className={twMerge(PostStyling, className)}>
+    <div className={twMerge(PostStyling, className)} {...rest}>
       <div className="flex flex-col p-8">
         <div className="mb-2 flex items-center">
           <div className="pr-4 ">
@@ -33,7 +33,7 @@ export default function FeedPost({
           </div>
           <div>
             <p className="text-m text-extraLightGrey">{username}</p>
-            <p className="text-xs text-extraLightGrey">{post_date}</p>
+            <p className="text-xs text-extraLightGrey">{timestamp}</p>
           </div>
         </div>
         <div className="text-s text-extraLightGrey">
