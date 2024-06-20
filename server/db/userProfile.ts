@@ -8,7 +8,6 @@ export async function getUserProfileByUsername(userName: string) {
     .where(
       db.raw('lower(users.username) like ?', [`%${userName.toLowerCase()}%`]),
     )
-
   return res
 }
 
@@ -16,4 +15,6 @@ export async function getUserProfileByUsername(userName: string) {
 export async function getUserProfileById(id: number) {
   const res = db('profiles').where('user_id', id).first()
 }
-//editUserProfile
+
+//editUserProfile -AUTH to be included
+export async function editUserProfile(updatedProfile) {}
