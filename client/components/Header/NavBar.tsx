@@ -5,7 +5,7 @@ import TextField from '../UI/Text field/TextField'
 
 export default function NavBar() {
   return (
-    <div className="border-gray-200 bg-darkGrey dark:bg-gray-900">
+    <div className="border-gray-200 bg-lightGrey">
       <div className="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between gap-1 p-4">
         <a href="#">
           <Logo className="h-6" />
