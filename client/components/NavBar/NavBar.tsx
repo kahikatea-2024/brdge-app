@@ -4,8 +4,10 @@ import Button from '../UI/Button/Button'
 import Logo from '../UI/Logo/Logo'
 import TextField from '../UI/Text field/TextField'
 import { IfAuthenticated, IfNotAuthenticated } from '../Authenticated'
+import { Link, useParams } from 'react-router-dom'
 
 export default function NavBar() {
+  const { Profile } = useParams()
   const { user, logout, loginWithRedirect } = useAuth0()
 
   function handleSignOut() {
@@ -20,7 +22,7 @@ export default function NavBar() {
     <div className="border-gray-200 bg-lightGrey">
       <div className="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between gap-1 p-4">
         <a href="#">
-          <Logo className="h-6" />
+        <Link to="/"><Logo className="h-6" /></Link>
         </a>
         <TextField
           placeholder="Search..."
@@ -28,7 +30,7 @@ export default function NavBar() {
         />
         <div className="flex items-center gap-2">
           <IfAuthenticated>
-            <Avatar src={user?.picture} size="small" />
+            <Link to="/Profile"><Avatar src={user?.picture} size="small"/></Link>
             <Button onClick={handleSignOut}>Sign out</Button>
           </IfAuthenticated>
           <IfNotAuthenticated>
