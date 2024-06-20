@@ -4,7 +4,7 @@ import PostField from './PostField'
 import Background from '../Background/Background'
 
 const meta: Meta<typeof PostField> = {
-  title: 'Post',
+  title: 'Design System/UI/Post',
   component: PostField,
 }
 

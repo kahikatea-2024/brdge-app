@@ -4,7 +4,7 @@ import Button from './Button'
 import Background from '../Background/Background'
 
 const meta: Meta<typeof Button> = {
-  title: 'Primary Button',
+  title: 'Design System/UI/Button',
   component: Button,
 }
 

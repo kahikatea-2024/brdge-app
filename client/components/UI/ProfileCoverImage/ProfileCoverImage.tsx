@@ -3,12 +3,12 @@ import { twMerge } from 'tailwind-merge'
 
 interface ImageAttributes extends ImgHTMLAttributes<HTMLImageElement> {}
 
-export default function ImagePost({
+export default function ProfileCoverImage({
   className,
   alt,
   ...rest
 }: ImageAttributes) {
-  const ImageStyle = 'object-scale-down h-48 w-96'
+  const ImageStyle = 'object-fill'
 
   return <img className={twMerge(ImageStyle, className)} alt={alt} {...rest} />
 }
