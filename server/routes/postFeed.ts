@@ -45,7 +45,7 @@ router.patch('/:id', async (req, res) => {
   }
 })
 
-//deletePost route
+//deletePost route -auth to be added - working in thunderclient
 router.delete('/:id', async (req, res) => {
   try {
     const id = Number(req.params.id)
