@@ -1,38 +1,46 @@
 import Avatar from '../UI/Avatar/Avatar'
 import PostText from '../UI/PostText/PostText'
-import image from '../../../public/images/Donkey_(Shrek).jpg'
+
 import ImagePost from '../UI/ImagePost/ImagePost'
-import postImage from '../../../public/images/Screenshot from 2024-06-20 15-06-10.png'
 import { HtmlHTMLAttributes } from 'react'
 import { twMerge } from 'tailwind-merge'
 
+import { Post } from '../../../models/postFeed'
+
 const username = 'Donkey'
 
-interface FeedAttributes extends HtmlHTMLAttributes<HTMLDivElement> {}
+interface PostAttributes extends HtmlHTMLAttributes<HTMLDivElement> {
+  PostData: Post
+}
 
-export default function FeedPost({ className, ...rest }: FeedAttributes) {
+export default function FeedPost({
+  className,
+  PostData,
+  ...rest
+}: PostAttributes) {
+  const { content, post_date, image_url } = PostData
+  //temp variables
+  const image = 'images/Donkey_(Shrek).jpg'
+
+  const PostStyling = 'mb-4 bg-lightGrey rounded-md'
+
   return (
-    <div className={twMerge(className)}>
-      <div className="flex flex-col rounded-md bg-lightGrey p-8">
+    <div className={twMerge(PostStyling, className)}>
+      <div className="flex flex-col p-8">
         <div className="mb-2 flex items-center">
-          <div className="pr-4">
+          <div className="pr-4 ">
             <Avatar size="medium" src={image} />
           </div>
-          <p className="text-m text-extraLightGrey">{username}</p>
+          <div>
+            <p className="text-m text-extraLightGrey">{username}</p>
+            <p className="text-xs text-extraLightGrey">{post_date}</p>
+          </div>
         </div>
         <div className="text-s text-extraLightGrey">
-          <PostText>
-            {' '}
-            Hey, hey, hey! Donkey here, reporting live from Shreks swamp. Guess
-            what? Were knee-deep in CODING! Shreks debuggin like a pro, Fionas
-            cracking algorithms left and right, and Im still tryin to figure out
-            if &quot;honk&quot; counts as code. Join us for pixel-powered fun
-            and plenty of laughs in Far, Far Away! #DonkeysCodingChronicles
-            #SwampyTechAdventure
-          </PostText>
+          <PostText>{content}</PostText>
         </div>
         <div className="">
-          <ImagePost className="size-full" src={postImage} />
+          <ImagePost className="size-full" src={image_url} />
         </div>
         <div className="pl-10 text-extraLightGrey">Comment</div>
       </div>

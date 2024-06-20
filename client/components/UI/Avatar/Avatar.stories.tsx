@@ -21,7 +21,7 @@ const meta: Meta<typeof Avatar> = {
     <Background>
       <Avatar
         {...args}
-        src="https://i.pinimg.com/236x/5e/71/0b/5e710bb38b1cae44a3cae02342248eae.jpg"
+        src="https://www.pngkey.com/png/detail/113-1130156_laughing-donkey-shrek-shrek-forever-after-poster.png"
       />
     </Background>
   ),
