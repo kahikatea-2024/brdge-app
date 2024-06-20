@@ -9,17 +9,53 @@ router.get('/', async (req, res) => {
     const posts = await db.getAllPosts()
     res.json(posts)
   } catch (error) {
-    console.error(`database error: ${error}`) //will return the error message in thunderclient
+    console.error(`database error: ${error}`)
     res.sendStatus(500)
   }
 })
 
-//addPost route
+//addPost route - auth to be added - confirmed pre-auth working in thunderclient
+router.post('/', async (req, res) => {
+  try {
+    const newPost = req.body
+    await db.addPost(newPost)
+    res.sendStatus(201)
+  } catch (error) {
+    console.error(`database error: ${error}`)
+    res.sendStatus(500)
+  }
+})
 
-//editPOst route
+//editPost route - auth to be added
+router.patch('/:id', async (req, res) => {
+  try {
+    const id = Number(req.params.id)
+    const { user_id, content, post_date, image_url } = req.body
+    const updatedPost = await db.editPost({
+      feed_post_id,
+      user_id,
+      content,
+      post_date,
+      image_url,
+    })
+    res.status(200).json({ updated: updatedPost })
+  } catch (error) {
+    console.error(`database error: ${error}`)
+    res.sendStatus(500)
+  }
+})
 
 //deletePost route
 
-//getPOstbyId route
-
+//getPostbyId route - checked in thunderclient, can retrieve single post
+router.get('/:id', async (req, res) => {
+  try {
+    const id = Number(req.params.id)
+    const post = await db.getPostById(id)
+    res.json(post)
+  } catch (error) {
+    console.error(`database error: ${error}`)
+    res.sendStatus(500)
+  }
+})
 export default router
