@@ -7,7 +7,7 @@ interface AvatarAttributes extends ImgHTMLAttributes<HTMLImageElement> {
   verified?: boolean
 }
 
-export default function ImagePost({
+export default function Avatar({
   className,
   alt,
   size,
