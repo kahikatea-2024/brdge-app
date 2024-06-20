@@ -4,7 +4,7 @@ import PostComponent from './PostComponent'
 import Background from '../UI/Background/Background'
 
 const meta: Meta<typeof PostComponent> = {
-  title: 'Post component',
+  title: 'Design System/Page Components/New Post',
   component: PostComponent,
 }
 
