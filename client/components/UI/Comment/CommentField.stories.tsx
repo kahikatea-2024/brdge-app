@@ -4,7 +4,7 @@ import Background from '../Background/Background'
 import CommentField from './CommentField'
 
 const meta: Meta<typeof CommentField> = {
-  title: 'Comment',
+  title: 'Design System/UI/Comment',
   component: CommentField,
 }
 

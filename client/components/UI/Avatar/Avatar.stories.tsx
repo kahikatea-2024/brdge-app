@@ -4,19 +4,17 @@ import Avatar from './Avatar'
 import Background from '../Background/Background'
 
 const meta: Meta<typeof Avatar> = {
-  title: 'Avatar',
+  title: 'Design System/UI/Avatar',
   component: Avatar,
   argTypes: {
     size: {
       options: ['small', 'medium', 'large'],
       control: { type: 'radio' },
       description: 'Select avatar size',
-      defaultValue: 'small',
     },
     verified: {
       control: 'boolean',
       description: 'Hide or show the Verified Tick',
-      defaultValue: false,
     },
   },
   render: ({ ...args }) => (

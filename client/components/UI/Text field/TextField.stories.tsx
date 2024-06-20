@@ -4,7 +4,7 @@ import Background from '../Background/Background'
 import TextField from './TextField'
 
 const meta: Meta<typeof TextField> = {
-  title: 'searchBar',
+  title: 'Design System/UI/searchBar',
   component: TextField,
 }
 
