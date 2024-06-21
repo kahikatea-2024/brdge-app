@@ -8,8 +8,8 @@ export function up(knex) {
       table.integer('user_id'),
       table.varchar('bio'),
       table.varchar('avatar_image'),
-      table.varchar('location'),
-      table.varchar('website')
+      table.varchar('cover_image')
+    table.varchar('location'), table.varchar('website')
   })
 }
 
