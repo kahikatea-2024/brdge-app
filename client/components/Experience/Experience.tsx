@@ -1,3 +1,4 @@
+import { useExperience } from '../../hooks/useExperience'
 import ExperienceLogo from '../UI/Experience/ExperienceLogo'
 
 //Mock data
@@ -10,6 +11,8 @@ const experienceData = {
 }
 
 export default function Experience() {
+  const { data, isLoading, isError } = useExperience('2')
+  console.log(data)
   return (
     <>
       <div className="bg-lightGrey">
