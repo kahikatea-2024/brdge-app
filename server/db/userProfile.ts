@@ -17,8 +17,6 @@ export async function getUserProfileById(id: number) {
   return res
 }
 
-//editUserProfile -AUTH to be included
-
 //getUserEducationbyId
 export async function getUserEducationbyId(id: number) {
   const res = db('user_background')
