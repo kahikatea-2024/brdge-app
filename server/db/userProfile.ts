@@ -17,10 +17,8 @@ export async function getUserProfileById(id: number) {
   return res
 }
 
-//editUserProfile -AUTH to be included
-
-//getUserBackgroundbyId
-export async function getUserBackgroundbyId(id: number) {
+//getUserEducationbyId
+export async function getUserEducationbyId(id: number) {
   const res = db('user_background')
     .join(
       'background',
@@ -28,6 +26,21 @@ export async function getUserBackgroundbyId(id: number) {
       'background.background_id',
     )
     .where('user_background.user_id', id)
+    .andWhere('user_background.isExperience', false)
+
+  return res
+}
+
+//getUserExperiencebyId
+export async function getUserExperiencebyId(id: number) {
+  const res = db('user_background')
+    .join(
+      'background',
+      'user_background.background_id',
+      'background.background_id',
+    )
+    .where('user_background.user_id', id)
+    .andWhere('user_background.isExperience', true)
 
   return res
 }

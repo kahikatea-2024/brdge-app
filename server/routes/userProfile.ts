@@ -33,12 +33,24 @@ router.get('/:id', async (req, res) => {
   }
 })
 
-//getUserBackgroundbyId - thunderclient working
-router.get('/:id/backgrounds', async (req, res) => {
+//getUserEducationbyId - thunderclient working
+router.get('/:id/education', async (req, res) => {
   try {
     const id = Number(req.params.id)
-    const backgrounds = await db.getUserBackgroundbyId(id)
-    res.json(backgrounds)
+    const education = await db.getUserEducationbyId(id)
+    res.json(education)
+  } catch (error) {
+    console.error(`database error: ${error}`)
+    res.sendStatus(500)
+  }
+})
+
+//getUserExperiencebyId - thunderclient working
+router.get('/:id/experience', async (req, res) => {
+  try {
+    const id = Number(req.params.id)
+    const experience = await db.getUserExperiencebyId(id)
+    res.json(experience)
   } catch (error) {
     console.error(`database error: ${error}`)
     res.sendStatus(500)

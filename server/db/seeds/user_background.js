@@ -12,6 +12,7 @@ export async function seed(knex) {
       background_id: 1,
       duration: '2021 to present',
       position_or_qualification: 'Bachelor of Food Science',
+      isExperience: false,
     },
     {
       user_background_id: 2,
@@ -19,6 +20,7 @@ export async function seed(knex) {
       background_id: 1,
       duration: '2021 to present',
       position_or_qualification: 'Masters in JiuJitsu',
+      isExperience: false,
     },
     {
       user_background_id: 3,
@@ -26,6 +28,7 @@ export async function seed(knex) {
       background_id: 2,
       duration: '2021 to present',
       position_or_qualification: 'Animal Control Operator',
+      isExperience: true,
     },
     {
       user_background_id: 4,
@@ -33,6 +36,7 @@ export async function seed(knex) {
       background_id: 3,
       duration: '2021 to present',
       position_or_qualification: 'Career Skills Facilitator',
+      isExperience: true,
     },
   ])
 }
