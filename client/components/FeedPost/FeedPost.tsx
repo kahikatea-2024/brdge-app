@@ -7,8 +7,6 @@ import { twMerge } from 'tailwind-merge'
 
 import { Post } from '../../../models/postFeed'
 
-const username = 'Donkey'
-
 interface PostAttributes extends HtmlHTMLAttributes<HTMLDivElement> {
   PostData: Post
 }
@@ -18,18 +16,17 @@ export default function FeedPost({
   PostData,
   ...rest
 }: PostAttributes) {
-  const { content, timestamp, image_url } = PostData
+  const { avatar_image, username, content, timestamp, image_url } = PostData
   //temp variables
-  const image = 'images/Donkey_(Shrek).jpg'
 
-  const PostStyling = 'mb-4 bg-lightGrey rounded-md'
+  const BaselineStyling = 'mb-4 bg-lightGrey rounded-md'
 
   return (
-    <div className={twMerge(PostStyling, className)} {...rest}>
+    <div className={twMerge(BaselineStyling, className)} {...rest}>
       <div className="flex flex-col p-8">
         <div className="mb-2 flex items-center">
           <div className="pr-4 ">
-            <Avatar size="medium" src={image} />
+            <Avatar size="medium" src={avatar_image} />
           </div>
           <div>
             <p className="text-m text-extraLightGrey">{username}</p>

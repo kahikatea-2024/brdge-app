@@ -3,26 +3,37 @@ import PostComponent from '../../components/PostComponent/PostComponent'
 import Feed from '../../components/Feed/Feed'
 import { useAuth0 } from '@auth0/auth0-react'
 import { IfAuthenticated } from '../../components/Authenticated'
+import { usePosts } from '../../hooks/usePosts'
 
 export default function Home() {
   const { user } = useAuth0()
+  const { data, isLoading, isError } = usePosts()
 
-  // Mock data
-  const mockPost = {
-    feed_post_id: 1,
-    user_id: 1,
-    content: `Hey, hey, hey! Donkey here, reporting live from Shreks swamp. Guess
-                what? Were knee-deep in CODING! Shreks debuggin like a pro, Fionas
-                cracking algorithms left and right, and Im still tryin to figure out
-                if &quot;honk&quot; counts as code. Join us for pixel-powered fun
-                and plenty of laughs in Far, Far Away! #DonkeysCodingChronicles
-                #SwampyTechAdventure`,
-    timestamp: '04 July',
-    image_url:
-      'https://static1.colliderimages.com/wordpress/wp-content/uploads/2023/04/shrek-5-mike-myers.jpg?q=50&fit=contain&w=1140&h=&dpr=1.5',
+  if (isLoading) {
+    return <span>Loading...</span>
   }
 
-  const PostArray = [mockPost, mockPost, mockPost]
+  if (isError) {
+    return <span>Error...</span>
+  }
+
+  // Mock data
+  //   const mockPost = {
+  //     feed_post_id: 1,
+  //     user_id: 1,
+  //     content: `Hey, hey, hey! Donkey here, reporting live from Shreks swamp. Guess
+  //                 what? Were knee-deep in CODING! Shreks debuggin like a pro, Fionas
+  //                 cracking algorithms left and right, and Im still tryin to figure out
+  //                 if &quot;honk&quot; counts as code. Join us for pixel-powered fun
+  //                 and plenty of laughs in Far, Far Away! #DonkeysCodingChronicles
+  //                 #SwampyTechAdventure`,
+  //     timestamp: '04 July',
+  //     image_url:
+  //       'https://static1.colliderimages.com/wordpress/wp-content/uploads/2023/04/shrek-5-mike-myers.jpg?q=50&fit=contain&w=1140&h=&dpr=1.5',
+  //   }
+
+  //   const PostArray = [mockPost, mockPost, mockPost]
+  console.log(user)
 
   return (
     <div className="gap-4 bg-darkGrey">
@@ -33,7 +44,7 @@ export default function Home() {
           <IfAuthenticated>
             <PostComponent />
           </IfAuthenticated>
-          <Feed Posts={PostArray} />
+          {data && <Feed Posts={data} />}
         </div>
         <div className="col-span-1 rounded-md bg-lightGrey">Ad content</div>
       </div>

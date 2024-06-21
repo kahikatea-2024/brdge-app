@@ -5,6 +5,7 @@
 export function up(knex) {
   return knex.schema.createTable('users', (table) => {
     table.increments('user_id'),
+      table.string('auth0Id').notNullable(),
       table.varchar('username'),
       table.varchar('first_name'),
       table.varchar('last_name'),
