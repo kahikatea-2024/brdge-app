@@ -9,7 +9,8 @@ import github from '../../../public/images/githublogo.png'
 import linkedin from '../../../public/images/linkedinlogo.png'
 
 const bio = 'I live in a Swamp and I do career Mentorship'
-
+//Mock data
+c
 export default function Profile() {
   return (
     <div className="relative min-h-screen bg-darkGrey">
