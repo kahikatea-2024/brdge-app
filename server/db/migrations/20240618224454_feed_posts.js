@@ -7,7 +7,7 @@ export function up(knex) {
     table.increments('feed_post_id')
     table.integer('user_id')
     table.varchar('content')
-    table.varchar('timestamp')
+    table.timestamp('timestamp').defaultTo(knex.fn.now())
     table.varchar('image_url')
   })
 }
