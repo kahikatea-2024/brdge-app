@@ -5,6 +5,7 @@ import { deletePost, getAllPosts } from '../postFeed'
 import request from 'supertest'
 import server from '../../server.ts'
 import { Post } from '../../../models/postFeed'
+import { getUserProfileById, getUserProfileByUsername } from '../userProfile'
 
 // - beforeAll and beforeEach to reset the migrations and seeds
 beforeAll(async () => {
@@ -50,5 +51,54 @@ describe('delete by id', () => {
     const posts = await getAllPosts()
     const res = posts.find((post: Post) => post.feed_post_id === postId)
     expect(res).toBe(undefined)
+  })
+})
+
+describe('search by username', () => {
+  it('can search by start of username', async () => {
+    //ARRANGE
+    const query = 'Shr'
+    //ACT
+    const result = await getUserProfileByUsername(query)
+    //ASSERT
+    expect(result).toHaveLength(1)
+    expect(result[0].username).toBe('Shrek')
+  })
+  it('can search by contained phrase', async () => {
+    //given
+    const query = 'on'
+    //when
+    const res = await getUserProfileByUsername(query)
+    //then
+    expect(res).toHaveLength(2)
+    expect(res[0].username).toBe('Fiona')
+    expect(res[1].username).toBe('Donkey')
+  })
+  it('search by exact match', async () => {
+    const query = 'Donkey'
+
+    const res = await getUserProfileByUsername(query)
+
+    expect(res).toHaveLength(1)
+    expect(res[0].username).toBe('Donkey')
+  })
+  it('is case insensitive', async () => {
+    const query1 = 'Fiona'
+    const query2 = 'fiona'
+
+    const res1 = await getUserProfileByUsername(query1)
+    const res2 = await getUserProfileByUsername(query2)
+    // console.log(res1)
+    // console.log(res2)
+    expect(res1[0].username === res2[0].username).toBe(true)
+  })
+
+  ///REFACTOR after conditonal error messages added to search
+  it('has no match', async () => {
+    const query = '12345'
+
+    const res = await getUserProfileByUsername(query)
+
+    expect(res).toHaveLength(0)
   })
 })
