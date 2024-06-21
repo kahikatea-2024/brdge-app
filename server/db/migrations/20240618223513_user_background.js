@@ -9,6 +9,7 @@ export function up(knex) {
     table.integer('background_id')
     table.varchar('duration')
     table.varchar('position_or_qualification')
+    table.boolean('isExperience')
   })
 }
 

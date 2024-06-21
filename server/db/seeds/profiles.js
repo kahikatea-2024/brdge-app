@@ -12,6 +12,8 @@ export async function seed(knex) {
       bio: 'blah blah',
       avatar_image:
         'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAs_TDUTeHiZQ1tqLJlvItaBOjcmRTeoSbHw&s',
+      cover_image:
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAs_TDUTeHiZQ1tqLJlvItaBOjcmRTeoSbHw&s',
       location: 'Far Far Away',
       website: 'swamp.com',
     },
@@ -21,6 +23,8 @@ export async function seed(knex) {
       bio: 'blah blah',
       avatar_image:
         'https://upload.wikimedia.org/wikipedia/en/b/b9/Princess_Fiona.png',
+      cover_image:
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAs_TDUTeHiZQ1tqLJlvItaBOjcmRTeoSbHw&s',
       location: 'Far Far Away',
       website: 'swamp.com',
     },
@@ -30,6 +34,8 @@ export async function seed(knex) {
       bio: 'blah blah',
       avatar_image:
         'https://upload.wikimedia.org/wikipedia/en/6/6c/Donkey_%28Shrek%29.png',
+      cover_image:
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAs_TDUTeHiZQ1tqLJlvItaBOjcmRTeoSbHw&s',
       location: 'Far Far Away',
       website: 'swamp.com',
     },
