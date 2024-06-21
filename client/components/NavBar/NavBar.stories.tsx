@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
+import { withRouter } from 'storybook-addon-remix-react-router'
 
 import NavBar from './NavBar'
 import Background from '../UI/Background/Background'
@@ -11,6 +12,7 @@ const meta: Meta<typeof NavBar> = {
       <NavBar />
     </Background>
   ),
+  decorators: [withRouter],
 }
 
 export default meta
