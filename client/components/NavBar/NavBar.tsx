@@ -22,7 +22,9 @@ export default function NavBar() {
     <div className="border-gray-200 bg-lightGrey">
       <div className="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between gap-1 p-4">
         <a href="#">
-        <Link to="/"><Logo className="h-6" /></Link>
+          <Link to="/">
+            <Logo className="h-6" />
+          </Link>
         </a>
         <TextField
           placeholder="Search..."
@@ -30,7 +32,9 @@ export default function NavBar() {
         />
         <div className="flex items-center gap-2">
           <IfAuthenticated>
-            <Link to="/Profile"><Avatar src={user?.picture} size="small"/></Link>
+            <Link to="/Profile">
+              <Avatar src={user?.picture} size="small" />
+            </Link>
             <Button onClick={handleSignOut}>Sign out</Button>
           </IfAuthenticated>
           <IfNotAuthenticated>
