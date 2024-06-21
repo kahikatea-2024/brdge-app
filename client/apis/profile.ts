@@ -7,3 +7,9 @@ export async function getProfile(id: string) {
     return res.body
   })
 }
+
+export async function getExperience(id: string) {
+  return await request.get(rootUrl + `/${id}/experience`).then((res) => {
+    return res.body
+  })
+}
