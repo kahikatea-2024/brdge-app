@@ -1,26 +1,38 @@
+import { getProfile } from '../../apis/profile'
 import Education from '../../components/Education/Education'
 import Experience from '../../components/Experience/Experience'
 import NavBar from '../../components/NavBar/NavBar'
 import Avatar from '../../components/UI/Avatar/Avatar'
 import ProfileCoverImage from '../../components/UI/ProfileCoverImage/ProfileCoverImage'
 import SocialMediaIcons from '../../components/UI/SocialMediaIcons/SocialMediaIcons'
+import { useProfile } from '../../hooks/useProfile'
 
 const bio = 'I live in a Swamp and I do career Mentorship'
 const linkedin = 'images/linkedinlight.png'
 const github = 'images/githublight.png'
 const facebook = 'images/facebooklight.png'
 
-//Mock data
-const profileData = {
-  bio: 'I live in a Swamp and I do career Mentorship',
-  avatar_image:
-    '[https://upload.wikimedia.org/wikipedia/en/6/6c/Donkey(Shrek).png](https://upload.wikimedia.org/wikipedia/en/6/6c/Donkey_%28Shrek%29.png)',
-  cover_image:
-    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAs_TDUTeHiZQ1tqLJlvItaBOjcmRTeoSbHw&s',
-  location: 'Far Far Away',
-  website: 'Cyberfinder.com ',
-}
+// Mock data
+// const data = {
+//   bio: 'I live in a Swamp and I do career Mentorship',
+//   avatar_image:
+//     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAs_TDUTeHiZQ1tqLJlvItaBOjcmRTeoSbHw&s',
+//   cover_image: '',
+//   location: 'Far Far Away',
+//   website: 'Cyberfinder.com ',
+// }
+
 export default function Profile() {
+  const { data, isLoading, isError } = useProfile('3')
+  console.log(data)
+  if (isLoading) {
+    return <span>Loading...</span>
+  }
+
+  if (isError) {
+    return <span>Error...</span>
+  }
+  // const data = apidata.data
   return (
     <div className="relative min-h-screen bg-darkGrey">
       <div>
@@ -31,14 +43,14 @@ export default function Profile() {
         <div className="col-span-5 mt-2 h-48 items-center gap-2 rounded-md bg-gray-700">
           <ProfileCoverImage
             className="h-full w-full rounded-md object-cover"
-            src={profileData.cover_image}
+            src={data.cover_image}
           />
           <div className="top-45 left-160 absolute -translate-y-1/2 transform">
             <Avatar
               size="large"
               verified={true}
               className="mb-50 rounded-full border-4 border-extraLightGrey"
-              src={profileData.avatar_image}
+              src={data.avatar_image}
             />
           </div>
         </div>
@@ -49,7 +61,7 @@ export default function Profile() {
         <div className="col-span-5 gap-2">
           <div className="container h-28 rounded-md bg-lightGrey p-6">
             <p className="pb-0 pl-0  text-center font-mono text-sm text-extraLightGrey ">
-              {bio}
+              {data.bio}
             </p>
           </div>
         </div>
