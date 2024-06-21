@@ -3,9 +3,19 @@ import PostComponent from '../../components/PostComponent/PostComponent'
 import Feed from '../../components/Feed/Feed'
 import { useAuth0 } from '@auth0/auth0-react'
 import { IfAuthenticated } from '../../components/Authenticated'
+import { usePosts } from '../../hooks/usePosts'
 
 export default function Home() {
   const { user } = useAuth0()
+  const { data, isLoading, isError } = usePosts()
+
+  if (isLoading) {
+    return <span>Loading...</span>
+  }
+
+  if (isError) {
+    return <span>Error...</span>
+  }
 
   // Mock data
   const mockPost = {
@@ -33,7 +43,7 @@ export default function Home() {
           <IfAuthenticated>
             <PostComponent />
           </IfAuthenticated>
-          <Feed Posts={PostArray} />
+          {data && <Feed Posts={data} />}
         </div>
         <div className="col-span-1 rounded-md bg-lightGrey">Ad content</div>
       </div>

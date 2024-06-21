@@ -11,7 +11,7 @@ export async function seed(knex) {
       user_id: 1,
       bio: 'blah blah',
       avatar_image:
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAs_TDUTeHiZQ1tqLJlvItaBOjcmRTeoSbHw&s',
+        'https://i.pinimg.com/236x/5e/71/0b/5e710bb38b1cae44a3cae02342248eae.jpg',
       location: 'Far Far Away',
       website: 'swamp.com',
     },
