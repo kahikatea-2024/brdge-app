@@ -4,7 +4,7 @@ export interface User {
   first_name: string
   last_name: string
   join_date: string
-  birth_date: String
+  birth_date: string
   user_email: string
   is_mentor: boolean
 }

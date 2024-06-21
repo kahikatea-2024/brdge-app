@@ -2,10 +2,10 @@ import type { Meta, StoryObj } from '@storybook/react'
 
 import SocialMediaIcons from './SocialMediaIcons'
 import Background from '../Background/Background'
-import facebook from '../../../../public/images/facebooklogo.png'
-import github from '../../../../public/images/githublogo.png'
-import linkedin from '../../../../public/images/linkedinlogo.png'
 
+const linkedin = 'images/linkedinlight.png'
+const github = 'images/githublight.png'
+const facebook = 'images/facebooklight.png'
 const meta: Meta<typeof SocialMediaIcons> = {
   title: 'Design System/UI/SocialMedia Icons',
   component: SocialMediaIcons,
