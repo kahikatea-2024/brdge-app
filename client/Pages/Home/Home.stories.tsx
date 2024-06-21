@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
+import { withRouter } from 'storybook-addon-remix-react-router'
 
 import Home from './Home'
 import Background from '../../components/UI/Background/Background'
@@ -11,6 +12,7 @@ const meta: Meta<typeof Home> = {
       <Home />
     </Background>
   ),
+  decorators: [withRouter],
 }
 
 export default meta

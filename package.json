@@ -92,6 +92,7 @@
     "react-router-dom": "^6.11.2",
     "sass": "^1.50.1",
     "storybook": "^8.1.10",
+    "storybook-addon-remix-react-router": "^3.0.0",
     "supertest": "^6.3.4",
     "tailwindcss": "^3.4.3",
     "tsx": "^3.12.7",
