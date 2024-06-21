@@ -7,6 +7,7 @@ import SocialMediaIcons from '../../components/UI/SocialMediaIcons/SocialMediaIc
 import facebook from '../../../public/images/facebooklogo.png'
 import github from '../../../public/images/githublogo.png'
 import linkedin from '../../../public/images/linkedinlogo.png'
+import { getProfile } from '../../apis/Profile'
 
 const bio = 'I live in a Swamp and I do career Mentorship'
 
