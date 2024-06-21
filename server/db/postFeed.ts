@@ -30,7 +30,7 @@ export async function editPost(updatedPost: newPost) {
     .update({ user_id, content, timestamp, image_url })
 }
 
-//deletPost
+//deletPost -AUTH required
 export async function deletePost(id: number) {
   return db('feed_posts').where('feed_post_id', id).delete()
 }
