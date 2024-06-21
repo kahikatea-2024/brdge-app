@@ -7,4 +7,4 @@ export interface Post {
 }
 
 //above interface less the feed_post_id
-export type PostData = Omit<Post, 'feed_post_id'>
+export type PostData = Omit<Post, 'feed_post_id' | 'timestamp'>

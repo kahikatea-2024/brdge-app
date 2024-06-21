@@ -1,5 +1,6 @@
 import { Router } from 'express'
 import * as db from '../db/postFeed.ts'
+import moment from 'moment'
 const router = Router()
 
 //getAllPosts route - checked in thunderclient, can receive results
@@ -27,10 +28,12 @@ router.post('/', async (req, res) => {
 })
 
 //editPost route - auth to be added - pre-auth works in thunderclient
+
 router.patch('/:id', async (req, res) => {
   try {
     const feed_post_id = Number(req.params.id)
-    const { user_id, content, timestamp, image_url } = req.body
+    const { user_id, content, image_url } = req.body
+    const timestamp = moment.utc().format('YYYY-MM-DD HH:mm:ss')
     const updatedPost = await db.editPost({
       feed_post_id,
       user_id,
