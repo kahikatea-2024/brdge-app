@@ -3,6 +3,7 @@ import Education from '../../components/Education/Education'
 import Experience from '../../components/Experience/Experience'
 import NavBar from '../../components/NavBar/NavBar'
 import Avatar from '../../components/UI/Avatar/Avatar'
+import LoadingSpinner from '../../components/UI/LoadingSpinner/LoadingSpinner'
 import ProfileCoverImage from '../../components/UI/ProfileCoverImage/ProfileCoverImage'
 import SocialMediaIcons from '../../components/UI/SocialMediaIcons/SocialMediaIcons'
 import { useProfile } from '../../hooks/useProfile'
@@ -26,7 +27,12 @@ export default function Profile() {
   const { data, isLoading, isError } = useProfile('2')
   console.log(data)
   if (isLoading) {
-    return <span>Loading...</span>
+    return (
+      <span>
+        {' '}
+        <LoadingSpinner className="size-20" />
+      </span>
+    )
   }
 
   if (isError) {
