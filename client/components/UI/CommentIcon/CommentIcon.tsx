@@ -3,7 +3,7 @@ import { twMerge } from 'tailwind-merge'
 
 interface CommentIconProps extends ImgHTMLAttributes<HTMLImageElement> {}
 
-export default function SocialMediaIcons({
+export default function CommentIcon({
   className,
   src,
   ...rest
