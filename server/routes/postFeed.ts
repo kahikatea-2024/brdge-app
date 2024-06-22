@@ -1,6 +1,8 @@
 import { Router } from 'express'
 import * as db from '../db/postFeed.ts'
 import moment from 'moment'
+import checkJwt, { JwtRequest } from '../auth0.ts'
+import { newPostData } from '../../models/postFeed.ts'
 const router = Router()
 
 //getAllPosts route - checked in thunderclient, can receive results
@@ -16,7 +18,20 @@ router.get('/', async (req, res) => {
 })
 
 //addPost route - auth to be added - confirmed pre-auth working in thunderclient
-router.post('/', async (req, res) => {
+router.post('/', checkJwt, async (req: JwtRequest, res) => {
+  const { newPost } = req.body as { newPost: newPostData }
+  const auth0Id = req.auth?.sub
+
+  if (!newPost) {
+    console.error('No information provided')
+    return res.status(400).send('Bad request')
+  }
+
+  if (!auth0Id) {
+    console.error('No auth0Id')
+    return res.status(401).send('Unauthorized')
+  }
+
   try {
     const newPost = req.body
     await db.addPost(newPost)
