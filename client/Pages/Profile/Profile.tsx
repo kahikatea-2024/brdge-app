@@ -26,14 +26,7 @@ const facebook = 'images/facebooklight.png'
 // }
 
 export default function Profile() {
-  //   const { user } = useAuth0()
-  //   const { data, isLoading, isError } = useProfile('1')
-  //   const userId = user?.sub
-  //   console.log(userId)
   const { data, isLoading, isError } = useCurrentUser()
-  //   console.log('Status:', status)
-  //   console.log('fetchStatus:', fetchStatus)
-  //   console.log('userProfile: ', userProfile)
   if (isLoading) {
     return <span>Loading...</span>
   }
