@@ -2,11 +2,11 @@ import { useEducation } from '../../hooks/useEducation'
 import ExperienceLogo from '../UI/Experience/ExperienceLogo'
 
 interface EducationPlaceholder {
-  duration: any;
-  position_or_qualification: any;
-  logo_url: any;
-  name_of_place: any;
-  location: any;
+  duration: any
+  position_or_qualification: any
+  logo_url: any
+  name_of_place: any
+  location: any
 }
 
 const placeholderData: EducationPlaceholder = {
@@ -17,9 +17,7 @@ const placeholderData: EducationPlaceholder = {
   location: 'Please add location',
 }
 
-
 export default function Education() {
-
   // number in the params of UseEducation is the Id of the user please this for changing the data
 
   const { data, isLoading, isError } = useEducation('5')
@@ -35,10 +33,8 @@ export default function Education() {
   // If data does not exsit then display placeholderData
   const educationData = data[0] || placeholderData
 
-
   return (
     <>
-
       <div className="bg-lightGrey">
         <div className="flex flex-col">
           <div className="flex flex-row">
