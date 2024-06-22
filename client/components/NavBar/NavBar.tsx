@@ -4,10 +4,10 @@ import Button from '../UI/Button/Button'
 import Logo from '../UI/Logo/Logo'
 import TextField from '../UI/Text field/TextField'
 import { IfAuthenticated, IfNotAuthenticated } from '../Authenticated'
-import { Link, useParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 export default function NavBar() {
-  const { Profile } = useParams()
+  // const { profile } = useParams()
   const { user, logout, loginWithRedirect } = useAuth0()
 
   function handleSignOut() {
@@ -24,7 +24,6 @@ export default function NavBar() {
         <Link to="/">
           <Logo className="h-6" />
         </Link>
-
         <TextField
           placeholder="Search..."
           className="text-darkGray w-1/2 bg-extraLightGrey focus:ring-2 focus:ring-blue-500"
