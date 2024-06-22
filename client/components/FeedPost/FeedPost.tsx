@@ -7,18 +7,18 @@ import { twMerge } from 'tailwind-merge'
 
 import { Post } from '../../../models/postFeed'
 import CommentIcon from '../UI/CommentIcon/CommentIcon'
-const comImage = "images/comment-icon.png"
+const comImage = 'images/comment-icon.png'
 
 interface PostAttributes extends HtmlHTMLAttributes<HTMLDivElement> {
-  PostData: Post
+  postData: Post
 }
 
 export default function FeedPost({
   className,
-  PostData,
+  postData,
   ...rest
 }: PostAttributes) {
-  const { avatar_image, username, content, timestamp, image_url } = PostData
+  const { avatar_image, username, content, timestamp, image_url } = postData
   //temp variables
 
   const BaselineStyling = 'mb-4 bg-lightGrey rounded-md'
@@ -41,7 +41,12 @@ export default function FeedPost({
         <div className="">
           <ImagePost className="size-full" src={image_url} />
         </div>
-        <div className='flex flex-rpw pt-2'><CommentIcon className="h-14 w-14" src={comImage}/><div className='pt-5 text-extraLightGrey'><p>Comment</p></div></div>
+        <div className="flex-rpw flex pt-2">
+          <CommentIcon className="h-14 w-14" src={comImage} />
+          <div className="pt-5 text-extraLightGrey">
+            <p>Comment</p>
+          </div>
+        </div>
       </div>
     </div>
   )
