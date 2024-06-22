@@ -1,4 +1,4 @@
-import { Post, PostData, newPost } from '../../models/postFeed.ts'
+import { Post, newPost, newPostData } from '../../models/postFeed.ts'
 import db from './connection.ts'
 
 //getAllPosts
@@ -19,8 +19,9 @@ export async function getAllPosts() {
 }
 
 //addPost -AUTH to be included
-export async function addPost(newPost: PostData) {
+export async function addPost(newPost: newPostData) {
   const res = await db('feed_posts').insert(newPost)
+  return res
 }
 //editPost -AUTH to be included
 export async function editPost(updatedPost: newPost) {
@@ -30,7 +31,7 @@ export async function editPost(updatedPost: newPost) {
     .update({ user_id, content, timestamp, image_url })
 }
 
-//deletPost
+//deletPost -AUTH required
 export async function deletePost(id: number) {
   return db('feed_posts').where('feed_post_id', id).delete()
 }
