@@ -8,7 +8,7 @@ export async function seed(knex) {
   await knex('users').insert([
     {
       user_id: 1,
-      auth0Id: '6674a9c1a7ae4c2f109f5666',
+      auth0Id: 'auth0|6674a9c1a7ae4c2f109f5666',
       username: 'Shrek',
       first_name: 'Shrek',
       last_name: 'Myers',
@@ -19,7 +19,7 @@ export async function seed(knex) {
     },
     {
       user_id: 2,
-      auth0Id: '6674ea7ddc9d3f16bd035b31',
+      auth0Id: 'auth0|6674ea7ddc9d3f16bd035b31',
       username: 'Fiona',
       first_name: 'Fiona',
       last_name: 'Myers',
@@ -30,7 +30,7 @@ export async function seed(knex) {
     },
     {
       user_id: 3,
-      auth0Id: '6674ea2fb5a9d17bbb815892',
+      auth0Id: 'auth0|6674ea2fb5a9d17bbb815892',
       username: 'Donkey',
       first_name: 'Donkey',
       last_name: 'Murphy',

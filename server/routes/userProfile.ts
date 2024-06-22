@@ -21,6 +21,18 @@ router.get('/search', async (req, res) => {
 
 export default router
 
+//getUserProfileByAuthId
+router.post('/', async (req, res) => {
+  try {
+    const { id } = req.body.auth0Id
+    const profile = await db.getUserProfileByAuth0Id(id)
+    res.json(profile)
+  } catch (error) {
+    console.error(`database error: ${error}`)
+    res.sendStatus(500)
+  }
+})
+
 //getUserProfileById
 router.get('/:id', async (req, res) => {
   try {
