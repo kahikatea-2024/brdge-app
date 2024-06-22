@@ -44,6 +44,7 @@
     "jwks-rsa": "^2.1.5",
     "knex": "^2.5.1",
     "moment": "^2.30.1",
+    "react-hook-form": "^7.52.0",
     "sqlite3": "^5.1.6",
     "superagent": "^8.1.2",
     "tailwind-merge": "^2.3.0"
