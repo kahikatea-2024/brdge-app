@@ -4,13 +4,19 @@ import Feed from '../../components/Feed/Feed'
 import { useAuth0 } from '@auth0/auth0-react'
 import { IfAuthenticated } from '../../components/Authenticated'
 import { usePosts } from '../../hooks/usePosts'
+import LoadingSpinner from '../../components/UI/LoadingSpinner/LoadingSpinner'
 
 export default function Home() {
   const { user } = useAuth0()
   const { data, isLoading, isError } = usePosts()
 
   if (isLoading) {
-    return <span>Loading...</span>
+    return (
+      <span>
+        {' '}
+        <LoadingSpinner className="size-20" />
+      </span>
+    )
   }
 
   if (isError) {

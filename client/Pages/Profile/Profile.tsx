@@ -4,6 +4,7 @@ import Education from '../../components/Education/Education'
 import Experience from '../../components/Experience/Experience'
 import NavBar from '../../components/NavBar/NavBar'
 import Avatar from '../../components/UI/Avatar/Avatar'
+import LoadingSpinner from '../../components/UI/LoadingSpinner/LoadingSpinner'
 import ProfileCoverImage from '../../components/UI/ProfileCoverImage/ProfileCoverImage'
 import SocialMediaIcons from '../../components/UI/SocialMediaIcons/SocialMediaIcons'
 import { useCurrentUser, useProfile } from '../../hooks/useProfile'
@@ -28,7 +29,12 @@ const facebook = 'images/facebooklight.png'
 export default function Profile() {
   const { data, isLoading, isError } = useCurrentUser()
   if (isLoading) {
-    return <span>Loading...</span>
+    return (
+      <span>
+        {' '}
+        <LoadingSpinner className="size-20" />
+      </span>
+    )
   }
 
   if (isError) {

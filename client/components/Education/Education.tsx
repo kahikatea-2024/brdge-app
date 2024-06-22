@@ -1,5 +1,6 @@
 import { useEducation } from '../../hooks/useEducation'
 import ExperienceLogo from '../UI/Experience/ExperienceLogo'
+import LoadingSpinner from '../UI/LoadingSpinner/LoadingSpinner'
 
 interface EducationPlaceholder {
   duration: any
@@ -23,7 +24,12 @@ export default function Education() {
   const { data, isLoading, isError } = useEducation('5')
   console.log(data)
   if (isLoading) {
-    return <span>Loading...</span>
+    return (
+      <span>
+        {' '}
+        <LoadingSpinner className="size-20" />
+      </span>
+    )
   }
 
   if (isError) {

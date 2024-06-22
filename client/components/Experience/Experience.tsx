@@ -1,5 +1,6 @@
 import { useExperience } from '../../hooks/useExperience'
 import ExperienceLogo from '../UI/Experience/ExperienceLogo'
+import LoadingSpinner from '../UI/LoadingSpinner/LoadingSpinner'
 
 interface ExperiencePlaceholder {
   duration: any
@@ -21,7 +22,11 @@ export default function Experience() {
   const { data, isLoading, isError } = useExperience('0')
   console.log(data)
   if (isLoading) {
-    return <span>Loading...</span>
+    return (
+      <span>
+        <LoadingSpinner className="size-20" />
+      </span>
+    )
   }
 
   if (isError) {
