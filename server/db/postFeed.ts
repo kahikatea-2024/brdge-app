@@ -32,8 +32,11 @@ export async function editPost(updatedPost: newPost) {
 }
 
 //deletPost -AUTH required
-export async function deletePost(id: number) {
-  return db('feed_posts').where('feed_post_id', id).delete()
+export async function deletePost(id: number, auth0Id: string) {
+  return db('feed_posts')
+    .where('feed_post_id', id)
+    .andWhere('poster_auth0Id', auth0Id)
+    .delete()
 }
 //getPostById
 export async function getPostById(id: number): Promise<Post> {
