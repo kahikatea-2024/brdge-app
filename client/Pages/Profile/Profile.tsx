@@ -23,7 +23,7 @@ const facebook = 'images/facebooklight.png'
 // }
 
 export default function Profile() {
-  const { data, isLoading, isError } = useProfile('3')
+  const { data, isLoading, isError } = useProfile('2')
   console.log(data)
   if (isLoading) {
     return <span>Loading...</span>
