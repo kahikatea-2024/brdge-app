@@ -21,11 +21,10 @@ export default function NavBar() {
   return (
     <div className="border-gray-200 bg-lightGrey">
       <div className="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between gap-1 p-4">
-        <a href="#">
-          <Link to="/">
-            <Logo className="h-6" />
-          </Link>
-        </a>
+        <Link to="/">
+          <Logo className="h-6" />
+        </Link>
+
         <TextField
           placeholder="Search..."
           className="text-darkGray w-1/2 bg-extraLightGrey focus:ring-2 focus:ring-blue-500"

@@ -39,7 +39,6 @@ export default function Home() {
   //   }
 
   //   const PostArray = [mockPost, mockPost, mockPost]
-  console.log(user)
 
   return (
     <div className="gap-4 bg-darkGrey">

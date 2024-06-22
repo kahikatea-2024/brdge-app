@@ -6,6 +6,7 @@ export interface Post {
   image_url: string
   username: string
   avatar_image: string
+  poster_auth0Id: string
 }
 
 export interface newPost {
@@ -14,6 +15,9 @@ export interface newPost {
   content: string
   timestamp: string
   image_url: string
+  username: string
+  avatar_image: string
+  poster_auth0Id: string
 }
 
 //above interface less the feed_post_id

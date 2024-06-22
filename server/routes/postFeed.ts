@@ -1,6 +1,7 @@
 import { Router } from 'express'
 import * as db from '../db/postFeed.ts'
 import moment from 'moment'
+import checkJwt, { JwtRequest } from '../auth0.ts'
 const router = Router()
 
 //getAllPosts route - checked in thunderclient, can receive results
@@ -16,10 +17,12 @@ router.get('/', async (req, res) => {
 })
 
 //addPost route - auth to be added - confirmed pre-auth working in thunderclient
-router.post('/', async (req, res) => {
+router.post('/', checkJwt, async (req: JwtRequest, res) => {
   try {
     const newPost = req.body
-    await db.addPost(newPost)
+    const auth0Id = req.auth?.sub
+    newPost.poster_auth0Id = auth0Id
+    if (auth0Id) await db.addPost(newPost)
     res.sendStatus(201)
   } catch (error) {
     console.error(`database error: ${error}`)
@@ -29,19 +32,26 @@ router.post('/', async (req, res) => {
 
 //editPost route - auth to be added - pre-auth works in thunderclient
 
-router.patch('/:id', async (req, res) => {
+router.patch('/:id', checkJwt, async (req: JwtRequest, res) => {
   try {
     const feed_post_id = Number(req.params.id)
-    const { user_id, content, image_url } = req.body
+    const { user_id, content, image_url, username, avatar_image } = req.body
+    const auth0Id = req.auth?.sub
     const timestamp = moment.utc().format('YYYY-MM-DD HH:mm:ss')
-    const updatedPost = await db.editPost({
-      feed_post_id,
-      user_id,
-      content,
-      timestamp,
-      image_url,
-    })
-    res.status(200).json({ updated: updatedPost })
+
+    if (auth0Id) {
+      const updatedPost = await db.editPost({
+        feed_post_id,
+        user_id,
+        content,
+        timestamp,
+        image_url,
+        username,
+        avatar_image,
+        poster_auth0Id: auth0Id,
+      })
+      res.status(200).json({ updated: updatedPost })
+    }
   } catch (error) {
     console.error(`database error: ${error}`)
     res.sendStatus(500)
@@ -49,10 +59,11 @@ router.patch('/:id', async (req, res) => {
 })
 
 //deletePost route -auth to be added - working in thunderclient
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', checkJwt, async (req: JwtRequest, res) => {
   try {
     const id = Number(req.params.id)
-    await db.deletePost(id)
+    const auth0Id = req.auth?.sub
+    if (auth0Id) await db.deletePost(id, auth0Id)
     res.status(201).json('deleted')
   } catch (error) {
     console.error(`database error: ${error}`)
