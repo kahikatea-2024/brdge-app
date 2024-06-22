@@ -1,11 +1,9 @@
 import { beforeAll, beforeEach, describe, expect, it } from 'vitest'
 
 import db from '../connection.ts'
-import { deletePost, getAllPosts } from '../postFeed'
-import request from 'supertest'
-import server from '../../server.ts'
+import { addPost, deletePost, editPost, getAllPosts } from '../postFeed'
+
 import { Post } from '../../../models/postFeed'
-import { getUserProfileById, getUserProfileByUsername } from '../userProfile'
 
 // - beforeAll and beforeEach to reset the migrations and seeds
 beforeAll(async () => {
@@ -52,53 +50,32 @@ describe('delete by id', () => {
     const res = posts.find((post: Post) => post.feed_post_id === postId)
     expect(res).toBe(undefined)
   })
+  it('returns number of deleted records', async () => {
+    //given
+    const postId = 2
+    //when
+    const res = await deletePost(postId)
+    //then
+    expect(res).toBe(1)
+  })
 })
 
-describe('search by username', () => {
-  it('can search by start of username', async () => {
-    //ARRANGE
-    const query = 'Shr'
-    //ACT
-    const result = await getUserProfileByUsername(query)
-    //ASSERT
-    expect(result).toHaveLength(1)
-    expect(result[0].username).toBe('Shrek')
-  })
-  it('can search by contained phrase', async () => {
-    //given
-    const query = 'on'
-    //when
-    const res = await getUserProfileByUsername(query)
-    //then
-    expect(res).toHaveLength(2)
-    expect(res[0].username).toBe('Fiona')
-    expect(res[1].username).toBe('Donkey')
-  })
-  it('search by exact match', async () => {
-    const query = 'Donkey'
+describe('addPost', () => {
+  it('returns an array including the example below', async () => {
+    const post = {
+      user_id: 1,
+      content:
+        'Hey, hey, hey! Donkey here, reporting live from Shreks swamp. Guess what? Were knee-deep in CODING! Shreks debuggin like a pro, Fionas cracking algorithms left and right, and Im still tryin to figure out if &quot;honk&quot; counts as code. Join us for pixel-powered fun and plenty of laughs in Far, Far Away! #DonkeysCodingChronicles #SwampyTechAdventure',
+      image_url:
+        'https://static1.colliderimages.com/wordpress/wp-content/uploads/2023/04/shrek-5-mike-myers.jpg?q=50&fit=contain&w=1140&h=&dpr=1.5',
+    }
 
-    const res = await getUserProfileByUsername(query)
+    await addPost(post)
+    const res = await getAllPosts()
 
-    expect(res).toHaveLength(1)
-    expect(res[0].username).toBe('Donkey')
-  })
-  it('is case insensitive', async () => {
-    const query1 = 'Fiona'
-    const query2 = 'fiona'
-
-    const res1 = await getUserProfileByUsername(query1)
-    const res2 = await getUserProfileByUsername(query2)
-    // console.log(res1)
-    // console.log(res2)
-    expect(res1[0].username === res2[0].username).toBe(true)
-  })
-
-  ///REFACTOR after conditonal error messages added to search
-  it('has no match', async () => {
-    const query = '12345'
-
-    const res = await getUserProfileByUsername(query)
-
-    expect(res).toHaveLength(0)
+    expect(res).toHaveLength(6)
+    expect(res[5].content).toContain(
+      'Hey, hey, hey! Donkey here, reporting live from Shreks swamp. Guess what? Were knee-deep in CODING! Shreks debuggin like a pro, Fionas cracking algorithms left and right, and Im still tryin to figure out if &quot;honk&quot; counts as code. Join us for pixel-powered fun and plenty of laughs in Far, Far Away! #DonkeysCodingChronicles #SwampyTechAdventure',
+    )
   })
 })
