@@ -8,3 +8,4 @@ export function useProfile(id: string) {
   })
   return { ...query }
 }
+

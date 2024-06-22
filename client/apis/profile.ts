@@ -13,3 +13,10 @@ export async function getExperience(id: string) {
     return res.body
   })
 }
+
+export async function getEducation(id: string) {
+  return await request.get(rootUrl + `/${id}/education`).then((res) => {
+    return res.body
+  })
+}
+
