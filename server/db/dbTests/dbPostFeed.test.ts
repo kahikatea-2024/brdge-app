@@ -1,7 +1,7 @@
 import { beforeAll, beforeEach, describe, expect, it } from 'vitest'
 
 import db from '../connection.ts'
-import { addPost, deletePost, editPost, getAllPosts } from '../postFeed'
+import { addPost, deletePost, getAllPosts, getPostById } from '../postFeed'
 
 import { Post } from '../../../models/postFeed'
 
@@ -76,6 +76,28 @@ describe('addPost', () => {
     expect(res).toHaveLength(6)
     expect(res[5].content).toContain(
       'Hey, hey, hey! Donkey here, reporting live from Shreks swamp. Guess what? Were knee-deep in CODING! Shreks debuggin like a pro, Fionas cracking algorithms left and right, and Im still tryin to figure out if &quot;honk&quot; counts as code. Join us for pixel-powered fun and plenty of laughs in Far, Far Away! #DonkeysCodingChronicles #SwampyTechAdventure',
+    )
+  })
+})
+
+describe('getPostById', () => {
+  it('returns a single user', async () => {
+    const id = 1
+    const post = await getPostById(id)
+
+    expect(post).toHaveProperty('user_id')
+    expect(post).toHaveProperty('content')
+    expect(post).toHaveProperty('timestamp')
+    expect(post).toHaveProperty('image_url')
+  })
+  it('returns the correct post', async () => {
+    const id = 2
+    const post = await getPostById(id)
+    console.log(post)
+
+    expect(post.user_id).toBe(3)
+    expect(post.content).toBe(
+      "Hey there, coder! Ever thought about variables like food? Oh, I love food! Think of variables as your favorite snacks. You can name 'em anything you like. Want to store a number? Call it numCookies. Got a word in mind? Name it myFavoriteQuote. Just remember to be clear so you don't end up eating cake when you wanted waffles! Variables are the tasty morsels in your code recipe!",
     )
   })
 })
