@@ -9,6 +9,9 @@ export function up(knex) {
     table.varchar('content')
     table.timestamp('timestamp').defaultTo(knex.fn.now())
     table.varchar('image_url')
+    table.varchar('username')
+    table.varchar('avatar_image')
+    table.varchar('poster_auth0Id')
   })
 }
 
