@@ -9,7 +9,7 @@ import { Post } from '../../../models/postFeed'
 import CommentIcon from '../UI/CommentIcon/CommentIcon'
 
 import DisqusThread from '../DisqusThread'
-const comImage = "images/comment-icon.png'
+const comImage = 'images/comment-icon.png'
 
 interface PostAttributes extends HtmlHTMLAttributes<HTMLDivElement> {
   postData: Post
