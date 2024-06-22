@@ -11,9 +11,19 @@ export async function getUserProfileByUsername(userName: string) {
   return res
 }
 
-//getUserProfileById
+// getUserProfileById
 export async function getUserProfileById(id: number) {
   const res = db('profiles').where('user_id', id).first()
+  return res
+}
+
+//getUserProfileById
+export async function getUserProfileByAuth0Id(id: string) {
+  console.log('getUserProfileByAuth0Id: ', id)
+  const res = db('users')
+    .join('profiles', 'users.user_id', 'profiles.user_id')
+    .where('users.auth0Id', id)
+    .first()
   return res
 }
 

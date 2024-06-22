@@ -1,11 +1,14 @@
-import { getProfile } from '../../apis/profile'
+import { useAuth0 } from '@auth0/auth0-react'
+import { getProfile, getUserProfile } from '../../apis/profile'
 import Education from '../../components/Education/Education'
 import Experience from '../../components/Experience/Experience'
 import NavBar from '../../components/NavBar/NavBar'
 import Avatar from '../../components/UI/Avatar/Avatar'
 import ProfileCoverImage from '../../components/UI/ProfileCoverImage/ProfileCoverImage'
 import SocialMediaIcons from '../../components/UI/SocialMediaIcons/SocialMediaIcons'
-import { useProfile } from '../../hooks/useProfile'
+import { useCurrentUser, useProfile } from '../../hooks/useProfile'
+import { useQuery } from '@tanstack/react-query'
+import { use } from 'chai'
 
 const bio = 'I live in a Swamp and I do career Mentorship'
 const linkedin = 'images/linkedinlight.png'
@@ -23,8 +26,14 @@ const facebook = 'images/facebooklight.png'
 // }
 
 export default function Profile() {
-  const { data, isLoading, isError } = useProfile('3')
-  console.log(data)
+  //   const { user } = useAuth0()
+  //   const { data, isLoading, isError } = useProfile('1')
+  //   const userId = user?.sub
+  //   console.log(userId)
+  const { data, isLoading, isError } = useCurrentUser()
+  //   console.log('Status:', status)
+  //   console.log('fetchStatus:', fetchStatus)
+  //   console.log('userProfile: ', userProfile)
   if (isLoading) {
     return <span>Loading...</span>
   }
@@ -43,14 +52,14 @@ export default function Profile() {
         <div className="col-span-5 mt-2 h-48 items-center gap-2 rounded-md bg-gray-700">
           <ProfileCoverImage
             className="h-full w-full rounded-md object-cover"
-            src={data.cover_image}
+            src={data?.cover_image}
           />
           <div className="top-45 left-160 absolute -translate-y-1/2 transform">
             <Avatar
               size="large"
               verified={true}
               className="mb-50 rounded-full border-4 border-extraLightGrey"
-              src={data.avatar_image}
+              src={data?.avatar_image}
             />
           </div>
         </div>
@@ -61,7 +70,7 @@ export default function Profile() {
         <div className="col-span-5 gap-2">
           <div className="container h-28 rounded-md bg-lightGrey p-6">
             <p className="pb-0 pl-0  text-center font-mono text-sm text-extraLightGrey ">
-              {data.bio}
+              {data?.bio}
             </p>
           </div>
         </div>
