@@ -7,19 +7,20 @@ import { twMerge } from 'tailwind-merge'
 
 import { Post } from '../../../models/postFeed'
 import CommentIcon from '../UI/CommentIcon/CommentIcon'
+
 import DisqusThread from '../DisqusThread'
-const comImage = "images/comment-icon.png"
+const comImage = "images/comment-icon.png'
 
 interface PostAttributes extends HtmlHTMLAttributes<HTMLDivElement> {
-  PostData: Post
+  postData: Post
 }
 
 export default function FeedPost({
   className,
-  PostData,
+  postData,
   ...rest
 }: PostAttributes) {
-  const { avatar_image, username, content, timestamp, image_url } = PostData
+  const { avatar_image, username, content, timestamp, image_url } = postData
   //temp variables
 
   const BaselineStyling = 'mb-4 bg-lightGrey rounded-md'

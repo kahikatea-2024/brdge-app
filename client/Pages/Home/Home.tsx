@@ -39,7 +39,6 @@ export default function Home() {
   //   }
 
   //   const PostArray = [mockPost, mockPost, mockPost]
-  console.log(user)
 
   return (
     <div className="gap-4 bg-darkGrey">
@@ -50,7 +49,7 @@ export default function Home() {
           <IfAuthenticated>
             <PostComponent />
           </IfAuthenticated>
-          {data && <Feed Posts={data} />}
+          {data && <Feed posts={data} />}
         </div>
         <div className="col-span-1 rounded-md bg-lightGrey">Ad content</div>
       </div>
