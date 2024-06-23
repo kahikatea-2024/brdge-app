@@ -43,10 +43,19 @@ export default function FeedPost({
         <div className="">
           <ImagePost className="size-full" src={image_url} />
         </div>
-        <div className='flex flex-rpw pt-2'><CommentIcon className="h-14 w-14" src={comImage}/><div className='pt-5 text-extraLightGrey'><p>Comment</p></div>
+        <div className="flex-rpw flex pt-2">
+          <CommentIcon className="h-14 w-14" src={comImage} />
+          <div className="pt-5 text-extraLightGrey">
+            <p>Comment</p>
+          </div>
         </div>
-        <div><DisqusThread url={"http://localhost:5173/"} identifier={"HomePage"} /></div>
+        <div>
+          <DisqusThread
+            url={'http://localhost:5173/'}
+            identifier={'HomePage'}
+          />
         </div>
+      </div>
     </div>
   )
 }
