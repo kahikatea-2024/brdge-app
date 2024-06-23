@@ -5,6 +5,7 @@ import { useAuth0 } from '@auth0/auth0-react'
 import { IfAuthenticated } from '../../components/Authenticated'
 import { usePosts } from '../../hooks/usePosts'
 import LoadingSpinner from '../../components/UI/LoadingSpinner/LoadingSpinner'
+import EventContent from '../../components/UI/EventContent/EventContent'
 
 export default function Home() {
   const { user } = useAuth0()
@@ -46,7 +47,14 @@ export default function Home() {
         <NavBar />
       </div>
       <div className="content grid grid-cols-4 gap-4 p-4">
-        <div className="col-span-1 rounded-md bg-lightGrey">Event content</div>
+        <div className="col-span-1 rounded-md bg-lightGrey  ">
+          <div className="p-4 text-center font-mono text-3xl text-extraLightGrey">
+            Upcoming Events
+          </div>
+          <div>
+            <EventContent />
+          </div>
+        </div>
         <div className="col-span-2 gap-2">
           <IfAuthenticated>
             <PostComponent />
