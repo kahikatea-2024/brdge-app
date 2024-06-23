@@ -5,6 +5,7 @@ import { useAuth0 } from '@auth0/auth0-react'
 import { IfAuthenticated } from '../../components/Authenticated'
 import { usePosts } from '../../hooks/usePosts'
 import LoadingSpinner from '../../components/UI/LoadingSpinner/LoadingSpinner'
+import Ad from '../../components/UI/Ad/Ad'
 
 export default function Home() {
   const { user } = useAuth0()
@@ -53,7 +54,9 @@ export default function Home() {
           </IfAuthenticated>
           {data && <Feed posts={data} />}
         </div>
-        <div className="col-span-1 rounded-md bg-lightGrey">Ad content</div>
+        <div className="col-span-1 rounded-md bg-lightGrey">
+          <Ad />
+        </div>
       </div>
     </div>
   )
