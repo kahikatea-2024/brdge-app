@@ -8,6 +8,7 @@ export async function getUserProfileByUsername(userName: string) {
     .where(
       db.raw('lower(users.username) like ?', [`%${userName.toLowerCase()}%`]),
     )
+    .select('user_id')
   return res
 }
 

@@ -2,7 +2,7 @@ import { Router } from 'express'
 import * as db from '../db/userProfile.ts'
 const router = Router()
 
-//getUserProfileByUsername
+//getUserIdByUsername
 
 router.get('/search', async (req, res) => {
   const query = req.query.q as string
@@ -11,8 +11,8 @@ router.get('/search', async (req, res) => {
     res.status(422).json({ message: 'Please provide a valid query' })
   }
   try {
-    const userProfile = await db.getUserProfileByUsername(query)
-    res.json(userProfile)
+    const userId = await db.getUserProfileByUsername(query)
+    res.json(userId)
   } catch (error) {
     console.error(`database error: ${error}`)
     res.sendStatus(500)

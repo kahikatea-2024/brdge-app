@@ -1,5 +1,3 @@
-import { useAuth0 } from '@auth0/auth0-react'
-import { getProfile, getUserProfile } from '../../apis/profile'
 import Education from '../../components/Education/Education'
 import Experience from '../../components/Experience/Experience'
 import NavBar from '../../components/NavBar/NavBar'
@@ -7,14 +5,12 @@ import Avatar from '../../components/UI/Avatar/Avatar'
 import LoadingSpinner from '../../components/UI/LoadingSpinner/LoadingSpinner'
 import ProfileCoverImage from '../../components/UI/ProfileCoverImage/ProfileCoverImage'
 import SocialMediaIcons from '../../components/UI/SocialMediaIcons/SocialMediaIcons'
-import { useCurrentUser, useProfile } from '../../hooks/useProfile'
-import { useQuery } from '@tanstack/react-query'
-import { use } from 'chai'
+import { useProfile } from '../../hooks/useProfile'
+import { useParams } from 'react-router-dom'
 
-const bio = 'I live in a Swamp and I do career Mentorship'
-const linkedin = 'images/linkedinlight.png'
-const github = 'images/githublight.png'
-const facebook = 'images/facebooklight.png'
+const linkedin = '../public/images/linkedinlight.png'
+const github = '../public/images/githublight.png'
+const facebook = '../public/images/facebooklight.png'
 
 // Mock data
 // const data = {
@@ -27,7 +23,8 @@ const facebook = 'images/facebooklight.png'
 // }
 
 export default function Profile() {
-  const { data, isLoading, isError } = useCurrentUser()
+  const { id } = useParams()
+  const { data, isLoading, isError } = useProfile(id as string)
   if (isLoading) {
     return (
       <span>
@@ -40,7 +37,7 @@ export default function Profile() {
   if (isError) {
     return <span>Error...</span>
   }
-  // const data = apidata.data
+
   return (
     <div className="relative min-h-screen bg-darkGrey">
       <div>

@@ -3,11 +3,11 @@ import ExperienceLogo from '../UI/Experience/ExperienceLogo'
 import LoadingSpinner from '../UI/LoadingSpinner/LoadingSpinner'
 
 interface ExperiencePlaceholder {
-  duration: any
-  position_or_qualification: any
-  logo_url: any
-  name_of_place: any
-  location: any
+  duration: string
+  position_or_qualification: string
+  logo_url: string
+  name_of_place: string
+  location: string
 }
 //Mock data
 const placeholderData: ExperiencePlaceholder = {
@@ -18,9 +18,9 @@ const placeholderData: ExperiencePlaceholder = {
   location: 'Please add location',
 }
 
-export default function Experience() {
-  const { data, isLoading, isError } = useExperience('0')
-  console.log(data)
+export default function Experience(id: string) {
+  const { data, isLoading, isError } = useExperience(id)
+
   if (isLoading) {
     return (
       <span>
@@ -32,7 +32,7 @@ export default function Experience() {
   if (isError) {
     return <span>Error...</span>
   }
-  const logoUrl = 'images/education.png'
+  const logoUrl = '../public/images/work.png'
   // If data does not exsit then display placeholderData
   const experienceData = data[0] || placeholderData
 
