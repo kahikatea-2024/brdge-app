@@ -19,10 +19,10 @@ export default function NavBar() {
   }
 
   return (
-    <div className="border-gray-200 bg-lightGrey">
+    <div className=" rounded-md border-gray-200 bg-lightGrey pb-4 pl-4 shadow-xl">
       <div className="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between gap-1 p-4">
         <Link to="/">
-          <Logo className="h-6" />
+          <Logo className="h-10" />
         </Link>
         <TextField
           placeholder="Search..."
