@@ -8,7 +8,7 @@ export default function Logo({ className, ...rest }: SpinnerProps) {
   return (
     <img
       src="/images/Spinner.gif"
-      alt="...Loading"
+      alt="Loading..."
       className={twMerge(ImageStyle, className)}
       {...rest}
     />

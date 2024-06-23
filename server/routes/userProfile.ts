@@ -21,6 +21,7 @@ router.get('/search', async (req, res) => {
 
 export default router
 
+// api/v1/profiles
 //getUserProfileByAuthId
 router.post('/', async (req, res) => {
   try {
@@ -56,7 +57,7 @@ router.get('/:id/education', async (req, res) => {
     res.sendStatus(500)
   }
 })
-
+// /api/v1/profiles/:id/experience
 //getUserExperiencebyId - thunderclient working
 router.get('/:id/experience', async (req, res) => {
   try {

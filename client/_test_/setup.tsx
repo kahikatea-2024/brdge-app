@@ -1,25 +1,30 @@
-import { expect, beforeEach } from 'vitest'
+import { beforeEach, expect } from 'vitest'
 import { cleanup, render } from '@testing-library/react/pure'
-import '@testing-library/jest-dom/vitest'
 import * as matchers from '@testing-library/jest-dom/matchers'
-import userEvent from '@testing-library/user-event'
+import '@testing-library/jest-dom/vitest'
 
-import routes from './routes.tsx'
-
+import { routes } from '../../client/routes'
 import { RouterProvider, createMemoryRouter } from 'react-router-dom'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import userEvent from '@testing-library/user-event'
 
 beforeEach(cleanup)
 expect.extend(matchers)
 
-export function renderRoute(route = '/') {
+export function setupApp(route = '/') {
   const router = createMemoryRouter(routes, {
     initialEntries: [route],
   })
+
   const client = new QueryClient({
-    defaultOptions: { queries: { retry: false } },
+    defaultOptions: {
+      queries: {
+        retry: false,
+        refetchOnWindowFocus: false,
+        refetchOnReconnect: false,
+      },
+    },
   })
-  const user = userEvent.setup()
 
   const screen = render(
     <QueryClientProvider client={client}>
@@ -27,5 +32,6 @@ export function renderRoute(route = '/') {
     </QueryClientProvider>,
   )
 
-  return { ...screen, user }
+  const user = userEvent.setup()
+  return { user, ...screen }
 }

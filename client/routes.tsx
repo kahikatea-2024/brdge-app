@@ -8,10 +8,10 @@ import Layout from './components/Layout'
 import Home from './Pages/Home/Home'
 import Profile from './Pages/Profile/Profile'
 
-const routes = createRoutesFromElements(
+export const routes = createRoutesFromElements(
   <Route path="/" element={<Layout />}>
     <Route index element={<Home />} />
-    <Route path="/:Profile" element={<Profile />} />
+    <Route path="/:profile" element={<Profile />} />
   </Route>,
 )
 
