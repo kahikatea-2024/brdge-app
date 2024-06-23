@@ -1,4 +1,5 @@
 import { useEducation } from '../../hooks/useEducation'
+import EditIcon from '../UI/EditIcon/EditIcon'
 import ExperienceLogo from '../UI/Experience/ExperienceLogo'
 import LoadingSpinner from '../UI/LoadingSpinner/LoadingSpinner'
 
@@ -17,6 +18,8 @@ const placeholderData: EducationPlaceholder = {
   name_of_place: 'Please add Name of Place',
   location: 'Please add location',
 }
+
+const editImage = "images/edit.png"
 
 export default function Education() {
   // number in the params of UseEducation is the Id of the user please this for changing the data
