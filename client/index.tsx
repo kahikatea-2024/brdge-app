@@ -13,11 +13,11 @@ document.addEventListener('DOMContentLoaded', () => {
      * TODO: replace domain, clientId, and audience
      */
     <Auth0Provider
-      domain="kahikatea-2024-alex.au.auth0.com"
-      clientId="ovLziIjMF0jdlGa4h3HfpfHR7tbmD5Dp"
+      domain="dev-ka52pxklqioeut8e.us.auth0.com"
+      clientId="IYDZLRgQ1XIMy6A4AqqnY4A4b4qrtJOc"
       authorizationParams={{
         redirect_uri: window.location.origin,
-        audience: 'https://brdg/api',
+        audience: 'https://brdg2/api',
         // ,
       }}
     >
