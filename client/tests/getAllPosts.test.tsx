@@ -10,8 +10,7 @@ const mockData =    {
   timestamp: '2024-06-20 10:42:33',
   image_url:
     'https://static1.colliderimages.com/wordpress/wp-content/uploads/2023/04/shrek-5-mike-myers.jpg?q=50&fit=contain&w=1140&h=&dpr=1.5',
-},
-
+}
 
 
 beforeAll(() => {
