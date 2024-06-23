@@ -11,7 +11,7 @@ import Profile from './Pages/Profile/Profile'
 const routes = createRoutesFromElements(
   <Route path="/" element={<Layout />}>
     <Route index element={<Home />} />
-    <Route path='/:Profile' element={<Profile />}/>
+    <Route path="/:Profile" element={<Profile />} />
   </Route>,
 )
 
