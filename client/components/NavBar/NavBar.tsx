@@ -7,10 +7,17 @@ import { IfAuthenticated, IfNotAuthenticated } from '../Authenticated'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
 
+import { useCurrentUser } from '../../hooks/useProfile'
+
 export default function NavBar() {
   // const { profile } = useParams()
   const { user, logout, loginWithRedirect } = useAuth0()
   const [isOpen, setIsOpen] = useState(false)
+  const { data: profile } = useCurrentUser()
+  const [id, setId] = useState(profile?.profile_id)
+  if (!id) {
+    setId(1)
+  }
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen)
@@ -45,7 +52,7 @@ export default function NavBar() {
                     onClick={() => {}}
                     className="block w-full px-4 py-2 text-left text-sm text-extraLightGrey hover:bg-primary"
                   >
-                    <Link to="/Profile">Profile</Link>
+                    <Link to={`/profiles/${id}`}>Profile</Link>
                   </button>
                   <button
                     onClick={() => {
