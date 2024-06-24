@@ -34,7 +34,7 @@ router.post('/', async (req, res) => {
 })
 
 //getUserExperienceByAuthId
-router.post('/', async (req, res) => {
+router.post('/experience', async (req, res) => {
   try {
     const { id } = req.body.auth0Id
     const experience = await db.getUserExperiencebyAuth0Id(id)

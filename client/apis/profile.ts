@@ -16,7 +16,7 @@ export async function getUserProfile(id: string): Promise<Profile> {
 export async function getUserExperience(id: string): Promise<UserBackground> {
   console.log('getUserExperience db func: ', id)
   return await request
-    .post(rootUrl)
+    .post('/api/v1/profiles/experience')
     .send({ auth0Id: { id } })
     .then((res) => {
       return res.body

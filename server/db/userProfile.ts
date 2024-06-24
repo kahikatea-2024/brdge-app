@@ -35,7 +35,7 @@ export async function getUserEducationbyId(id: number) {
       'user_background.background_id',
       'background.background_id',
     )
-    .where('user.auth0Id', id)
+    .where('user_background.user_id', id)
     .andWhere('user_background.isExperience', false)
 
   return res
@@ -63,8 +63,14 @@ export async function getUserExperiencebyAuth0Id(id: number) {
       'user_background.background_id',
       'background.background_id',
     )
-    .where('user_background.user_id', id)
+    .join(
+      'users',
+      'user_background.user_id',
+      'users.user_id'
+    )
+    .where('users.auth0Id', id)
     .andWhere('user_background.isExperience', true)
+    .first()
 
   return res
 }

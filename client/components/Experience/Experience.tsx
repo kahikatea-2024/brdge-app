@@ -21,7 +21,7 @@ const placeholderData: ExperiencePlaceholder = {
 
 export default function Experience() {
   const { data, isLoading, isError } = useCurrentUserExp()
-  console.log(data)
+  console.log("Experience Object", data)
   if (isLoading) {
     return (
       <span>
