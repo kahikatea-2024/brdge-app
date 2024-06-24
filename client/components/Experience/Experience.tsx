@@ -1,4 +1,5 @@
 import { useExperience } from '../../hooks/useExperience'
+import { useCurrentUserExp } from '../../hooks/useProfile'
 import ExperienceLogo from '../UI/Experience/ExperienceLogo'
 import LoadingSpinner from '../UI/LoadingSpinner/LoadingSpinner'
 
@@ -19,7 +20,7 @@ const placeholderData: ExperiencePlaceholder = {
 }
 
 export default function Experience() {
-  const { data, isLoading, isError } = useExperience('0')
+  const { data, isLoading, isError } = useCurrentUserExp()
   console.log(data)
   if (isLoading) {
     return (
@@ -34,7 +35,7 @@ export default function Experience() {
   }
   const logoUrl = 'images/education.png'
   // If data does not exsit then display placeholderData
-  const experienceData = data[0] || placeholderData
+  const experienceData = data || placeholderData
 
   return (
     <>

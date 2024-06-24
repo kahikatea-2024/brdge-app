@@ -33,6 +33,19 @@ router.post('/', async (req, res) => {
   }
 })
 
+//getUserExperienceByAuthId
+router.post('/', async (req, res) => {
+  try {
+    const { id } = req.body.auth0Id
+    const experience = await db.getUserExperiencebyAuth0Id(id)
+    res.json(experience)
+  } catch (error) {
+    console.error(`database error: ${error}`)
+    res.sendStatus(500)
+  }
+})
+
+
 //getUserProfileById
 router.get('/:id', async (req, res) => {
   try {

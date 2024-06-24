@@ -35,7 +35,7 @@ export async function getUserEducationbyId(id: number) {
       'user_background.background_id',
       'background.background_id',
     )
-    .where('user_background.user_id', id)
+    .where('user.auth0Id', id)
     .andWhere('user_background.isExperience', false)
 
   return res
@@ -54,3 +54,18 @@ export async function getUserExperiencebyId(id: number) {
 
   return res
 }
+
+//getUserExperiencebyAuth0Id
+export async function getUserExperiencebyAuth0Id(id: number) {
+  const res = db('user_background')
+    .join(
+      'background',
+      'user_background.background_id',
+      'background.background_id',
+    )
+    .where('user_background.user_id', id)
+    .andWhere('user_background.isExperience', true)
+
+  return res
+}
+

@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
       domain="dev-ka52pxklqioeut8e.us.auth0.com"
       clientId="IYDZLRgQ1XIMy6A4AqqnY4A4b4qrtJOc"
       authorizationParams={{
-        redirect_uri: window.location.origin,
+        redirect_uri: `${window.location.origin}/`,
         audience: 'https://brdg2/api',
         // ,
       }}

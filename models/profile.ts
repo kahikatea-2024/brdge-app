@@ -17,3 +17,22 @@ export interface Profile {
   location: string
   website: string
 }
+
+export interface UserBackground {
+  user_background_id: number;
+  user_id: number;
+  background_id: number;
+  duration: string;
+  position_or_qualification: string;
+  isExperience: number;
+  is_education: number;
+  is_experience: number;
+  logo_url: string;
+  name_of_place: string;
+  location: string | null;
+}
+
+
+export interface Education {
+
+}
