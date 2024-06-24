@@ -25,10 +25,8 @@ const facebook = '../public/images/facebooklight.png'
 
 export default function Profile() {
   const { id } = useParams()
-  console.log('hi', id)
 
   const { data, isLoading, isError } = useProfile(`${id}`)
-  console.log('data', data)
 
   if (isLoading) {
     return (

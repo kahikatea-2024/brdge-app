@@ -4,7 +4,6 @@ import { Profile } from '../../models/profile'
 const rootUrl = '/api/v1/profiles'
 
 export async function fetchProfile(id: number): Promise<Profile> {
-  //console.log('getUserProfile db func: ', id)
   const res = await request.get(rootUrl + `/${id}`)
   return res.body
 }

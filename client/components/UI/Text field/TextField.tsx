@@ -1,5 +1,5 @@
 import { InputHTMLAttributes, useState } from 'react'
-import { useLocation, useNavigate } from 'react-router'
+import { useNavigate } from 'react-router'
 import { twMerge } from 'tailwind-merge'
 import { fetchUserProfileByUsername } from '../../../apis/profile'
 

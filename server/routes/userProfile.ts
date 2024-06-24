@@ -6,7 +6,6 @@ const router = Router()
 
 router.get('/search/:q', async (req, res) => {
   const query = req.params.q
-  console.log('q', query)
 
   if (!query) {
     res.status(422).json({ message: 'Please provide a valid query' })
