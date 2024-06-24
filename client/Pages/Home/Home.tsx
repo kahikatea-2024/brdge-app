@@ -8,7 +8,6 @@ import LoadingSpinner from '../../components/UI/LoadingSpinner/LoadingSpinner'
 import Ad from '../../components/UI/Ad/Ad'
 import EventContent from '../../components/UI/EventContent/EventContent'
 
-
 export default function Home() {
   const { user } = useAuth0()
   const { data, isLoading, isError } = usePosts()
@@ -63,8 +62,8 @@ export default function Home() {
           </IfAuthenticated>
           {data && <Feed posts={data} />}
         </div>
-        <div className="col-span-1 rounded-md bg-lightGrey">
-          <Ad />
+        <div className="">
+          <Ad p-4 />
         </div>
       </div>
     </div>
