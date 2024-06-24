@@ -1,31 +1,33 @@
+import { Profile } from '../../../models/profile'
 import { useEducation } from '../../hooks/useEducation'
-import EditIcon from '../UI/EditIcon/EditIcon'
+// import EditIcon from '../UI/EditIcon/EditIcon'
 import ExperienceLogo from '../UI/Experience/ExperienceLogo'
 import LoadingSpinner from '../UI/LoadingSpinner/LoadingSpinner'
 
 interface EducationPlaceholder {
-  duration: any
-  position_or_qualification: any
-  logo_url: any
-  name_of_place: any
-  location: any
+  duration: string
+  position_or_qualification: string
+  logo_url: string
+  name_of_place: string
+  location: string
 }
 
 const placeholderData: EducationPlaceholder = {
   duration: 'Please add the duration',
-  position_or_qualification: 'Please add quailfiction',
-  logo_url: 'images/education.png',
+  position_or_qualification: 'Please add qualification',
+  logo_url: '../public/images/education.png',
   name_of_place: 'Please add Name of Place',
   location: 'Please add location',
 }
+interface Props {
+  data: Profile
+}
 
-const editImage = "images/edit.png"
-
-export default function Education() {
+export default function Education(propsData: Props) {
   // number in the params of UseEducation is the Id of the user please this for changing the data
 
-  const { data, isLoading, isError } = useEducation('5')
-  console.log(data)
+  const { data, isLoading, isError } = useEducation(`${propsData.data.user_id}`)
+
   if (isLoading) {
     return (
       <span>
@@ -38,7 +40,7 @@ export default function Education() {
   if (isError) {
     return <span>Error...</span>
   }
-  const logoUrl = 'images/education.png'
+  const logoUrl = '../public/images/education.png'
   // If data does not exsit then display placeholderData
   const educationData = data[0] || placeholderData
 

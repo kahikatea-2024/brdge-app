@@ -11,7 +11,7 @@ export async function seed(knex) {
       user_id: 1,
       bio: "👋 Hello! I'm Shrek, a passionate web developer with [X] years of experience crafting clean and efficient code. My expertise lies in creating dynamic and responsive web applications that deliver a seamless user experience. \nI thrive on tackling complex challenges and turning them into elegant solutions. Whether it's building scalable backend systems or designing intuitive frontends, I'm dedicated to delivering high-quality results that exceed expectations.",
       avatar_image:
-        'https://i.pinimg.com/236x/5e/71/0b/5e710bb38b1cae44a3cae02342248eae.jpg',
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAs_TDUTeHiZQ1tqLJlvItaBOjcmRTeoSbHw&s',
       cover_image:
         'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAs_TDUTeHiZQ1tqLJlvItaBOjcmRTeoSbHw&s',
       location: 'Far Far Away',
