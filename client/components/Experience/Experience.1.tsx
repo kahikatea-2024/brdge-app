@@ -1,26 +1,7 @@
-import { Profile } from '../../../models/profile'
 import { useExperience } from '../../hooks/useExperience'
 import ExperienceLogo from '../UI/Experience/ExperienceLogo'
 import LoadingSpinner from '../UI/LoadingSpinner/LoadingSpinner'
-
-interface ExperiencePlaceholder {
-  duration: string
-  position_or_qualification: string
-  logo_url: string
-  name_of_place: string
-  location: string
-}
-//Mock data
-const placeholderData: ExperiencePlaceholder = {
-  duration: 'Please add the duration',
-  position_or_qualification: 'Please add experience',
-  logo_url: 'images/work.png',
-  name_of_place: 'Please add Name of Place',
-  location: 'Please add location',
-}
-interface Props {
-  data: Profile
-}
+import { Props, placeholderData } from './Experience'
 
 export default function Experience(propsData: Props) {
   const { data, isLoading, isError } = useExperience(
@@ -38,9 +19,16 @@ export default function Experience(propsData: Props) {
   if (isError) {
     return <span>Error...</span>
   }
-  const logoUrl = '../public/images/work.png'
-  const logoUrl2 = '../public/images/blackwork.png'
+  // const logoUrl = '../public/images/work.png'
+  // const logoUrl2 = '../public/images/blackwork.png'
   // If data does not exsit then display placeholderData
+  const [darkMode, setDarkMode] = useState(false)
+
+  // Function to toggle dark mode
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode)
+  }
+  const selectedLogoUrl = darkMode ? logoUrl2 : logoUrl
   const experienceData = data[0] || placeholderData
 
   return (

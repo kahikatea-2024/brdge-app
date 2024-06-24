@@ -5,10 +5,13 @@ export default {
     extend: {
       colors: {
         primary: '#00ADB5',
-        darkGrey: '#222831',
-        lightGrey: '#393E46',
-        extraLightGrey: '#EEEEEE',
+        darkGrey: '#BBBBBB',
+        lightGrey: '#EEEEEE',
+        extraLightGrey: '#000000',
         warning: '#F27C7C',
+        ddarkGrey: '#222831',
+        dlightGrey: '#393E46',
+        dextraLightGrey: '#EEEEEE',
       },
       fontFamily: {
         serif: ['"Roboto Slab"', 'serif'],
@@ -17,4 +20,5 @@ export default {
     },
   },
   plugins: [],
+  darkMode: 'class',
 }

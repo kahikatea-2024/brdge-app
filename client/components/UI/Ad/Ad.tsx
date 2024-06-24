@@ -1,8 +1,8 @@
 export default function Ad() {
   return (
     <>
-      <div className="col-span-1 mb-4 gap-4 rounded-md bg-lightGrey p-4">
-        <div className="font-mono text-extraLightGrey">
+      <div className="dark:bg-dlightGrey col-span-1 mb-4 gap-4 rounded-md bg-lightGrey  p-4">
+        <div className="dark:text-dextraLightGrey font-mono text-extraLightGrey">
           <p>
             <strong> &#x2716; Ad .</strong> https://codecleaners.swamp
           </p>
@@ -10,7 +10,7 @@ export default function Ad() {
         <div className="font-mono text-xl text-blue-500">
           <a href="">Code Cleaners Laundry Service &trade; </a>
         </div>
-        <div className="font-mono text-extraLightGrey">
+        <div className="dark:text-dextraLightGrey font-mono text-extraLightGrey">
           <p>
             Is your code as messy as your laundry? Let Code Cleaners handle it!
             We fold functions and scrub syntax—because even your code deserves a
@@ -19,8 +19,8 @@ export default function Ad() {
         </div>
       </div>
 
-      <div className="col-span-1 mt-4 gap-4 rounded-md bg-lightGrey p-4">
-        <div className="font-mono text-extraLightGrey">
+      <div className="dark:bg-dlightGrey col-span-1 mt-4 gap-4 rounded-md bg-lightGrey p-4">
+        <div className="dark:text-dextraLightGrey font-mono text-extraLightGrey">
           <p>
             <strong>&#x2716; Ad .</strong> https://fullStackfitness.ir
           </p>
@@ -28,7 +28,7 @@ export default function Ad() {
         <div className="font-mono text-xl text-blue-500">
           <a href="">Full Stack Fitness &trade; </a>
         </div>
-        <div className="font-mono text-extraLightGrey">
+        <div className="dark:text-dextraLightGrey font-mono text-extraLightGrey">
           <p>
             Build your front-end muscles and strengthen your back-end with our
             Full Stack Fitness program. No bugs, just gains!
@@ -37,8 +37,8 @@ export default function Ad() {
       </div>
       {/* 3 */}
 
-      <div className="col-span-1 mt-4 gap-4 rounded-md bg-lightGrey p-4">
-        <div className="font-mono text-extraLightGrey">
+      <div className="dark:bg-dlightGrey col-span-1 mt-4 gap-4 rounded-md bg-lightGrey p-4">
+        <div className="dark:text-dextraLightGrey font-mono text-extraLightGrey">
           <p>
             <strong>&#x2716; Ad .</strong> https://ctrlZinsurance.where
           </p>
@@ -46,7 +46,7 @@ export default function Ad() {
         <div className="font-mono text-xl text-blue-500">
           <a href="">Ctrl+Z Insurance</a>
         </div>
-        <div className="font-mono text-extraLightGrey">
+        <div className="dark:text-dextraLightGrey font-mono text-extraLightGrey">
           <p>
             Oops, did you delete the wrong file again? Fear not! Ctrl+Z
             Insurance has your back. We'll undo your tech mishaps, one keystroke
@@ -56,8 +56,8 @@ export default function Ad() {
       </div>
 
       {/* 4 */}
-      <div className="col-span-1 mt-4 gap-4 rounded-md bg-lightGrey p-4">
-        <div className="font-mono text-extraLightGrey">
+      <div className="dark:bg-dlightGrey col-span-1 mt-4 gap-4 rounded-md bg-lightGrey p-4">
+        <div className="dark:text-dextraLightGrey font-mono text-extraLightGrey">
           <p>
             <strong>&#x2716; Ad .</strong> https://robotdating.join
           </p>
@@ -65,7 +65,7 @@ export default function Ad() {
         <div className="font-mono text-xl text-blue-500">
           <a href="">Robot Dating Agency </a>
         </div>
-        <div className="font-mono text-extraLightGrey">
+        <div className="dark:text-dextraLightGrey font-mono text-extraLightGrey">
           <p>
             Tired of bugs in your love life? Swipe right with Robot Dating
             Agency! Our AI matchmakers guarantee compatibility metrics that even
