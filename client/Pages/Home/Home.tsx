@@ -63,7 +63,7 @@ export default function Home() {
           {data && <Feed posts={data} />}
         </div>
         <div className="">
-          <Ad p-4 />
+          <Ad />
         </div>
       </div>
     </div>
