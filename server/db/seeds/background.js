@@ -27,5 +27,26 @@ export async function seed(knex) {
       logo_url: 'placeholder',
       name_of_place: 'Dev Academy',
     },
+    {
+      background_id: 4,
+      is_education: true,
+      is_experience: false,
+      logo_url: 'placeholder',
+      name_of_place: 'University of Neverland',
+    },
+    {
+      background_id: 5,
+      is_education: false,
+      is_experience: true,
+      logo_url: 'placeholder',
+      name_of_place: 'Far Far Away Federation',
+    },
+    {
+      background_id: 6,
+      is_education: false,
+      is_experience: true,
+      logo_url: 'placeholder',
+      name_of_place: 'Pied Piper',
+    },
   ])
 }
