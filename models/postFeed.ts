@@ -9,7 +9,7 @@ export interface Post {
   poster_auth0Id: string
 }
 
-export interface newPost {
+export interface NewPost {
   feed_post_id: number
   user_id: number
   content: string
@@ -24,4 +24,4 @@ export interface newPost {
 
 export type PostData = Omit<Post, 'feed_post_id' | 'timestamp'>
 
-export type newPostData = Omit<newPost, 'feed_post_id' | 'timestamp'>
+export type NewPostData = Omit<NewPost, 'feed_post_id' | 'timestamp'>
