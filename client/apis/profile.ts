@@ -3,8 +3,11 @@ import { Profile } from '../../models/profile'
 
 const rootUrl = '/api/v1/profiles'
 
-export async function fetchProfile(id: number): Promise<Profile> {
+export async function fetchProfile(id: string): Promise<Profile> {
   const res = await request.get(rootUrl + `/${id}`)
+  if (res.body === undefined) {
+    return (await request.get(rootUrl + `/1`)).body
+  }
   return res.body
 }
 
