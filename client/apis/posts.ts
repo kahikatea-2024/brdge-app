@@ -1,8 +1,8 @@
 import request from 'superagent'
 import { Post } from '../../models/postFeed'
 
-export interface addedPost {
-  post: string
+export interface AddedPost {
+  content: string
 }
 const rootUrl = '/api/v1'
 
@@ -12,9 +12,10 @@ export function getAllPosts(): Promise<Post[]> {
   })
 }
 
-export async function addPost(post: string) {
-  const newPost: addedPost = {
-    post: post,
+export async function addPost(post: string, token: string) {
+  const newPost: AddedPost = {
+    content: post,
   }
-  await request.post(rootUrl + '/postFeed').send(newPost)
+  await request.post(rootUrl + '/postFeed').send(newPost).auth(token,{type: 'bearer'})
+  
 }
