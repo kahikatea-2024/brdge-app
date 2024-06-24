@@ -1,45 +1,43 @@
-import { useAuth0 } from '@auth0/auth0-react'
-import Avatar from '../UI/Avatar/Avatar'
-import Button from '../UI/Button/Button'
-import Logo from '../UI/Logo/Logo'
-import TextField from '../UI/Text field/TextField'
-import { IfAuthenticated, IfNotAuthenticated } from '../Authenticated'
-import { Link } from 'react-router-dom'
+import { InputHTMLAttributes, useState } from 'react'
+import { useNavigate } from 'react-router'
+import { twMerge } from 'tailwind-merge'
+import { fetchUserProfileByUsername } from '../../../apis/profile'
 
-export default function NavBar() {
-  // const { profile } = useParams()
-  const { user, logout, loginWithRedirect } = useAuth0()
+// interface TextFielProps extends HtmlHTMLAttributes<HTMLInputElement> {}
+type InputAttributes = InputHTMLAttributes<HTMLInputElement>
 
-  function handleSignOut() {
-    logout()
+function TextField({ className, ...rest }: InputAttributes) {
+  const [text, setText] = useState('')
+  const navigate = useNavigate()
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setText(event.target.value)
   }
 
-  function handleSignIn() {
-    loginWithRedirect()
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+
+    const profile = await fetchUserProfileByUsername(text)
+    console.log(profile.user_id)
+
+    return navigate(`../../profiles/${profile.user_id}`)
   }
 
+  const TextFieldClasses =
+    'shadow appearance-none border rounded-full py-2 px-3  leading-tight focus:outline-none focus:shadow-outline '
   return (
-    <div className=" rounded-md border-gray-200 bg-lightGrey pb-4 pl-4 shadow-xl">
-      <div className="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between gap-1 p-4">
-        <Link to="/">
-          <Logo className="h-10" />
-        </Link>
-        <TextField
-          placeholder="Search..."
-          className="text-darkGray w-1/2 bg-extraLightGrey focus:ring-2 focus:ring-blue-500"
-        />
-        <div className="flex items-center gap-2">
-          <IfAuthenticated>
-            <Link to="/Profile">
-              <Avatar src={user?.picture} size="small" />
-            </Link>
-            <Button onClick={handleSignOut}>Sign out</Button>
-          </IfAuthenticated>
-          <IfNotAuthenticated>
-            <Button onClick={handleSignIn}>Sign in</Button>
-          </IfNotAuthenticated>
-        </div>
-      </div>
-    </div>
+    <form onSubmit={handleSubmit}>
+      <input
+        size={60}
+        className={twMerge(TextFieldClasses, className)}
+        type="text"
+        name="text"
+        value={text}
+        onChange={handleChange}
+        {...rest}
+      />
+    </form>
   )
 }
+
+export default TextField
