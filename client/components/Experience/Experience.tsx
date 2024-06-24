@@ -44,7 +44,7 @@ export default function Experience(propsData: Props) {
 
   return (
     <>
-      <div className="bg-dlightGrey bg-lightGrey">
+      <div className="dark:bg-dlightGrey bg-lightGrey">
         <div className="flex flex-col">
           <div className="flex flex-row">
             <ExperienceLogo className="w-16 " src={logoUrl} />
