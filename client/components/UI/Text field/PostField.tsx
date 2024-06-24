@@ -7,6 +7,10 @@ interface PostProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {}
 function PostField({ className, ...rest }: PostProps) {
   const textareaRef = useRef<HTMLTextAreaElement>(null)
 
+  useEffect(() => {
+    adjustTextareaHeight() // Adjust height on mount
+  }, [])
+
   const adjustTextareaHeight = () => {
     const textarea = textareaRef.current
     if (textarea) {
@@ -14,10 +18,6 @@ function PostField({ className, ...rest }: PostProps) {
       textarea.style.height = textarea.scrollHeight + 'px'
     }
   }
-
-  // useEffect(() => {
-  //   adjustTextareaHeight() // Adjust height on mount
-  // }, [])
 
   return (
     <textarea
