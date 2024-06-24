@@ -25,3 +25,9 @@ export interface newPost {
 export type PostData = Omit<Post, 'feed_post_id' | 'timestamp'>
 
 export type newPostData = Omit<newPost, 'feed_post_id' | 'timestamp'>
+
+export interface NewFeedPost {
+  user_id: number
+  content: string
+  image_url: string
+}

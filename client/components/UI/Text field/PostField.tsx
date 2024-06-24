@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react'
+import { useRef, useEffect } from 'react'
 import { TextareaHTMLAttributes } from 'react'
 import { twMerge } from 'tailwind-merge'
 

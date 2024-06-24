@@ -18,6 +18,7 @@ export default function PostComponent() {
   })
 
   const [form, setForm] = useState('')
+
   function handleChange(event: React.ChangeEvent<HTMLTextAreaElement>) {
     setForm(event.target.value)
   }
@@ -35,11 +36,12 @@ export default function PostComponent() {
         />
       </div>
       <div className="flex w-full flex-col p-4">
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={(e) => handleSubmit(e)}>
           <PostField
             onChange={(e) => handleChange(e)}
             className="w-full rounded-xl bg-darkGrey p-4 text-extraLightGrey  focus:ring-2 focus:ring-blue-500"
             placeholder="What do you want to share?"
+            value={form}
           />
           <div className="self-end pt-2">
             <Button className="text-sm">Post</Button>
