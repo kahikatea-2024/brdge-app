@@ -1,5 +1,6 @@
 import { Profile } from '../../../models/profile'
 import { useEducation } from '../../hooks/useEducation'
+import EditIcon from '../UI/EditIcon/EditIcon'
 import ExperienceLogo from '../UI/Experience/ExperienceLogo'
 import LoadingSpinner from '../UI/LoadingSpinner/LoadingSpinner'
 
