@@ -46,5 +46,37 @@ export async function seed(knex) {
       image_url:
         'https://static1.colliderimages.com/wordpress/wp-content/uploads/2023/04/shrek-5-mike-myers.jpg?q=50&fit=contain&w=1140&h=&dpr=1.5',
     },
+    {
+      feed_post_id: 6,
+      user_id: 3,
+      content: `🌟 Hello devs! Let's talk about functions today. Think of them as your kitchen gadgets 🍳 Need to fry some logic? Use 'em like a skillet. Want to bake a reusable process? Think of it as your trusty oven. Just like cooking, make sure your functions are well-seasoned and serve up code that's deliciously efficient! #CodingKitchen #FunctionsAreTools`,
+      timestamp: '2024-06-20 10:56:33',
+      image_url:
+        'https://static1.colliderimages.com/wordpress/wp-content/uploads/2023/04/shrek-5-mike-myers.jpg?q=50&fit=contain&w=1140&h=&dpr=1.5',
+    },
+    {
+      feed_post_id: 7,
+      user_id: 1,
+      content: `🔍 Hey coders! Ever hunted for bugs in your code? 🐞 It's like being a detective 🔎 Look for clues (or errors), follow the tracks (check those logs!), and when you crack the case, celebrate like Sherlock with a victory dance! Remember, debugging is where you sharpen your skills and level up your code! #BugBounty #CodeDetective`,
+      timestamp: '2024-06-20 10:56:33',
+      image_url:
+        'https://static1.colliderimages.com/wordpress/wp-content/uploads/2023/04/shrek-5-mike-myers.jpg?q=50&fit=contain&w=1140&h=&dpr=1.5',
+    },
+    {
+      feed_post_id: 8,
+      user_id: 3,
+      content: `🎨 Hey devs! Time to brush up on CSS! Imagine it as your design palette 🖌️ Need to style your webpage? CSS is like choosing colors and fonts. Want to make things pop? Add animations like fireworks! Remember, good design isn't just about looks—it's about crafting user experiences that shine! Share your best CSS tips! #CreativeCoding #CSSArtistry`,
+      timestamp: '2024-06-20 10:56:33',
+      image_url:
+        'https://static1.colliderimages.com/wordpress/wp-content/uploads/2023/04/shrek-5-mike-myers.jpg?q=50&fit=contain&w=1140&h=&dpr=1.5',
+    },
+    {
+      feed_post_id: 9,
+      user_id: 2,
+      content: `🔧 Hey there, coding wizards! Let's dive into algorithms today. Think of them as recipes for solving puzzles 🧩 Need to sort data? Algorithms are your sous chef. Want to search efficiently? They're your compass in a vast digital world. Just like cooking, master the basics and innovate with your own secret sauce! What's your favorite algorithmic dish? #CodeCuisine #AlgorithmMasters`,
+      timestamp: '2024-06-20 10:56:33',
+      image_url:
+        'https://static1.colliderimages.com/wordpress/wp-content/uploads/2023/04/shrek-5-mike-myers.jpg?q=50&fit=contain&w=1140&h=&dpr=1.5',
+    },
   ])
 }
