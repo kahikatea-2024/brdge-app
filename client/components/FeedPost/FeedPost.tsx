@@ -33,15 +33,15 @@ export default function FeedPost({
             <Avatar size="medium" src={avatar_image} />
           </div>
           <div>
-            <p className="text-m dark:text-dextraLightGrey text-dextraLightGrey">
+            <p className="text-m dark:text-dextraLightGrey text-extraLightGrey">
               {username}
             </p>
-            <p className="dark:text-dextraLightGrey text-dextraLightGrey text-xs">
+            <p className="dark:text-dextraLightGrey text-xs text-extraLightGrey">
               {timestamp}
             </p>
           </div>
         </div>
-        <div className="text-s dark:text-dextraLightGrey text-dextraLightGrey">
+        <div className="text-s dark:text-dextraLightGrey text-extraLightGrey">
           <PostText>{content}</PostText>
         </div>
         <div className="">
