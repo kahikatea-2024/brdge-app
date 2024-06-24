@@ -1,7 +1,9 @@
 import { Router } from 'express'
 import * as db from '../db/postFeed.ts'
+import * as connections from '../db/userProfile.ts'
 import moment from 'moment'
 import checkJwt, { JwtRequest } from '../auth0.ts'
+import { NewPostData } from '../../models/postFeed.ts'
 const router = Router()
 
 //getAllPosts route - checked in thunderclient, can receive results
@@ -22,8 +24,17 @@ router.post('/', checkJwt, async (req: JwtRequest, res) => {
     const newPost = req.body
     const auth0Id = req.auth?.sub
     newPost.poster_auth0Id = auth0Id
-    if (auth0Id) await db.addPost(newPost)
-    res.sendStatus(201)
+
+    if (auth0Id) {
+      const user = await connections.getUserProfileByAuth0Id(auth0Id)
+      newPost.user_id = user.user_id
+      newPost.username = user.username
+      newPost.avatar_image = user.avatar_image
+      newPost.image_url =
+        'https://static1.colliderimages.com/wordpress/wp-content/uploads/2023/04/shrek-5-mike-myers.jpg?q=50&fit=contain&w=1140&h=&dpr=1.5' //hardcoded for now
+      await db.addPost(newPost)
+      res.sendStatus(201)
+    }
   } catch (error) {
     console.error(`database error: ${error}`)
     res.sendStatus(500)
