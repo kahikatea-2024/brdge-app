@@ -5,11 +5,16 @@ import PostField from '../UI/Text field/PostField'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { addPost } from '../../apis/posts'
 import { useState } from 'react'
+import { useAuth0 } from '@auth0/auth0-react'
 
 export default function PostComponent() {
   const queryClient = useQueryClient()
+  const {getAccessTokenSilently} = useAuth0()
   const addPostMutation = useMutation({
-    mutationFn: (post: string) => addPost(post),
+    mutationFn: async (post: string) => 
+      {
+       const token = await getAccessTokenSilently()
+        return addPost(post, token)},
     onSuccess: () => {
       queryClient.invalidateQueries({
         queryKey: ['posts'],
@@ -23,7 +28,7 @@ export default function PostComponent() {
     setForm(event.target.value)
   }
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault
+    event.preventDefault()
     addPostMutation.mutate(form)
   }
   const ComponentStyles = 'mb-4 flex h-auto rounded-md bg-lightGrey'
