@@ -1,3 +1,4 @@
+import { Profile } from '../../../models/profile'
 import { useEducation } from '../../hooks/useEducation'
 import ExperienceLogo from '../UI/Experience/ExperienceLogo'
 import LoadingSpinner from '../UI/LoadingSpinner/LoadingSpinner'
@@ -17,11 +18,14 @@ const placeholderData: EducationPlaceholder = {
   name_of_place: 'Please add Name of Place',
   location: 'Please add location',
 }
+interface Props {
+  data: Profile
+}
 
-export default function Education() {
+export default function Education(propsData: Props) {
   // number in the params of UseEducation is the Id of the user please this for changing the data
 
-  const { data, isLoading, isError } = useEducation('5')
+  const { data, isLoading, isError } = useEducation(`${propsData.data.user_id}`)
 
   if (isLoading) {
     return (

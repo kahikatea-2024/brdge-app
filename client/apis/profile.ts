@@ -3,20 +3,17 @@ import { Profile } from '../../models/profile'
 
 const rootUrl = '/api/v1/profiles'
 
-export async function getUserProfile(id: string): Promise<Profile> {
-  console.log('getUserProfile db func: ', id)
-  return await request
-    .post(rootUrl)
-    .send({ auth0Id: { id } })
-    .then((res) => {
-      return res.body
-    })
+export async function fetchProfile(id: number): Promise<Profile> {
+  //console.log('getUserProfile db func: ', id)
+  const res = await request.get(rootUrl + `/${id}`)
+  return res.body
 }
 
-export async function getProfile(id: string) {
-  return await request.get(rootUrl + `/${id}`).then((res) => {
-    return res.body
-  })
+export async function fetchUserProfileByUsername(
+  userName: string,
+): Promise<Profile> {
+  const res = await request.get(rootUrl + `/search/${userName}`)
+  return res.body
 }
 
 export async function getExperience(id: string) {

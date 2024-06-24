@@ -10,7 +10,8 @@ export async function seed(knex) {
       profile_id: 1,
       user_id: 1,
       bio: 'blah blah',
-      avatar_image: 'public/images/shrek.jpg',
+      avatar_image:
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAs_TDUTeHiZQ1tqLJlvItaBOjcmRTeoSbHw&s',
       cover_image:
         'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAs_TDUTeHiZQ1tqLJlvItaBOjcmRTeoSbHw&s',
       location: 'Far Far Away',

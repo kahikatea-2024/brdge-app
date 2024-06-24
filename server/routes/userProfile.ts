@@ -4,14 +4,15 @@ const router = Router()
 
 //getUserIdByUsername
 
-router.get('/search', async (req, res) => {
-  const query = req.query.q as string
+router.get('/search/:q', async (req, res) => {
+  const query = req.params.q
+  console.log('q', query)
 
   if (!query) {
     res.status(422).json({ message: 'Please provide a valid query' })
   }
   try {
-    const userId = await db.getUserProfileByUsername(query)
+    const userId = await db.getUserProfileByUsername(query.toLowerCase())
     res.json(userId)
   } catch (error) {
     console.error(`database error: ${error}`)

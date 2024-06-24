@@ -1,3 +1,4 @@
+import { Profile } from '../../../models/profile'
 import { useExperience } from '../../hooks/useExperience'
 import ExperienceLogo from '../UI/Experience/ExperienceLogo'
 import LoadingSpinner from '../UI/LoadingSpinner/LoadingSpinner'
@@ -17,9 +18,14 @@ const placeholderData: ExperiencePlaceholder = {
   name_of_place: 'Please add Name of Place',
   location: 'Please add location',
 }
+interface Props {
+  data: Profile
+}
 
-export default function Experience(id: string) {
-  const { data, isLoading, isError } = useExperience(id)
+export default function Experience(propsData: Props) {
+  const { data, isLoading, isError } = useExperience(
+    `${propsData.data.user_id}`,
+  )
 
   if (isLoading) {
     return (

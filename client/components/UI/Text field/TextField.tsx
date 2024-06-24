@@ -1,30 +1,28 @@
 import { InputHTMLAttributes, useState } from 'react'
-import { Route } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router'
 import { twMerge } from 'tailwind-merge'
-import { getUserProfileByUsername } from '../../../../server/db/userProfile'
-import Button from '../Button/Button'
+import { fetchUserProfileByUsername } from '../../../apis/profile'
 
 // interface TextFielProps extends HtmlHTMLAttributes<HTMLInputElement> {}
 type InputAttributes = InputHTMLAttributes<HTMLInputElement>
 
 function TextField({ className, ...rest }: InputAttributes) {
   const [text, setText] = useState('')
+  const navigate = useNavigate()
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    console.log('Text changed:', event.target.value)
     setText(event.target.value)
   }
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
 
-    const profile = getUserProfileByUsername(text)
-    return (
-      <>
-        <Route path={`profiles/${profile}`} />
-      </>
-    )
+    const profile = await fetchUserProfileByUsername(text)
+    console.log(profile.user_id)
+
+    return navigate(`../../profiles/${profile.user_id}`)
   }
+
   const TextFieldClasses =
     'shadow appearance-none border rounded-full py-2 px-3  leading-tight focus:outline-none focus:shadow-outline '
   return (
@@ -37,7 +35,6 @@ function TextField({ className, ...rest }: InputAttributes) {
         onChange={handleChange}
         {...rest}
       />
-      <Button typeof="submit">o</Button>
     </form>
   )
 }
