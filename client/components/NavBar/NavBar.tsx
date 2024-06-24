@@ -32,7 +32,7 @@ export default function NavBar() {
         </Link>
         <TextField
           placeholder="Search..."
-          className=" text-darkGray  dark:bg-dextraLightGrey bg-extraLightGrey focus:ring-2 focus:ring-blue-500"
+          className=" text-darkGray  dark:bg-dextraLightGrey bg-darkGrey focus:ring-2 focus:ring-blue-500"
         />
         <div className="flex items-center gap-2">
           <div> </div>
