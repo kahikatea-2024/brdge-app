@@ -57,7 +57,7 @@ export default function Events() {
           </div>
         </div>
       </div>
-      <p className="p-2  font-mono text-sm text-extraLightGrey">
+      <p className="p-2 pb-8 font-mono text-sm text-extraLightGrey">
         {description}
       </p>
       <hr />
@@ -70,7 +70,7 @@ export default function Events() {
           </div>
         </div>
       </div>
-      <p className="p-2  font-mono text-sm text-extraLightGrey">
+      <p className="p-2 pb-8 font-mono text-sm text-extraLightGrey">
         {description2}
       </p>
 

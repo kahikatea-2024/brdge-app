@@ -5,9 +5,9 @@ import db from './connection.ts'
 export async function getUserProfileByUsername(userName: string) {
   const res = db('profiles')
     .join('users', 'profiles.user_id', 'users.user_id')
-    .where(
-      db.raw('lower(users.username) like ?', [`%${userName.toLowerCase()}%`]),
-    )
+    .where(db.raw('lower(users.username) like ?', [`%${userName}%`]))
+    .first()
+
   return res
 }
 
@@ -19,7 +19,6 @@ export async function getUserProfileById(id: number) {
 
 //getUserProfileById
 export async function getUserProfileByAuth0Id(id: string) {
-  console.log('getUserProfileByAuth0Id: ', id)
   const res = db('users')
     .join('profiles', 'users.user_id', 'profiles.user_id')
     .where('users.auth0Id', id)

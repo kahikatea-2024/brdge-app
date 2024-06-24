@@ -1,14 +1,14 @@
 export default function Ad() {
   return (
     <>
-      <div className="p-4">
+      <div className="col-span-1 mb-4 gap-4 rounded-md bg-lightGrey p-4">
         <div className="font-mono text-extraLightGrey">
           <p>
-            <strong>Ad .</strong> https://codecleaners.swamp
+            <strong> &#x2716; Ad .</strong> https://codecleaners.swamp
           </p>
         </div>
         <div className="font-mono text-xl text-blue-500">
-          <p>Code Cleaners Laundry Service &trade; </p>
+          <a href="">Code Cleaners Laundry Service &trade; </a>
         </div>
         <div className="font-mono text-extraLightGrey">
           <p>
@@ -19,15 +19,14 @@ export default function Ad() {
         </div>
       </div>
 
-      {/* 2 */}
-      <div className="p-4">
+      <div className="col-span-1 mt-4 gap-4 rounded-md bg-lightGrey p-4">
         <div className="font-mono text-extraLightGrey">
           <p>
-            <strong>Ad .</strong> https://fullStackfitness.ir
+            <strong>&#x2716; Ad .</strong> https://fullStackfitness.ir
           </p>
         </div>
         <div className="font-mono text-xl text-blue-500">
-          <p>Full Stack Fitness &trade; </p>
+          <a href="">Full Stack Fitness &trade; </a>
         </div>
         <div className="font-mono text-extraLightGrey">
           <p>
@@ -36,16 +35,16 @@ export default function Ad() {
           </p>
         </div>
       </div>
-
       {/* 3 */}
-      <div className="p-4">
+
+      <div className="col-span-1 mt-4 gap-4 rounded-md bg-lightGrey p-4">
         <div className="font-mono text-extraLightGrey">
           <p>
-            <strong>Ad .</strong> https://ctrlZinsurance.where
+            <strong>&#x2716; Ad .</strong> https://ctrlZinsurance.where
           </p>
         </div>
         <div className="font-mono text-xl text-blue-500">
-          <p>Ctrl+Z Insurance </p>
+          <a href="">Ctrl+Z Insurance</a>
         </div>
         <div className="font-mono text-extraLightGrey">
           <p>
@@ -55,15 +54,16 @@ export default function Ad() {
           </p>
         </div>
       </div>
+
       {/* 4 */}
-      <div className="p-4">
+      <div className="col-span-1 mt-4 gap-4 rounded-md bg-lightGrey p-4">
         <div className="font-mono text-extraLightGrey">
           <p>
-            <strong>Ad .</strong> https://robotdating.co.nz
+            <strong>&#x2716; Ad .</strong> https://robotdating.join
           </p>
         </div>
         <div className="font-mono text-xl text-blue-500">
-          <p>Robot Dating Agency </p>
+          <a href="">Robot Dating Agency </a>
         </div>
         <div className="font-mono text-extraLightGrey">
           <p>
