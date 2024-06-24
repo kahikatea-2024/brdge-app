@@ -35,7 +35,6 @@ export default function PostComponent() {
     event.preventDefault()
     addPostMutation.mutate(form)
   }
-  const ComponentStyles = 'mb-4 flex h-auto rounded-md bg-lightGrey'
   return (
     <div className={twMerge(ComponentStyles)}>
       <div className="pl-4  pt-4">
