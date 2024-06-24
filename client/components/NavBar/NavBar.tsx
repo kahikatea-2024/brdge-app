@@ -25,14 +25,14 @@ export default function NavBar() {
   }
 
   return (
-    <div className=" rounded-md border-gray-200 bg-lightGrey pb-4 pl-4 shadow-xl">
+    <div className=" dark:bg-dlightGrey rounded-md border-gray-200 bg-lightGrey pb-4 pl-4 shadow-xl">
       <div className="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between gap-1 p-4">
         <Link to="/">
           <Logo className="h-10" />
         </Link>
         <TextField
           placeholder="Search..."
-          className=" text-darkGray  bg-extraLightGrey focus:ring-2 focus:ring-blue-500"
+          className=" text-darkGray  dark:bg-dextraLightGrey bg-extraLightGrey focus:ring-2 focus:ring-blue-500"
         />
         <div className="flex items-center gap-2">
           <div> </div>
@@ -40,10 +40,10 @@ export default function NavBar() {
             <button onClick={toggleDropdown} className="relative">
               <Avatar src={user?.picture} size="small" />
               {isOpen && (
-                <div className="center-20 absolute w-20 rounded-lg bg-lightGrey py-1 shadow-lg">
+                <div className="center-20 dark:bg-dlightGrey absolute w-20 rounded-lg bg-lightGrey py-1 shadow-lg">
                   <button
                     onClick={() => {}}
-                    className="block w-full px-4 py-2 text-left text-sm text-extraLightGrey hover:bg-primary"
+                    className="dark:text-dextraLightGrey block w-full px-4 py-2 text-left text-sm text-extraLightGrey hover:bg-primary"
                   >
                     <Link to="/Profile">Profile</Link>
                   </button>
@@ -52,7 +52,7 @@ export default function NavBar() {
                       // Handle edit link action
                       console.log('Navigate to edit page')
                     }}
-                    className="block w-full px-4 py-2 text-left text-sm text-extraLightGrey hover:bg-primary"
+                    className="dark:text-dextraLightGrey block w-full px-4 py-2 text-left text-sm text-extraLightGrey hover:bg-primary"
                   >
                     Edit
                   </button>

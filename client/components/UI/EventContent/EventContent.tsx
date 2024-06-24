@@ -51,26 +51,26 @@ export default function Events() {
       <div className="pt- 10 flex flex-col">
         <div className="flex flex-row">
           <img src={image} className="size-44 pl-2"></img>
-          <div className="flex flex-col p-2 font-mono text-xl text-extraLightGrey ">
+          <div className="dark:text-dextraLightGrey flex flex-col p-2 font-mono text-xl text-extraLightGrey">
             <h2 className="pt-8">{EventName}</h2>
             <p className="p-0 text-sm">{date}</p>
           </div>
         </div>
       </div>
-      <p className="p-2 pb-8 font-mono text-sm text-extraLightGrey">
+      <p className="dark:text-dextraLightGrey p-2 pb-8 font-mono text-sm text-extraLightGrey">
         {description}
       </p>
       <hr />
       <div className="flex flex-col pt-10">
         <div className="flex flex-row">
           <img src={image2} className="size-44 pl-2"></img>
-          <div className="flex flex-col p-2 font-mono text-xl text-extraLightGrey ">
+          <div className="dark:text-dextraLightGrey flex flex-col p-2 font-mono text-xl text-extraLightGrey">
             <h2 className="pt-8">{EventName2}</h2>
             <p className="p-0 text-sm">{date2}</p>
           </div>
         </div>
       </div>
-      <p className="p-2 pb-8 font-mono text-sm text-extraLightGrey">
+      <p className="dark:text-dextraLightGrey p-2 pb-8 font-mono text-sm text-extraLightGrey">
         {description2}
       </p>
 
@@ -78,13 +78,13 @@ export default function Events() {
       <div className="flex flex-col pt-10">
         <div className="flex flex-row">
           <img src={image3} className="size-44 pl-2"></img>
-          <div className="flex flex-col p-2 font-mono text-xl text-extraLightGrey ">
+          <div className="dark:text-dextraLightGrey flex flex-col p-2 font-mono text-xl text-extraLightGrey ">
             <h2 className="pt-8">{EventName3}</h2>
             <p className="p-0 text-sm">{date3}</p>
           </div>
         </div>
       </div>
-      <p className="p-2  font-mono text-sm text-extraLightGrey">
+      <p className="dark:text-dextraLightGrey  p-2 font-mono text-sm text-extraLightGrey">
         {description3}
       </p>
     </>

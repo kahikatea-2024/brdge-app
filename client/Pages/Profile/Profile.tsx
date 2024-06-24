@@ -42,7 +42,7 @@ export default function Profile() {
   }
   if (data)
     return (
-      <div className="relative min-h-screen bg-darkGrey">
+      <div className="dark:bg-ddarkGrey relative min-h-screen bg-darkGrey">
         <div>
           <NavBar />
         </div>
@@ -67,8 +67,8 @@ export default function Profile() {
         <div className="content grid grid-cols-7 gap-4 p-4">
           <div className="col-span-1"></div>
           <div className="col-span-5 gap-2">
-            <div className="container h-28 rounded-md bg-lightGrey p-6">
-              <p className="pb-0 pl-0  text-center font-mono text-sm text-extraLightGrey ">
+            <div className="dark:bg-dlightGrey container h-28 rounded-md bg-lightGrey p-6">
+              <p className="dark:text-dextraLightGrey pb-0  pl-0 text-center font-mono text-sm text-extraLightGrey">
                 {data.bio}
               </p>
             </div>
@@ -79,14 +79,14 @@ export default function Profile() {
         <div className="content grid grid-cols-7 gap-4 p-4">
           <div className="col-span-1"></div>
           <div className="col-span-4 gap-1">
-            <div className="container h-28  rounded-md bg-lightGrey ">
+            <div className="dark:bg-dlightGrey container  h-28 rounded-md bg-lightGrey ">
               <Experience data={data} />
             </div>
-            <div className="container mt-3 h-28 rounded-md bg-lightGrey ">
+            <div className="dark:bg-dlightGrey container mt-3 h-28 rounded-md bg-lightGrey ">
               <Education data={data} />
             </div>
           </div>
-          <div className="col-span-1 gap-1 rounded-md bg-lightGrey">
+          <div className="dark:bg-dlightGrey col-span-1 gap-1 rounded-md bg-lightGrey">
             <SocialMediaIcons className="w-16 p-2" src={github} />
             <SocialMediaIcons className="w-14 p-2" src={linkedin} />
             <SocialMediaIcons className="w-14 p-2" src={facebook} />

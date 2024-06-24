@@ -4,7 +4,8 @@ import Button from '../UI/Button/Button'
 import PostField from '../UI/Text field/PostField'
 
 export default function PostComponent() {
-  const ComponentStyles = 'mb-4 flex h-auto rounded-md bg-lightGrey'
+  const ComponentStyles =
+    'mb-4 flex h-auto rounded-md bg-lightGrey dark:bg-dlightGrey'
   return (
     <div className={twMerge(ComponentStyles)}>
       <div className="pl-4  pt-4">
@@ -15,7 +16,7 @@ export default function PostComponent() {
       </div>
       <div className="flex w-full flex-col p-4">
         <PostField
-          className="w-full rounded-xl bg-darkGrey p-4 text-extraLightGrey  focus:ring-2 focus:ring-blue-500"
+          className=" dark:bg-ddarkGrey w-full rounded-xl bg-darkGrey p-4 text-extraLightGrey focus:ring-2 focus:ring-blue-500 dark:text-extraLightGrey"
           placeholder="What do you want to share?"
         />
         <div className="self-end pt-2">
