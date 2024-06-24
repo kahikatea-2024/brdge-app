@@ -28,6 +28,7 @@ function TextField({ className, ...rest }: InputAttributes) {
   return (
     <form onSubmit={handleSubmit}>
       <input
+        size={60}
         className={twMerge(TextFieldClasses, className)}
         type="text"
         name="text"
