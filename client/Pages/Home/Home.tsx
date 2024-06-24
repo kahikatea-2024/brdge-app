@@ -7,8 +7,13 @@ import { usePosts } from '../../hooks/usePosts'
 import LoadingSpinner from '../../components/UI/LoadingSpinner/LoadingSpinner'
 import Ad from '../../components/UI/Ad/Ad'
 import EventContent from '../../components/UI/EventContent/EventContent'
+import { useState } from 'react'
 
 export default function Home() {
+  const [darkMode, setDarkMode] = useState(false)
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode)
+  }
   const { user } = useAuth0()
   const { data, isLoading, isError } = usePosts()
 
@@ -43,27 +48,35 @@ export default function Home() {
   //   const PostArray = [mockPost, mockPost, mockPost]
 
   return (
-    <div className="dark:bg-ddarkGrey gap-4 bg-darkGrey">
-      <div className="sticky top-0 z-50  pl-4 pr-4">
-        <NavBar />
-      </div>
-      <div className="content grid grid-cols-4 gap-4 p-4">
-        <div className="dark:bg-dlightGrey col-span-1 rounded-md bg-lightGrey ">
-          <div className="dark:text-dextraLightGrey text-dextraLightGrey p-4 text-center font-mono text-3xl">
-            Upcoming Events
-          </div>
-          <div>
-            <EventContent />
-          </div>
+    <div className={`${darkMode && 'dark'}`}>
+      <button
+        onClick={toggleDarkMode}
+        className="absolute right-16 top-24 z-50 h-16 w-16 rounded-full bg-neutral-900 text-white dark:bg-white dark:text-black"
+      >
+        {darkMode ? 'LHT' : 'DRK'}
+      </button>
+      <div className="dark:bg-ddarkGrey gap-4 bg-darkGrey">
+        <div className="sticky top-0 z-50  pl-4 pr-4">
+          <NavBar />
         </div>
-        <div className="col-span-2 gap-2">
-          <IfAuthenticated>
-            <PostComponent />
-          </IfAuthenticated>
-          {data && <Feed posts={data} />}
-        </div>
-        <div className="">
-          <Ad />
+        <div className="content grid grid-cols-4 gap-4 p-4">
+          <div className="dark:bg-dlightGrey col-span-1 rounded-md bg-lightGrey ">
+            <div className="dark:text-dextraLightGrey text-dextraLightGrey p-4 text-center font-mono text-3xl">
+              Upcoming Events
+            </div>
+            <div>
+              <EventContent />
+            </div>
+          </div>
+          <div className="col-span-2 gap-2">
+            <IfAuthenticated>
+              <PostComponent />
+            </IfAuthenticated>
+            {data && <Feed posts={data} />}
+          </div>
+          <div className="">
+            <Ad />
+          </div>
         </div>
       </div>
     </div>
