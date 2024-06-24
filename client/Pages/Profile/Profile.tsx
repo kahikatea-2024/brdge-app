@@ -25,11 +25,17 @@ const facebook = '../public/images/facebooklight.png'
 // }
 
 export default function Profile() {
+
   const [darkMode, setDarkMode] = useState(false)
   const toggleDarkMode = () => {
     setDarkMode(!darkMode)
   }
-  const { id } = useParams()
+  
+  let { id } = useParams()
+  if (Number(id) > 3) {
+    id = '1'
+  }
+
 
   const { data, isLoading, isError } = useProfile(`${id}`)
 
@@ -79,11 +85,12 @@ export default function Profile() {
           <div className="content grid grid-cols-7 gap-4 p-4">
             <div className="col-span-1"></div>
             <div className="col-span-5 gap-2">
-              <div className="dark:bg-dlightGrey container h-28 rounded-md bg-lightGrey p-6">
+              <div className="dark:bg-dlightGrey container h-28 w-full rounded-md bg-lightGrey p-6">
                 <p className="dark:text-dextraLightGrey pb-0  pl-0 text-center font-mono text-sm text-extraLightGrey">
                   {data.bio}
                 </p>
               </div>
+
             </div>
             <div className="col-span-1"></div>
           </div>
