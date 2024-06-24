@@ -24,7 +24,10 @@ const facebook = '../public/images/facebooklight.png'
 // }
 
 export default function Profile() {
-  const { id } = useParams()
+  let { id } = useParams()
+  if (Number(id) > 3) {
+    id = '1'
+  }
 
   const { data, isLoading, isError } = useProfile(`${id}`)
 
