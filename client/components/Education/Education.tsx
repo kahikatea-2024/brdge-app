@@ -49,8 +49,8 @@ export default function Education(propsData: Props) {
       <div className="dark:bg-dlightGrey bg-lightGrey">
         <div className="flex flex-col">
           <div className="flex flex-row">
-            <ExperienceLogo className="w-16 " src={logoUrl} />
-            <div className="dark:text-dextraLightGrey flex flex-col pl-4 pt-4 font-mono text-xl text-extraLightGrey">
+            <ExperienceLogo className="w-16 ml-2 " src={logoUrl} />
+            <div className="dark:text-dextraLightGrey flex flex-col pl-5 pt-4 font-mono text-xl text-extraLightGrey">
               <p>{educationData.position_or_qualification}</p>
               <p className="pb-0 pl-0 text-sm">{educationData.name_of_place}</p>
               <p className="pb-0 pl-0 text-sm">{educationData.location}</p>
