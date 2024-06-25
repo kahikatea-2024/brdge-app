@@ -10,7 +10,7 @@ import EventContent from '../../components/UI/EventContent/EventContent'
 import { useState } from 'react'
 
 export default function Home() {
-  const [darkMode, setDarkMode] = useState(false)
+  const [darkMode, setDarkMode] = useState(true)
   const toggleDarkMode = () => {
     setDarkMode(!darkMode)
   }
