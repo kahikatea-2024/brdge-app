@@ -1,27 +1,41 @@
-export default function Login(){
-    return (
-        <>
-          <div className="bg-gray-100 flex justify-center items-center h-screen">
-            <div className="w-1/2 h-screen hidden lg:block">
+import { Link } from 'react-router-dom'
+
+export default function Login() {
+  return (
+    <>
+      <div className="bg-ddarkGrey">
+        <div className="flex p-16">
+          {/* Logo section */}
+          <div className="flex h-[60rem] w-2/5 flex-col items-center justify-center rounded-l-lg bg-teal-700">
+            <div className="mb-4">
               <img
-                src="/images/LoginImage.png"
-                alt="Placeholder Image"
-                className="object-cover w-full h-full"
+                src="/images/BR-light.png"
+                alt="BR-Light Logo"
+                className="h-full w-full object-cover"
               />
             </div>
-            
-                <button
-                  type="submit"
-                  className="bg-primary m-16 h-20 hover:bg-teal-700 p-16 text-white font-semibold rounded-md text-xl py-2 px-4 w-1/2"
-                >
-                  GET STARTED
-                </button>
-              
-              <div className="mt-6 text-blue-500 text-center">
-
-              </div>
+            <div className="pt-20 text-center text-white">
+              <p>DID YOU KNOW</p>
             </div>
-          
-        </>
-      );
-    }
+            <div className="p-8 text-center font-mono text-3xl text-white">
+              <p>
+                Over 14 million junior developers worldwide (including in
+                parallel universes) use BRDG for advancing their careers.
+              </p>
+            </div>
+            <div>
+              <img src="/images/loginImage2.png"></img>
+            </div>
+          </div>
+
+          {/* Button section */}
+          <div className="flex h-[60rem] w-3/5 items-center justify-center rounded-r-lg bg-dextraLightGrey">
+            <div className="h-20 w-1/2 rounded-md bg-teal-700 px-4 py-2 pt-6 text-center text-xl font-semibold text-white hover:bg-primary">
+              <Link to="/">GET STARTED</Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  )
+}
