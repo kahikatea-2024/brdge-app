@@ -13,7 +13,7 @@ export async function seed(knex) {
       avatar_image:
         'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAs_TDUTeHiZQ1tqLJlvItaBOjcmRTeoSbHw&s',
       cover_image:
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAs_TDUTeHiZQ1tqLJlvItaBOjcmRTeoSbHw&s',
+        'https://uproxx.com/wp-content/uploads/2023/02/hrek-tf-uproxx.jpg?w=1600&h=500&crop=1',
       location: 'Far Far Away',
       email: 'shrek@exampleswamp.com',
     },
@@ -24,7 +24,7 @@ export async function seed(knex) {
       avatar_image:
         'https://upload.wikimedia.org/wikipedia/en/b/b9/Princess_Fiona.png',
       cover_image:
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAs_TDUTeHiZQ1tqLJlvItaBOjcmRTeoSbHw&s',
+        'https://static0.gamerantimages.com/wordpress/wp-content/uploads/2024/04/shrek-2-far-far-away.jpg',
       location: 'Far Far Away',
       email: 'fiona@exampleswamp.com',
     },
@@ -35,7 +35,7 @@ export async function seed(knex) {
       avatar_image:
         'https://upload.wikimedia.org/wikipedia/en/6/6c/Donkey_%28Shrek%29.png',
       cover_image:
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAs_TDUTeHiZQ1tqLJlvItaBOjcmRTeoSbHw&s',
+        'https://qph.cf2.quoracdn.net/main-qimg-889bc3c990171ce2225ecdbb0a13d362-pjlq',
       location: 'Far Far Away',
       email: 'donkey@exampleswamp.com',
     },
