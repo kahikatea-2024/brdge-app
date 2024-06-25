@@ -19,7 +19,7 @@ export default function Experience(propsData: Props) {
   if (isError) {
     return <span>Error...</span>
   }
-  // const logoUrl = '../public/images/work.png'
+  const logoUrl = '../public/images/work.png'
   // const logoUrl2 = '../public/images/blackwork.png'
   // If data does not exsit then display placeholderData
   const [darkMode, setDarkMode] = useState(false)
@@ -28,7 +28,7 @@ export default function Experience(propsData: Props) {
   const toggleDarkMode = () => {
     setDarkMode(!darkMode)
   }
-  const selectedLogoUrl = darkMode ? logoUrl2 : logoUrl
+
   const experienceData = data[0] || placeholderData
 
   return (
@@ -36,7 +36,7 @@ export default function Experience(propsData: Props) {
       <div className="bg-lightGrey dark:bg-dlightGrey">
         <div className="flex flex-col">
           <div className="flex flex-row">
-            <ExperienceLogo className="w-16 " src={logoUrl} />
+            <ExperienceLogo className="w-16 ml-3" src={logoUrl} />
             <div className="flex flex-col pl-4 pt-4 font-mono text-xl text-extraLightGrey dark:text-dextraLightGrey">
               <p>{experienceData.position_or_qualification}</p>
               <p className="pb-0 pl-0 text-sm">
