@@ -31,7 +31,7 @@ export default function Login() {
           {/* Button section */}
           <div className="flex h-[60rem] w-3/5 items-center justify-center rounded-r-lg bg-dextraLightGrey">
             <div className="h-20 w-1/2 rounded-md bg-teal-700 px-4 py-2 pt-6 text-center text-xl font-semibold text-white hover:bg-primary">
-              <Link to="/">GET STARTED</Link>
+              <Link to="/home">GET STARTED</Link>
             </div>
           </div>
         </div>

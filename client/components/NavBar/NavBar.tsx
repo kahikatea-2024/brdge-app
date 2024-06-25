@@ -30,14 +30,14 @@ export default function NavBar() {
 
   // if (userProfile || isError)
   return (
-    <div className=" dark:bg-dlightGrey rounded-md border-gray-200 bg-lightGrey pb-4 pl-4 shadow-xl">
+    <div className=" rounded-md border-gray-200 bg-lightGrey pb-4 pl-4 shadow-xl dark:bg-dlightGrey">
       <div className="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between gap-1 p-4">
-        <Link to="/">
+        <Link to="/home">
           <Logo className="h-10" />
         </Link>
         <TextField
           placeholder="Search..."
-          className=" text-darkGray  dark:bg-dextraLightGrey bg-darkGrey focus:ring-2 focus:ring-blue-500"
+          className=" text-darkGray  bg-darkGrey focus:ring-2 focus:ring-blue-500 dark:bg-dextraLightGrey"
         />
         <div className="flex items-center gap-2">
           <div> </div>
@@ -45,10 +45,10 @@ export default function NavBar() {
             <button onClick={toggleDropdown} className="relative">
               <Avatar src={profile?.avatar_image} size="small" />
               {isOpen && (
-                <div className="center-20 dark:bg-dlightGrey absolute w-20 rounded-lg bg-lightGrey py-1 shadow-lg">
+                <div className="center-20 absolute w-20 rounded-lg bg-lightGrey py-1 shadow-lg dark:bg-dlightGrey">
                   <button
                     onClick={() => {}}
-                    className="dark:text-dextraLightGrey block w-full px-4 py-2 text-left text-sm text-extraLightGrey hover:bg-primary"
+                    className="block w-full px-4 py-2 text-left text-sm text-extraLightGrey hover:bg-primary dark:text-dextraLightGrey"
                   >
                     <Link to={`/profiles/${profile?.user_id}`}>Profile</Link>
                   </button>
@@ -57,7 +57,7 @@ export default function NavBar() {
                       // Handle edit link action
                       console.log('Navigate to edit page')
                     }}
-                    className="dark:text-dextraLightGrey block w-full px-4 py-2 text-left text-sm text-extraLightGrey hover:bg-primary"
+                    className="block w-full px-4 py-2 text-left text-sm text-extraLightGrey hover:bg-primary dark:text-dextraLightGrey"
                   >
                     Edit
                   </button>
