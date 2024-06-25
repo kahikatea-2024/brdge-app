@@ -13,6 +13,7 @@ export default function PostComponent() {
 
   const queryClient = useQueryClient()
   const { getAccessTokenSilently } = useAuth0()
+
   interface MutationProps {
     post: string
     image: string
@@ -21,6 +22,7 @@ export default function PostComponent() {
     mutationFn: async (props: MutationProps) => {
       const token = await getAccessTokenSilently()
       return addPost(props.post, token, props.image)
+
     },
     onSuccess: () => {
       queryClient.invalidateQueries({
@@ -58,6 +60,7 @@ export default function PostComponent() {
           <PostField
             onChange={(e) => handleChange(e)}
             className=" w-full rounded-xl bg-darkGrey p-4 text-extraLightGrey focus:ring-2 focus:ring-blue-500 dark:bg-ddarkGrey dark:text-dextraLightGrey"
+
             placeholder="What do you want to share?"
             value={form}
           />
