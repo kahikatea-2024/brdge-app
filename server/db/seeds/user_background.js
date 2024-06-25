@@ -78,5 +78,13 @@ export async function seed(knex) {
       position_or_qualification: 'Full stack engineer',
       isExperience: true,
     },
+    {
+      user_background_id: 10,
+      user_id: 3,
+      background_id: 1,
+      duration: '2021 to present',
+      position_or_qualification: 'UI design certificate',
+      isExperience: false,
+    },
   ])
 }

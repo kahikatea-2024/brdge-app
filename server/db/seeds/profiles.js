@@ -13,7 +13,7 @@ export async function seed(knex) {
       avatar_image:
         'https://i.pinimg.com/236x/5e/71/0b/5e710bb38b1cae44a3cae02342248eae.jpg',
       cover_image:
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAs_TDUTeHiZQ1tqLJlvItaBOjcmRTeoSbHw&s',
+        'https://uproxx.com/wp-content/uploads/2023/02/hrek-tf-uproxx.jpg?w=1600&h=500&crop=1',
       location: 'Far Far Away',
       email: 'shrek@exampleswamp.com',
     },
@@ -24,7 +24,7 @@ export async function seed(knex) {
       avatar_image:
         'https://64.media.tumblr.com/abdba580b7f46e44590d76ac172087ef/tumblr_inline_pdmkzmXp8x1s442te_640.jpg',
       cover_image:
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAs_TDUTeHiZQ1tqLJlvItaBOjcmRTeoSbHw&s',
+        'https://static0.gamerantimages.com/wordpress/wp-content/uploads/2024/04/shrek-2-far-far-away.jpg',
       location: 'Far Far Away',
       email: 'fiona@exampleswamp.com',
     },
@@ -35,7 +35,7 @@ export async function seed(knex) {
       avatar_image:
         'https://th.bing.com/th/id/OIP.X3gID7u9zykX0pgqXfbeLQAAAA?rs=1&pid=ImgDetMain',
       cover_image:
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAs_TDUTeHiZQ1tqLJlvItaBOjcmRTeoSbHw&s',
+        'https://qph.cf2.quoracdn.net/main-qimg-889bc3c990171ce2225ecdbb0a13d362-pjlq',
       location: 'Far Far Away',
       email: 'donkey@exampleswamp.com',
     },
