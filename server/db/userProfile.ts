@@ -18,6 +18,15 @@ export async function getUserProfileById(id: number) {
 }
 
 //getUserProfileById
+export async function getUserProfileByEmail(email: string) {
+  const res = db('users')
+    .join('profiles', 'users.user_id', 'profiles.user_id')
+    .where('users.user_email', email)
+    .first()
+  return res
+}
+
+//getUserProfileById
 export async function getUserProfileByAuth0Id(id: string) {
   const res = db('users')
     .join('profiles', 'users.user_id', 'profiles.user_id')
@@ -25,7 +34,6 @@ export async function getUserProfileByAuth0Id(id: string) {
     .first()
   return res
 }
-
 //getUserEducationbyId
 export async function getUserEducationbyId(id: number) {
   const res = db('user_background')

@@ -17,7 +17,10 @@ export async function fetchUserProfileByUsername(
   const res = await request.get(rootUrl + `/search/${userName}`)
   return res.body
 }
-
+export async function fetchUserProfileByEmail(email: string): Promise<Profile> {
+  const res = await request.get(rootUrl + `/searchEmail/${email}`)
+  return res.body
+}
 export async function getExperience(id: string) {
   return await request.get(rootUrl + `/${id}/experience`).then((res) => {
     return res.body

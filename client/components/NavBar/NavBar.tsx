@@ -1,3 +1,4 @@
+/* eslint-disable prefer-const */
 import { useAuth0 } from '@auth0/auth0-react'
 import Avatar from '../UI/Avatar/Avatar'
 import Button from '../UI/Button/Button'
@@ -10,14 +11,10 @@ import { useState } from 'react'
 import { useCurrentUser } from '../../hooks/useProfile'
 
 export default function NavBar() {
-  // const { profile } = useParams()
-  const { user, logout, loginWithRedirect } = useAuth0()
+  const { logout, loginWithRedirect } = useAuth0()
+
   const [isOpen, setIsOpen] = useState(false)
   const { data: profile } = useCurrentUser()
-  const [id, setId] = useState(profile?.profile_id)
-  if (!id) {
-    setId(1)
-  }
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen)
@@ -31,6 +28,7 @@ export default function NavBar() {
     loginWithRedirect()
   }
 
+  // if (userProfile || isError)
   return (
     <div className=" dark:bg-dlightGrey rounded-md border-gray-200 bg-lightGrey pb-4 pl-4 shadow-xl">
       <div className="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between gap-1 p-4">
@@ -45,14 +43,14 @@ export default function NavBar() {
           <div> </div>
           <IfAuthenticated>
             <button onClick={toggleDropdown} className="relative">
-              <Avatar src={user?.picture} size="small" />
+              <Avatar src={profile?.avatar_image} size="small" />
               {isOpen && (
                 <div className="center-20 dark:bg-dlightGrey absolute w-20 rounded-lg bg-lightGrey py-1 shadow-lg">
                   <button
                     onClick={() => {}}
                     className="dark:text-dextraLightGrey block w-full px-4 py-2 text-left text-sm text-extraLightGrey hover:bg-primary"
                   >
-                    <Link to={`/profiles/${id}`}>Profile</Link>
+                    <Link to={`/profiles/${profile?.user_id}`}>Profile</Link>
                   </button>
                   <button
                     onClick={() => {
