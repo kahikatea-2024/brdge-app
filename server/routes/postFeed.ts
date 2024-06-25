@@ -30,8 +30,7 @@ router.post('/', checkJwt, async (req: JwtRequest, res) => {
       newPost.user_id = user.user_id
       newPost.username = user.username
       newPost.avatar_image = user.avatar_image
-      newPost.image_url =
-        'https://static1.colliderimages.com/wordpress/wp-content/uploads/2023/04/shrek-5-mike-myers.jpg?q=50&fit=contain&w=1140&h=&dpr=1.5' //hardcoded for now
+
       await db.addPost(newPost)
       res.sendStatus(201)
     }

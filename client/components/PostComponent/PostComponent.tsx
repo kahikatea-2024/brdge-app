@@ -35,13 +35,15 @@ export default function PostComponent() {
   function handleChange(event: React.ChangeEvent<HTMLTextAreaElement>) {
     setForm(event.target.value)
   }
-  function handleChangeImage(event: React.ChangeEvent<HTMLTextAreaElement>) {
+  function handleChangeImage(event: React.ChangeEvent<HTMLInputElement>) {
     setImage(event.target.value)
   }
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
     addPostMutation.mutate({ post: form, image })
+    setForm('')
+    setImage('')
   }
   return (
     <div className={twMerge(ComponentStyles)}>
@@ -55,16 +57,16 @@ export default function PostComponent() {
         <form onSubmit={(e) => handleSubmit(e)}>
           <PostField
             onChange={(e) => handleChange(e)}
-            className=" w-full rounded-xl bg-darkGrey p-4 text-extraLightGrey focus:ring-2 focus:ring-blue-500 dark:bg-ddarkGrey dark:text-extraLightGrey"
+            className=" w-full rounded-xl bg-darkGrey p-4 text-extraLightGrey focus:ring-2 focus:ring-blue-500 dark:bg-ddarkGrey dark:text-dextraLightGrey"
             placeholder="What do you want to share?"
             value={form}
           />
-          <PostField
+          <input
             onChange={(e) => handleChangeImage(e)}
-            className=" w-1/2 rounded-xl bg-darkGrey p-4 text-extraLightGrey focus:ring-2 focus:ring-blue-500 dark:bg-ddarkGrey dark:text-extraLightGrey"
-            placeholder="What do you want to share?"
+            className=" w-full rounded-xl bg-darkGrey p-4 text-xs text-extraLightGrey focus:ring-2 focus:ring-blue-500 dark:bg-ddarkGrey dark:text-dextraLightGrey"
+            placeholder="Please paste the image link"
             value={image}
-          />
+          ></input>
           <div className="self-end pt-2">
             <Button className="text-sm">Post</Button>
           </div>
