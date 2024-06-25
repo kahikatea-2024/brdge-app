@@ -25,17 +25,15 @@ const facebook = '../public/images/facebooklight.png'
 // }
 
 export default function Profile() {
-
   const [darkMode, setDarkMode] = useState(false)
   const toggleDarkMode = () => {
     setDarkMode(!darkMode)
   }
-  
+
   let { id } = useParams()
-  if (Number(id) > 3) {
+  if (Number(id) > 3 || id === undefined) {
     id = '1'
   }
-
 
   const { data, isLoading, isError } = useProfile(`${id}`)
 
@@ -90,7 +88,6 @@ export default function Profile() {
                   {data.bio}
                 </p>
               </div>
-
             </div>
             <div className="col-span-1"></div>
           </div>
