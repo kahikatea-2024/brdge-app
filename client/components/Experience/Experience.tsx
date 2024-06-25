@@ -49,7 +49,7 @@ export default function Experience(propsData: Props) {
         <div className="flex flex-col">
           <div className="flex flex-row">
             <ExperienceLogo className="w-16 " src={logoUrl} />
-            <div className="flex flex-col pl-4 pt-4 font-mono text-xl text-extraLightGrey dark:text-dextraLightGrey">
+            <div className="flex flex-col pl-4 pt-4 font-sans text-xl text-extraLightGrey dark:text-dextraLightGrey">
               <p>{experienceData.position_or_qualification}</p>
               <p className="pb-0 pl-0 text-sm">
                 {experienceData.name_of_place}

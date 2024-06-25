@@ -44,7 +44,7 @@ export default function FeedPost({
             </p>
           </div>
         </div>
-        <div className="text-s text-extraLightGrey dark:text-dextraLightGrey">
+        <div className="text-s m-3 text-extraLightGrey dark:text-dextraLightGrey">
           <PostText>{content}</PostText>
         </div>
         <div className="">
