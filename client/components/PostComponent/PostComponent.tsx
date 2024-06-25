@@ -8,17 +8,20 @@ import { useState } from 'react'
 import { useAuth0 } from '@auth0/auth0-react'
 
 export default function PostComponent() {
-
   const ComponentStyles =
     'mb-4 flex h-auto rounded-md bg-lightGrey dark:bg-dlightGrey'
 
   const queryClient = useQueryClient()
-  const {getAccessTokenSilently} = useAuth0()
+  const { getAccessTokenSilently } = useAuth0()
+  interface MutationProps {
+    post: string
+    image: string
+  }
   const addPostMutation = useMutation({
-    mutationFn: async (post: string) => 
-      {
-       const token = await getAccessTokenSilently()
-        return addPost(post, token)},
+    mutationFn: async (props: MutationProps) => {
+      const token = await getAccessTokenSilently()
+      return addPost(props.post, token, props.image)
+    },
     onSuccess: () => {
       queryClient.invalidateQueries({
         queryKey: ['posts'],
@@ -27,13 +30,20 @@ export default function PostComponent() {
   })
 
   const [form, setForm] = useState('')
+  const [image, setImage] = useState('')
 
   function handleChange(event: React.ChangeEvent<HTMLTextAreaElement>) {
     setForm(event.target.value)
   }
+  function handleChangeImage(event: React.ChangeEvent<HTMLInputElement>) {
+    setImage(event.target.value)
+  }
+
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
-    addPostMutation.mutate(form)
+    addPostMutation.mutate({ post: form, image })
+    setForm('')
+    setImage('')
   }
   return (
     <div className={twMerge(ComponentStyles)}>
@@ -44,14 +54,19 @@ export default function PostComponent() {
         />
       </div>
       <div className="flex w-full flex-col p-4">
-
         <form onSubmit={(e) => handleSubmit(e)}>
           <PostField
             onChange={(e) => handleChange(e)}
-            className=" dark:bg-ddarkGrey w-full rounded-xl bg-darkGrey p-4 text-extraLightGrey focus:ring-2 focus:ring-blue-500 dark:text-extraLightGrey"
+            className=" w-full rounded-xl bg-darkGrey p-4 text-extraLightGrey focus:ring-2 focus:ring-blue-500 dark:bg-ddarkGrey dark:text-dextraLightGrey"
             placeholder="What do you want to share?"
             value={form}
           />
+          <input
+            onChange={(e) => handleChangeImage(e)}
+            className=" w-full rounded-xl bg-darkGrey p-4 text-xs text-extraLightGrey focus:ring-2 focus:ring-blue-500 dark:bg-ddarkGrey dark:text-dextraLightGrey"
+            placeholder="Please paste the image link"
+            value={image}
+          ></input>
           <div className="self-end pt-2">
             <Button className="text-sm">Post</Button>
           </div>
