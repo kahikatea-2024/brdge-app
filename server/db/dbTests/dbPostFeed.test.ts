@@ -45,7 +45,7 @@ describe('delete by id', () => {
     const postId = 2
 
     //ACT & ASSERT
-    await deletePost(postId)
+    await deletePost(postId, auth0Id)
     const posts = await getAllPosts()
     const res = posts.find((post: Post) => post.feed_post_id === postId)
     expect(res).toBe(undefined)
@@ -54,7 +54,7 @@ describe('delete by id', () => {
     //given
     const postId = 2
     //when
-    const res = await deletePost(postId)
+    const res = await deletePost(postId, auth0Id)
     //then
     expect(res).toBe(1)
   })
