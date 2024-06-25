@@ -16,5 +16,5 @@ export interface Profile {
   avatar_image: string
   cover_image: string
   location: string
-  website: string
+  email: string
 }

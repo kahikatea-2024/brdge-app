@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query'
-import { fetchProfile } from '../apis/profile'
+import { fetchProfile, fetchUserProfileByEmail } from '../apis/profile'
 import { useAuth0 } from '@auth0/auth0-react'
 
 export function useProfile(id: string) {
@@ -15,7 +15,7 @@ export function useCurrentUser() {
   //console.log('useCurrentUser: ', user)
   const query = useQuery({
     queryKey: ['currentUser', user],
-    queryFn: () => fetchProfile(user?.sub as string),
+    queryFn: () => fetchUserProfileByEmail(user?.email as string),
     enabled: !!user,
   })
   return { ...query }

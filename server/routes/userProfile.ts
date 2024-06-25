@@ -18,6 +18,22 @@ router.get('/search/:q', async (req, res) => {
     res.sendStatus(500)
   }
 })
+router.get('/searchEmail/:q', async (req, res) => {
+  const query = req.params.q
+
+  if (!query) {
+    res.status(422).json({ message: 'Please provide a valid query' })
+  }
+  try {
+    const userId = await db.getUserProfileByEmail(query)
+    console.log(userId)
+
+    res.json(userId)
+  } catch (error) {
+    console.error(`database error: ${error}`)
+    res.sendStatus(500)
+  }
+})
 
 export default router
 
