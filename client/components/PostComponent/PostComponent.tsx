@@ -8,17 +8,16 @@ import { useState } from 'react'
 import { useAuth0 } from '@auth0/auth0-react'
 
 export default function PostComponent() {
-
   const ComponentStyles =
     'mb-4 flex h-auto rounded-md bg-lightGrey dark:bg-dlightGrey'
 
   const queryClient = useQueryClient()
-  const {getAccessTokenSilently} = useAuth0()
+  const { getAccessTokenSilently } = useAuth0()
   const addPostMutation = useMutation({
-    mutationFn: async (post: string) => 
-      {
-       const token = await getAccessTokenSilently()
-        return addPost(post, token)},
+    mutationFn: async (post: string) => {
+      const token = await getAccessTokenSilently()
+      return addPost(post, token)
+    },
     onSuccess: () => {
       queryClient.invalidateQueries({
         queryKey: ['posts'],
@@ -44,11 +43,10 @@ export default function PostComponent() {
         />
       </div>
       <div className="flex w-full flex-col p-4">
-
         <form onSubmit={(e) => handleSubmit(e)}>
           <PostField
             onChange={(e) => handleChange(e)}
-            className=" dark:bg-ddarkGrey w-full rounded-xl bg-darkGrey p-4 text-extraLightGrey focus:ring-2 focus:ring-blue-500 dark:text-extraLightGrey"
+            className=" w-full rounded-xl bg-darkGrey p-4 text-extraLightGrey focus:ring-2 focus:ring-blue-500 dark:bg-ddarkGrey dark:text-extraLightGrey"
             placeholder="What do you want to share?"
             value={form}
           />

@@ -3,7 +3,7 @@ import * as db from '../db/postFeed.ts'
 import * as connections from '../db/userProfile.ts'
 import moment from 'moment'
 import checkJwt, { JwtRequest } from '../auth0.ts'
-import { NewPostData } from '../../models/postFeed.ts'
+
 const router = Router()
 
 //getAllPosts route - checked in thunderclient, can receive results

@@ -9,6 +9,7 @@ import { Post } from '../../../models/postFeed'
 import CommentIcon from '../UI/CommentIcon/CommentIcon'
 
 import DisqusThread from '../DisqusThread'
+import { Link } from 'react-router-dom'
 const comImage = 'images/comment-icon.png'
 
 interface PostAttributes extends HtmlHTMLAttributes<HTMLDivElement> {
@@ -30,18 +31,20 @@ export default function FeedPost({
       <div className="flex flex-col p-8">
         <div className="mb-2 flex items-center">
           <div className="pr-4 ">
-            <Avatar size="medium" src={avatar_image} />
+            <Link to={`profiles/${postData.user_id}`}>
+              <Avatar size="medium" src={avatar_image} />
+            </Link>
           </div>
           <div>
-            <p className="text-m dark:text-dextraLightGrey text-extraLightGrey">
+            <p className="text-m text-extraLightGrey dark:text-dextraLightGrey">
               {username}
             </p>
-            <p className="dark:text-dextraLightGrey text-xs text-extraLightGrey">
+            <p className="text-xs text-extraLightGrey dark:text-dextraLightGrey">
               {timestamp}
             </p>
           </div>
         </div>
-        <div className="text-s dark:text-dextraLightGrey text-extraLightGrey">
+        <div className="text-s text-extraLightGrey dark:text-dextraLightGrey">
           <PostText>{content}</PostText>
         </div>
         <div className="">
@@ -49,7 +52,7 @@ export default function FeedPost({
         </div>
         <div className="flex-rpw flex pt-2">
           <CommentIcon className="h-14 w-14" src={comImage} />
-          <div className="dark:text-dextraLightGrey pt-5 text-extraLightGrey">
+          <div className="pt-5 text-extraLightGrey dark:text-dextraLightGrey">
             <p>Comment</p>
           </div>
         </div>
