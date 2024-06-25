@@ -31,7 +31,7 @@ export default function FeedPost({
       <div className="flex flex-col p-8">
         <div className="mb-2 flex items-center">
           <div className="pr-4 ">
-            <Link to={`profiles/${postData.user_id}`}>
+            <Link to={`../profiles/${postData.user_id}`}>
               <Avatar size="medium" src={avatar_image} />
             </Link>
           </div>
