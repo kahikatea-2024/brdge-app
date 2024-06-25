@@ -84,7 +84,7 @@ export default function Profile() {
             <div className="col-span-1"></div>
             <div className="col-span-5 gap-2">
               <div className="h-29 container w-full rounded-md bg-lightGrey p-14 dark:bg-dlightGrey">
-                <p className="pb-0 pl-0  text-center font-mono text-sm text-extraLightGrey dark:text-dextraLightGrey">
+                <p className="pb-0 pl-0  text-center font-sans text-sm text-extraLightGrey dark:text-dextraLightGrey">
                   {data.bio}
                 </p>
               </div>

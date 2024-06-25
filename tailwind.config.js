@@ -15,7 +15,7 @@ export default {
       },
       fontFamily: {
         serif: ['"Roboto Slab"', 'serif'],
-        sans: ['Quicksand', 'sans-serif'],
+        sans: ['Poppins','Quicksand', 'sans-serif'],
       },
     },
   },
