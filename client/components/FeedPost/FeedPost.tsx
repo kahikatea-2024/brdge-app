@@ -48,7 +48,7 @@ export default function FeedPost({
           <PostText>{content}</PostText>
         </div>
         <div className="">
-          <ImagePost className="size-full" src={image_url} />
+          {image_url && <ImagePost className="size-full" src={image_url} />}
         </div>
         <div className="flex-rpw flex pt-2">
           <CommentIcon className="h-14 w-14" src={comImage} />

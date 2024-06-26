@@ -44,7 +44,7 @@ export default function Feed(props: FeedProps) {
     return () => {
       window.removeEventListener('scroll', handleScroll)
     }
-  }, [page])
+  }, [loadItems, page])
   return (
     <>
       {items ? (

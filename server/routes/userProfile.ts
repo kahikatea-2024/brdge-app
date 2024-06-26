@@ -26,7 +26,6 @@ router.get('/searchEmail/:q', async (req, res) => {
   }
   try {
     const userId = await db.getUserProfileByEmail(query)
-    console.log(userId)
 
     res.json(userId)
   } catch (error) {

@@ -6,6 +6,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { addPost } from '../../apis/posts'
 import { useState } from 'react'
 import { useAuth0 } from '@auth0/auth0-react'
+import { useCurrentUser } from '../../hooks/useProfile'
 
 export default function PostComponent() {
   const ComponentStyles =
@@ -22,7 +23,6 @@ export default function PostComponent() {
     mutationFn: async (props: MutationProps) => {
       const token = await getAccessTokenSilently()
       return addPost(props.post, token, props.image)
-
     },
     onSuccess: () => {
       queryClient.invalidateQueries({
@@ -50,17 +50,13 @@ export default function PostComponent() {
   return (
     <div className={twMerge(ComponentStyles)}>
       <div className="pl-4  pt-4">
-        <Avatar
-          size="medium"
-          src="https://i.pinimg.com/236x/5e/71/0b/5e710bb38b1cae44a3cae02342248eae.jpg"
-        />
+        <Avatar size="medium" src={useCurrentUser().data?.avatar_image} />
       </div>
       <div className="flex w-full flex-col p-4">
         <form onSubmit={(e) => handleSubmit(e)}>
           <PostField
             onChange={(e) => handleChange(e)}
             className=" w-full rounded-xl bg-darkGrey p-4 text-extraLightGrey focus:ring-2 focus:ring-blue-500 dark:bg-ddarkGrey dark:text-dextraLightGrey"
-
             placeholder="What do you want to share?"
             value={form}
           />
