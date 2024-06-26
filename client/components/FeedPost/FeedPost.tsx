@@ -31,7 +31,7 @@ export default function FeedPost({
       <div className="flex flex-col p-8">
         <div className="mb-2 flex items-center">
           <div className="pr-4 ">
-            <Link to={`profiles/${postData.user_id}`}>
+            <Link to={`../profiles/${postData.user_id}`}>
               <Avatar size="medium" src={avatar_image} />
             </Link>
           </div>
@@ -48,7 +48,7 @@ export default function FeedPost({
           <PostText>{content}</PostText>
         </div>
         <div className="">
-          <ImagePost className="size-full" src={image_url} />
+          {image_url && <ImagePost className="size-full" src={image_url} />}
         </div>
         <div className="flex-rpw flex pt-2">
           <CommentIcon className="h-14 w-14" src={comImage} />

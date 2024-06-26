@@ -1,9 +1,4 @@
-import {
-  useQuery,
-  useMutation,
-  useQueryClient,
-  MutationFunction,
-} from '@tanstack/react-query'
+import { useQuery } from '@tanstack/react-query'
 import { getAllPosts } from '../apis/posts'
 
 export function usePosts() {

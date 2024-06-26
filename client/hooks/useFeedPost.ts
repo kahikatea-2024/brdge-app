@@ -4,18 +4,17 @@ import {
   useQueryClient,
   MutationFunction,
 } from '@tanstack/react-query'
-import { getAllPosts } from '../apis/feedApis'
+import { getAllPosts } from '../apis/posts'
 
 export function usePosts() {
   const query = useQuery({ queryKey: ['posts'], queryFn: getAllPosts })
   return {
     ...query,
-    
   }
 }
 
 export function usePostsMutation<TData = unknown, TVariables = unknown>(
-  mutationFn: MutationFunction<TData, TVariables>
+  mutationFn: MutationFunction<TData, TVariables>,
 ) {
   const queryClient = useQueryClient()
   const mutation = useMutation({
