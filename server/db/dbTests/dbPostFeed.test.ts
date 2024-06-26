@@ -1,9 +1,7 @@
 import { beforeAll, beforeEach, describe, expect, it } from 'vitest'
 
 import db from '../connection.ts'
-import { addPost, deletePost, getAllPosts, getPostById } from '../postFeed'
-
-import { Post } from '../../../models/postFeed'
+import { addPost, getAllPosts, getPostById } from '../postFeed'
 
 // - beforeAll and beforeEach to reset the migrations and seeds
 beforeAll(async () => {
@@ -93,7 +91,6 @@ describe('getPostById', () => {
   it('returns the correct post', async () => {
     const id = 2
     const post = await getPostById(id)
-    console.log(post)
 
     expect(post.user_id).toBe(3)
     expect(post.content).toBe(
