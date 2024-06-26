@@ -22,7 +22,7 @@ export async function getUserProfileByEmail(email: string) {
   const res = db('users')
     .join('profiles', 'users.user_id', 'profiles.user_id')
     .where('users.user_email', email)
-    .first()
+    .first() //toberemoved
   return res
 }
 
