@@ -1,4 +1,4 @@
-# Fullstack app setup with Tailwinds and Storybook
+# BRDG (Junior Careers Social Media app)
 
 ## Setup
 
