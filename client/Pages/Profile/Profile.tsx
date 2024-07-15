@@ -62,26 +62,45 @@ export default function Profile() {
         <div>
           <NavBar />
         </div>
-
-        <div className=" mx-auto flex w-[90%] text-center">
-          <ProfileCoverImage
-            className="h-56 w-full rounded-md object-cover "
-            src={data.cover_image}
-          />
-          <div className="left-160 absolute top-52 -translate-y-1/2 transform">
-            <Avatar
-              size="large"
-              verified={true}
-              className="mb-50 rounded-full border-4 border-extraLightGrey"
-              src={data.avatar_image}
+        <div className="bg-ddarkGrey">
+          <div className=" mx-auto flex w-[70%]  pt-8 text-center">
+            <ProfileCoverImage
+              className="h-56 w-full rounded-md object-cover "
+              src={data.cover_image}
             />
+            <div className="left-160 absolute top-80 -translate-y-1/2 transform pl-4 md:top-56 lg:top-56">
+              <Avatar
+                size="large"
+                verified={true}
+                className="mb-50 rounded-full border-4 border-extraLightGrey"
+                src={data.avatar_image}
+              />
+            </div>
           </div>
-        </div>
-        <div className=" mx-auto mt-2 flex w-[90%] text-center">
-          <div className="rounded-md bg-dlightGrey p-4 text-center font-sans text-sm text-extraLightGrey dark:text-dextraLightGrey">
-            {data.bio}
+          {/* content */}
+          <div className=" mx-auto mt-4 flex w-[70%] text-center">
+            {/* Bio */}
+            <div className="rounded-md bg-dlightGrey p-4 text-center font-sans text-sm text-extraLightGrey dark:text-dextraLightGrey">
+              {data.bio}
+            </div>
+          </div>
+          {/* experience */}
+
+          <div className="mx-auto mt-4 grid w-[70%] grid-cols-5 grid-rows-5 gap-4 text-center  ">
+            <div className="col-span-5 rounded-md bg-dlightGrey lg:col-span-4">
+              <Experience data={data} />
+            </div>
+            <div className="col-span-5 rounded-md bg-dlightGrey lg:col-span-4 lg:col-start-1 lg:row-start-2">
+              <Education data={data} />
+            </div>
+            <div className="col-span-5 col-start-1 row-start-3 flex justify-around rounded-md bg-dlightGrey lg:col-start-5 lg:row-span-2 lg:row-start-1 lg:flex-col lg:items-start">
+              <SocialMediaIcons className="w-16 p-2" src={github} />
+              <SocialMediaIcons className="w-14 p-2" src={linkedin} />
+              <SocialMediaIcons className="w-14 p-2" src={facebook} />
+            </div>
           </div>
         </div>
       </div>
     )
 }
+// col-start-5 row-span-1 row-start-1
