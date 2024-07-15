@@ -43,7 +43,14 @@ export default function PostComponent() {
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
-    addPostMutation.mutate({ post: form, image })
+    addPostMutation.mutate(
+      { post: form, image },
+      {
+        onSuccess: () => {
+          window.location.reload()
+        },
+      },
+    )
     setForm('')
     setImage('')
   }
