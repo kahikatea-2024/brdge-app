@@ -54,7 +54,7 @@ export default function Profile() {
       <div className={`${darkMode && 'dark'}`}>
         <button
           onClick={toggleDarkMode}
-          className="absolute left-8 top-24 z-50 h-16 w-16 rounded-full bg-neutral-900 text-white dark:bg-white dark:text-black"
+          className="absolute left-8 top-32 z-50 h-16 w-16 rounded-full bg-neutral-900 text-white dark:bg-white dark:text-black"
         >
           {darkMode ? 'LHT' : 'DRK'}
         </button>
