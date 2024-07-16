@@ -26,22 +26,20 @@ Our team has been hard at work developing user story features using **TypeScript
 ### Testing with Storybook
 To make sure everything works perfectly, we used a tool called **Storybook**. It helped us 
 
+# Backend Development
 
-## Setup
+Welcome to the backend section of our project! Here’s a quick rundown of what we’ve been up to:
 
-### What's included
+### Creating Databases
+Our backend team focused on building our complex databases using **SQLite3**. This provided us with a reliable and efficient way to store our data.
 
-This repo includes:
+### Querying with Knex.js
+To interact with our databases, we used **Knex.js**. This powerful query builder made it easy for us to manage and retrieve data.
 
-* a single, simple API endpoint (`/api/v1/fruits`)
-* frontend routing via react-router
-* an auth0 setup waiting to be configured
-* an example database module (`server/db/fruits.js`)
-* an API client module (`client/apis/fruits.js`)
-* configuration for Vitest and testing library
-* configuration for server-side debugging in VS Code
-* configuration for preprocessing css with tailwind support
+### Implementing CRUD Operations
+We then created our **CRUD operations**: **GET**, **PATCH**, **POST**, and **DELETE**. These operations enabled seamless communication between the front end and the back end, allowing our app to handle data efficiently and provide a smooth user experience.
 
+#Setup
 ### Installation
 
 These commands will take care of migrating the latest database schema and populating seed data.
