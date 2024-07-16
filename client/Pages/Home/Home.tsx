@@ -51,12 +51,12 @@ export default function Home() {
     <div className={`${darkMode && 'dark'}`}>
       <button
         onClick={toggleDarkMode}
-        className="absolute left-8 top-24 z-50 h-16 w-16 rounded-full bg-neutral-900 text-white dark:bg-white dark:text-black"
+        className="absolute left-2 top-32 z-50 h-16 w-16 rounded-full bg-neutral-900 text-white dark:bg-white dark:text-black"
       >
         {darkMode ? 'LHT' : 'DRK'}
       </button>
       <div className="gap-4 bg-darkGrey dark:bg-ddarkGrey">
-        <div className="sticky top-0 z-50  pl-4 pr-4">
+        <div className="sticky top-0 z-50 pl-4 pr-4 pt-4">
           <NavBar />
         </div>
         <div className="content grid grid-cols-4 gap-4 p-4">

@@ -24,12 +24,12 @@ function TextField({ className, ...rest }: InputAttributes) {
   }
 
   const TextFieldClasses =
-    'shadow appearance-none border rounded-full py-2 px-3  leading-tight focus:outline-none focus:shadow-outline '
+    'w-full rounded-full py-2 px-3 focus:outline-none focus:shadow-outline '
   return (
     <form onSubmit={handleSubmit}>
       <input
-        size={60}
         className={twMerge(TextFieldClasses, className)}
+        size={60}
         type="text"
         name="text"
         value={text}

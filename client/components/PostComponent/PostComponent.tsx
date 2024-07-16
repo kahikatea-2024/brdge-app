@@ -63,13 +63,14 @@ export default function PostComponent() {
         <form onSubmit={(e) => handleSubmit(e)}>
           <PostField
             onChange={(e) => handleChange(e)}
-            className=" w-full rounded-xl bg-darkGrey p-4 text-extraLightGrey focus:ring-2 focus:ring-blue-500 dark:bg-ddarkGrey dark:text-dextraLightGrey"
+            className=" mb-2 w-full rounded-xl bg-darkGrey p-4 text-extraLightGrey focus:ring-2 focus:ring-blue-500 dark:bg-ddarkGrey dark:text-dextraLightGrey"
             placeholder="What do you want to share?"
             value={form}
           />
+          <br></br>
           <input
             onChange={(e) => handleChangeImage(e)}
-            className=" w-full rounded-xl bg-darkGrey p-4 text-xs text-extraLightGrey focus:ring-2 focus:ring-blue-500 dark:bg-ddarkGrey dark:text-dextraLightGrey"
+            className="w-full rounded-xl bg-darkGrey p-4  text-xs text-extraLightGrey focus:ring-2 focus:ring-blue-500 dark:bg-ddarkGrey dark:text-dextraLightGrey"
             placeholder="Please paste the image link"
             value={image}
           ></input>

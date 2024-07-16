@@ -52,64 +52,55 @@ export default function Profile() {
   if (data)
     return (
       <div className={`${darkMode && 'dark'}`}>
-        <button
+        {/* <button
           onClick={toggleDarkMode}
-          className="absolute left-8 top-24 z-50 h-16 w-16 rounded-full bg-neutral-900 text-white dark:bg-white dark:text-black"
+          className="absolute left-8 top-32 z-50 h-16 w-16 rounded-full bg-neutral-900 text-white dark:bg-white dark:text-black"
         >
           {darkMode ? 'LHT' : 'DRK'}
-        </button>
-        <div className="relative min-h-screen bg-darkGrey dark:bg-ddarkGrey">
-          <div>
-            <NavBar />
-          </div>
-          <div className="grid grid-cols-7 place-content-center ">
-            <div className="col-span-1 p-6"></div>
-            <div className="col-span-5 mt-2 h-48 items-center gap-2 rounded-md bg-gray-700">
-              <ProfileCoverImage
-                className="h-full w-full rounded-md object-cover"
-                src={data.cover_image}
-              />
-              <div className="top-45 left-160 absolute -translate-y-1/2 transform">
-                <Avatar
-                  size="large"
-                  verified={true}
-                  className="mb-50 rounded-full border-4 border-extraLightGrey"
-                  src={data.avatar_image}
-                />
-              </div>
-            </div>
-            <div className="col-span-1 p-6"></div>
-          </div>
-          <div className="content grid grid-cols-7 gap-4 p-4">
-            <div className="col-span-1"></div>
-            <div className="col-span-5 gap-2">
-              <div className="h-29 container w-full rounded-md bg-lightGrey p-14 dark:bg-dlightGrey">
-                <p className="pb-0 pl-0  text-center font-sans text-sm text-extraLightGrey dark:text-dextraLightGrey">
-                  {data.bio}
-                </p>
-              </div>
-            </div>
-            <div className="col-span-1"></div>
-          </div>
+        </button> */}
 
-          <div className="content grid grid-cols-7 gap-4 p-4">
-            <div className="col-span-1"></div>
-            <div className="col-span-4 gap-1">
-              <div className="container h-28  rounded-md bg-lightGrey dark:bg-dlightGrey ">
-                <Experience data={data} />
-              </div>
-              <div className="container mt-3 h-28 rounded-md bg-lightGrey dark:bg-dlightGrey ">
-                <Education data={data} />
-              </div>
+        <div>
+          <NavBar />
+        </div>
+        <div className="bg-ddarkGrey">
+          <div className=" mx-auto flex w-[70%]  pt-8 text-center">
+            <ProfileCoverImage
+              className="h-56 w-full rounded-md object-cover "
+              src={data.cover_image}
+            />
+            <div className="left-160 absolute top-80 -translate-y-1/2 transform pl-4 md:top-56 lg:top-56">
+              <Avatar
+                size="large"
+                verified={true}
+                className="mb-50 rounded-full border-4 border-extraLightGrey"
+                src={data.avatar_image}
+              />
             </div>
-            <div className="col-span-1 gap-1 rounded-md bg-lightGrey dark:bg-dlightGrey">
+          </div>
+          {/* content */}
+          <div className=" mx-auto mt-4 flex w-[70%] text-center">
+            {/* Bio */}
+            <div className="rounded-md bg-dlightGrey p-4 text-center font-sans text-sm text-extraLightGrey dark:text-dextraLightGrey">
+              {data.bio}
+            </div>
+          </div>
+          {/* experience */}
+
+          <div className="mx-auto mt-4 grid w-[70%] grid-cols-5 grid-rows-5 gap-4 text-center  ">
+            <div className="col-span-5 rounded-md bg-dlightGrey lg:col-span-4">
+              <Experience data={data} />
+            </div>
+            <div className="col-span-5 rounded-md bg-dlightGrey lg:col-span-4 lg:col-start-1 lg:row-start-2">
+              <Education data={data} />
+            </div>
+            <div className="col-span-5 col-start-1 row-start-3 flex justify-around rounded-md bg-dlightGrey lg:col-start-5 lg:row-span-2 lg:row-start-1 lg:flex-col lg:items-start">
               <SocialMediaIcons className="w-16 p-2" src={github} />
               <SocialMediaIcons className="w-14 p-2" src={linkedin} />
               <SocialMediaIcons className="w-14 p-2" src={facebook} />
             </div>
-            <div className="col-span-1"></div>
           </div>
         </div>
       </div>
     )
 }
+// col-start-5 row-span-1 row-start-1
