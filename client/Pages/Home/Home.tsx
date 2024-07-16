@@ -8,6 +8,8 @@ import LoadingSpinner from '../../components/UI/LoadingSpinner/LoadingSpinner'
 import Ad from '../../components/UI/Ad/Ad'
 import EventContent from '../../components/UI/EventContent/EventContent'
 import { useState } from 'react'
+import { IoMoon } from 'react-icons/io5'
+import { IoSunny } from 'react-icons/io5'
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState(true)
@@ -49,14 +51,21 @@ export default function Home() {
 
   return (
     <div className={`${darkMode && 'dark'}`}>
-      <button
+      {/* <button
         onClick={toggleDarkMode}
-        className="absolute left-2 top-32 z-50 h-16 w-16 rounded-full bg-neutral-900 text-white dark:bg-white dark:text-black"
+        className="absolute left-2 top-32 z-50 h-10 w-10 rounded-full bg-neutral-900 text-white dark:bg-white dark:text-black"
       >
         {darkMode ? 'LHT' : 'DRK'}
-      </button>
+      </button> */}
+      <div className="bg-darkGrey pl-64 pr-4 dark:bg-ddarkGrey">
+        <button onClick={() => toggleDarkMode()}>
+          {!darkMode && <IoSunny size={28} />}
+          {darkMode && <IoMoon size={28} color="white" />}
+        </button>
+      </div>
+
       <div className="gap-4 bg-darkGrey dark:bg-ddarkGrey">
-        <div className="sticky top-0 z-50 pl-4 pr-4 pt-4">
+        <div className="sticky top-0 z-50 pl-4 pr-4 ">
           <NavBar />
         </div>
         <div className="content grid grid-cols-4 gap-4 p-4">

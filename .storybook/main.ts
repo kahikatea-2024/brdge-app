@@ -1,25 +1,20 @@
 import type { StorybookConfig } from '@storybook/react-vite'
+
 const config: StorybookConfig = {
-  stories: ['../client/**/*.stories.@(js|jsx|ts|tsx)'],
-  staticDirs: ['../public'],
+  stories: [
+    '../stories/**/*.mdx',
+    '../stories/**/*.stories.@(js|jsx|mjs|ts|tsx)',
+  ],
   addons: [
+    '@storybook/addon-onboarding',
     '@storybook/addon-links',
     '@storybook/addon-essentials',
+    '@chromatic-com/storybook',
     '@storybook/addon-interactions',
-    'storybook-addon-remix-react-router',
-    {
-      name: '@storybook/addon-styling',
-      options: {
-        postCss: false,
-      },
-    },
   ],
   framework: {
     name: '@storybook/react-vite',
     options: {},
-  },
-  docs: {
-    autodocs: 'tag',
   },
 }
 export default config
