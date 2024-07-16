@@ -1,4 +1,23 @@
-# BRDG (Junior Careers Social Media app)
+## BRDG
+
+### Overview
+**BRDG** is a social media platform specifically designed for junior professionals who are embarking on a new career path. Unlike LinkedIn, which can be overwhelming for newcomers, BRDG offers a more focused and supportive environment tailored to the needs of:
+
+- Career Switchers
+- Graduates
+- School Leavers
+
+### Purpose
+Our mission is to create a dedicated space where juniors can:
+- **Discuss**: Engage in meaningful conversations about their career journey.
+- **Connect**: Network with peers and professionals in their field.
+- **Get Advice**: Seek guidance on various career-related topics.
+- **Have Mentorship**: Receive mentorship from senior professionals and leaders in their new field.
+- **Get Better Prepared**: Equip themselves with the knowledge and skills necessary to thrive in their chosen career.
+
+### Join Us
+Join BRDG today and become part of a community that understands and supports your career aspirations.
+
 
 ## Setup
 
