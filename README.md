@@ -16,6 +16,17 @@ Our mission is to create a dedicated space where juniors can:
 - **Get Better Prepared**: Equip themselves with the knowledge and skills necessary to thrive in their chosen career.
 
 
+# Frontend Development
+
+Welcome to the frontend section of our project! Here’s a quick rundown of what we’ve been up to:
+
+### Building the Frontend
+Our team has been hard at work developing user story features using **TypeScript** and **React components**. We then integrated these features into various pages to bring our app's frontend to life.
+
+### Testing with Storybook
+To make sure everything works perfectly, we used a tool called **Storybook**. It helped us 
+
+
 ## Setup
 
 ### What's included
