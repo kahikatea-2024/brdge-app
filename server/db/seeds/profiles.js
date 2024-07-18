@@ -23,7 +23,8 @@ export async function seed(knex) {
       bio: "Hello! I'm Fiona, a frontend web developer with [X] years of experience. I specialize in crafting intuitive user interfaces that blend functionality with aesthetics. Passionate about leveraging the latest technologies, I create responsive websites and applications that exceed client expectations from concept to deployment.",
       avatar_image:
         'https://64.media.tumblr.com/abdba580b7f46e44590d76ac172087ef/tumblr_inline_pdmkzmXp8x1s442te_640.jpg',
-      cover_image: './fionacover.jpg',
+      cover_image:
+        'https://static0.gamerantimages.com/wordpress/wp-content/uploads/2024/04/shrek-2-far-far-away.jpg',
       location: 'Far Far Away',
       email: 'fiona@exampleswamp.com',
     },
