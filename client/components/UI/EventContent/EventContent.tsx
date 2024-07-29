@@ -25,18 +25,9 @@ const events = [
 ]
 
 export default function Events() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-
   return (
     <div className="flex flex-col">
-      <button
-        className="p-4 text-xl text-extraLightGrey dark:text-dextraLightGrey md:hidden"
-        onClick={() => setIsMenuOpen(!isMenuOpen)}
-      >
-        {isMenuOpen ? 'Close Menu' : 'Open Menu'}
-      </button>
-
-      <div className={`md:flex md:flex-col ${isMenuOpen ? 'block' : 'hidden'}`}>
+      <div>
         {events.map((event, index) => (
           <div key={index} className="flex flex-col pt-10">
             <div className="flex flex-row">

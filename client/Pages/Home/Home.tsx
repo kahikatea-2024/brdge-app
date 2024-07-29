@@ -51,12 +51,6 @@ export default function Home() {
 
   return (
     <div className={`${darkMode && 'dark'}`}>
-      {/* <button
-        onClick={toggleDarkMode}
-        className="absolute left-2 top-32 z-50 h-10 w-10 rounded-full bg-neutral-900 text-white dark:bg-white dark:text-black"
-      >
-        {darkMode ? 'LHT' : 'DRK'}
-      </button> */}
       <div className="bg-darkGrey pl-64 pr-4 dark:bg-ddarkGrey">
         <button onClick={() => toggleDarkMode()}>
           {!darkMode && <IoSunny size={28} />}
@@ -68,8 +62,8 @@ export default function Home() {
         <div className="sticky top-0 z-50 pl-4 pr-4 ">
           <NavBar />
         </div>
-        <div className="content grid grid-cols-4 gap-4 p-4">
-          <div className="col-span-1 rounded-md bg-lightGrey dark:bg-dlightGrey ">
+        <div className="content grid gap-4 p-4 lg:grid-cols-4">
+          <div className="col-span-2 rounded-md bg-lightGrey dark:bg-dlightGrey lg:col-span-1 ">
             <div className="p-4 text-center font-mono text-3xl text-extraLightGrey dark:text-dextraLightGrey">
               Upcoming Events
             </div>
@@ -83,7 +77,7 @@ export default function Home() {
             </IfAuthenticated>
             {data && <Feed posts={data} />}
           </div>
-          <div className="">
+          <div className="hidden lg:block">
             <Ad />
           </div>
         </div>
