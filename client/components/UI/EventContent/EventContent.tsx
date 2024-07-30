@@ -66,24 +66,24 @@ export default function Events() {
       {/* SMALL SCREENS */}
       <div className="block w-full flex-col items-center lg:hidden">
         {/* Event section */}
-        <div className="flex w-full">
-          <div className="flex flex-col items-center">
+        <div className="flex w-full flex-col items-center md:flex-row">
+          <div className="flex-shrink-0">
             <img
               src={currentEvent.image}
-              className="h-40 w-auto rounded-t-md object-cover"
+              className="h-40 w-auto rounded-md object-cover"
               alt={currentEvent.name}
             />
-            <div className="flex flex-col p-4">
-              <h2 className="text-lg font-bold text-gray-800 dark:text-gray-200">
-                {currentEvent.name}
-              </h2>
-              <p className="text-xs text-gray-600 dark:text-gray-400">
-                {currentEvent.date}
-              </p>
-              <p className="mt-2 text-sm text-gray-700 dark:text-gray-300">
-                {currentEvent.description}
-              </p>
-            </div>
+          </div>
+          <div className="flex flex-col p-4 text-center md:text-left">
+            <h2 className="text-lg font-bold text-gray-800 dark:text-gray-200">
+              {currentEvent.name}
+            </h2>
+            <p className="text-xs text-gray-600 dark:text-gray-400">
+              {currentEvent.date}
+            </p>
+            <p className="mt-2 text-sm text-gray-700 dark:text-gray-300">
+              {currentEvent.description}
+            </p>
           </div>
         </div>
 
@@ -91,7 +91,7 @@ export default function Events() {
         <div className="mb-2 mt-2 flex w-full max-w-lg justify-between px-4">
           <button
             onClick={showPrevEvent}
-            className=" text-3xl text-primary hover:bg-gray-400"
+            className="text-3xl text-primary hover:bg-gray-400"
           >
             &lt;&lt;&lt;
           </button>
