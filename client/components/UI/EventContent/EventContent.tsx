@@ -42,15 +42,15 @@ export default function Events() {
       <div className="items hidden flex-col lg:block">
         <div>
           {events.map((event, index) => (
-            <div key={index} className="flex flex-col pt-10">
-              <div className="flex flex-row">
+            <div key={index} className="flex flex-col pt-4">
+              <div className="flex flex-col items-center">
                 <img
                   src={event.image}
                   className="size-44 pl-2"
                   alt={event.name}
                 />
                 <div className="flex flex-col p-2 font-sans text-xl text-extraLightGrey dark:text-dextraLightGrey">
-                  <h2 className="pt-8">{event.name}</h2>
+                  <h2 className="pt-2">{event.name}</h2>
                   <p className="p-0 text-sm">{event.date}</p>
                 </div>
               </div>
