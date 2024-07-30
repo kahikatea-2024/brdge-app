@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom'
 export default function Login() {
   return (
     <>
-      <div className="flex h-full flex-col bg-gray-300 sm:flex-row md:flex-row">
-        <div className="flex w-full items-center justify-center bg-teal-700 lg:w-[40%]">
+      <div className="flex h-full flex-col bg-gray-300 sm:flex-row">
+        <div className="flex w-full items-center justify-center bg-teal-700 pt-8 lg:w-[40%] lg:pt-0">
           {/* Logo section */}
           <div className="text-center">
             <img

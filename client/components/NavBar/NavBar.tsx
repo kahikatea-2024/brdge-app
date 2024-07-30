@@ -31,8 +31,8 @@ export default function NavBar() {
   // mx-auto flex max-w-screen-xl flex-wrap items-center justify-between gap-1 p-4
   // if (userProfile || isError)
   return (
-    <div className="bg-lightGrey dark:bg-dlightGrey">
-      <div className=" rounded-md border-gray-200 bg-lightGrey pb-4 pl-4 pr-4 shadow-xl dark:bg-dlightGrey">
+    <div className="rounded-md bg-lightGrey  dark:bg-dlightGrey ">
+      <div className="rounded-md border-gray-200 bg-lightGrey pb-4 pl-4 pr-4 shadow-xl dark:bg-dlightGrey">
         <div className="flex flex-col items-center justify-center pt-4 md:flex-row lg:flex-row">
           <Link to="/home">
             <Logo className="w-36 pb-2 pr-4 text-center md:pr-2 lg:mr-8 lg:pb-0" />

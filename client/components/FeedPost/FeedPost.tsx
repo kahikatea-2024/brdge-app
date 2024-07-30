@@ -28,7 +28,7 @@ export default function FeedPost({
 
   return (
     <div className={twMerge(BaselineStyling, className)} {...rest}>
-      <div className="flex flex-col p-8">
+      <div className="flex flex-col p-2 lg:p-8">
         <div className="mb-2 flex items-center">
           <div className="pr-4 ">
             <Link to={`../profiles/${postData.user_id}`}>

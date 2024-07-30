@@ -1,92 +1,108 @@
-// Dynamic one:
+import { useState } from 'react'
 
-// const EventName = 'Fire-breathing Fullstack'
-// const date = '15 Jun 2024'
-// const description =
-//   'Dragon is taking a break from guarding the castle to help you tackle database management with fiery enthusiasm. Learn to set up, maintain, and secure your databases without getting burned by common pitfalls.'
-// const image = 'images/Dragon.jpg'
-
-// export default function Events() {
-//   return (
-//     <>
-//       <div className="flex flex-col">
-//         <div className="flex flex-row">
-//           <img src={image} className="size-44 pl-2"></img>
-//           <div className="flex flex-col p-2 font-sans text-xl text-extraLightGrey ">
-//             <h2 className="pt-8">{EventName}</h2>
-//             <p className="p-0 text-sm">{date}</p>
-//           </div>
-//         </div>
-//       </div>
-//       <p className="p-4  font-sans text-sm text-extraLightGrey">
-//         {description}
-//       </p>
-//     </>
-//   )
-// }
-
-//HardCoding:
-
-const EventName = 'Fire-breathing Fullstack'
-const date = '15 Jun 2024'
-const description =
-  'Dragon is taking a break from guarding the castle to help you tackle database management with fiery enthusiasm. Learn to set up, maintain, and secure your databases without getting burned by common pitfalls.'
-const image = 'images/Dragon.jpg'
-
-const EventName2 = "Donkey's Dynamic Debugging Day"
-const date2 = '24 Aug 2024'
-const description2 =
-  'Join Donkey as he bounces around trying to debug his code. Expect lots of laughs as he talks to his computer, dances around the room, and tries the most ridiculous solutions. Learn valuable debugging techniques amidst the chaos!'
-const image2 = 'images/DebugDonkey.jpg'
-
-const EventName3 = 'Fiona’s Deployment Day'
-const date3 = '27 Oct 2024'
-const description3 =
-  'Fiona takes you through the process of deploying a fullstack application, from her swamp to the server. Watch out for her practical tips, swampy metaphors, and a few unexpected animal cameos.'
-const image3 = 'images/Fionade.jpg'
+const events = [
+  {
+    name: 'Fire-breathing Fullstack',
+    date: '15 Jun 2024',
+    description:
+      'Dragon is taking a break from guarding the castle to help you tackle database management with fiery enthusiasm. Learn to set up, maintain, and secure your databases without getting burned by common pitfalls.',
+    image: 'images/Dragon.jpg',
+  },
+  {
+    name: "Donkey's Dynamic Debugging Day",
+    date: '24 Aug 2024',
+    description:
+      'Join Donkey as he bounces around trying to debug his code. Expect lots of laughs as he talks to his computer, dances around the room, and tries the most ridiculous solutions. Learn valuable debugging techniques amidst the chaos!',
+    image: 'images/DebugDonkey.jpg',
+  },
+  {
+    name: 'Fiona’s Deployment Day',
+    date: '27 Oct 2024',
+    description:
+      'Fiona takes you through the process of deploying a fullstack application, from her swamp to the server. Watch out for her practical tips, swampy metaphors, and a few unexpected animal cameos.',
+    image: 'images/Fionade.jpg',
+  },
+]
 
 export default function Events() {
+  const [currentIndex, setCurrentindex] = useState(0)
+
+  const showNextEvent = () => {
+    setCurrentindex((prevIndex) => (prevIndex + 1) % events.length)
+  }
+  const showPrevEvent = () => {
+    setCurrentindex(
+      (prevIndex) => (prevIndex - 1 + events.length) % events.length,
+    )
+  }
+
+  const currentEvent = events[currentIndex]
   return (
     <>
-      <div className="pt- 10 flex flex-col">
-        <div className="flex flex-row">
-          <img src={image} className="size-44 pl-2"></img>
-          <div className="dark:text-dextraLightGrey flex flex-col p-2 font-sans text-xl text-extraLightGrey">
-            <h2 className="pt-8">{EventName}</h2>
-            <p className="p-0 text-sm">{date}</p>
-          </div>
+      <div className="items hidden flex-col lg:block">
+        <div>
+          {events.map((event, index) => (
+            <div key={index} className="flex flex-col pt-4">
+              <div className="flex flex-col items-center">
+                <img
+                  src={event.image}
+                  className="size-44 pl-2"
+                  alt={event.name}
+                />
+                <div className="flex flex-col p-2 font-sans text-xl text-extraLightGrey dark:text-dextraLightGrey">
+                  <h2 className="pt-2">{event.name}</h2>
+                  <p className="p-0 text-sm">{event.date}</p>
+                </div>
+              </div>
+              <p className="p-2 pb-8 font-sans text-sm text-extraLightGrey dark:text-dextraLightGrey">
+                {event.description}
+              </p>
+              {index < events.length - 1 && <hr />}
+            </div>
+          ))}
         </div>
       </div>
-      <p className="dark:text-dextraLightGrey p-2 pb-8 font-sans text-sm text-extraLightGrey">
-        {description}
-      </p>
-      <hr />
-      <div className="flex flex-col pt-10">
-        <div className="flex flex-row">
-          <img src={image2} className="size-44 pl-2"></img>
-          <div className="dark:text-dextraLightGrey flex flex-col p-2 font-sans text-xl text-extraLightGrey">
-            <h2 className="pt-8">{EventName2}</h2>
-            <p className="p-0 text-sm">{date2}</p>
-          </div>
-        </div>
-      </div>
-      <p className="dark:text-dextraLightGrey p-2 pb-8 font-sans text-sm text-extraLightGrey">
-        {description2}
-      </p>
 
-      <hr />
-      <div className="flex flex-col pt-10">
-        <div className="flex flex-row">
-          <img src={image3} className="size-44 pl-2"></img>
-          <div className="dark:text-dextraLightGrey flex flex-col p-2 font-sans text-xl text-extraLightGrey ">
-            <h2 className="pt-8">{EventName3}</h2>
-            <p className="p-0 text-sm">{date3}</p>
+      {/* SMALL SCREENS */}
+      <div className="block w-full flex-col items-center lg:hidden">
+        {/* Event section */}
+        <div className="flex w-full flex-col items-center md:flex-row">
+          <div className="flex-shrink-0">
+            <img
+              src={currentEvent.image}
+              className="h-40 w-auto rounded-md object-cover"
+              alt={currentEvent.name}
+            />
+          </div>
+          <div className="flex flex-col p-4 text-center md:text-left">
+            <h2 className="text-lg font-bold text-gray-800 dark:text-gray-200">
+              {currentEvent.name}
+            </h2>
+            <p className="text-xs text-gray-600 dark:text-gray-400">
+              {currentEvent.date}
+            </p>
+            <p className="mt-2 text-sm text-gray-700 dark:text-gray-300">
+              {currentEvent.description}
+            </p>
           </div>
         </div>
+
+        {/* Navigation buttons */}
+        <div className="mb-2 mt-2 flex w-full max-w-lg justify-between px-4">
+          <button
+            onClick={showPrevEvent}
+            className="text-3xl text-primary hover:bg-gray-400"
+          >
+            &lt;&lt;&lt;
+          </button>
+          <button
+            onClick={showNextEvent}
+            className="text-3xl text-primary hover:bg-gray-400"
+          >
+            &gt;&gt;&gt;
+          </button>
+        </div>
       </div>
-      <p className="dark:text-dextraLightGrey  p-2 font-sans text-sm text-extraLightGrey">
-        {description3}
-      </p>
     </>
   )
 }
