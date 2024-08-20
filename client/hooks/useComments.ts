@@ -64,38 +64,3 @@ export function useComments() {
     ...query,
   }
 }
-
-// Hook for deleting a comment
-export function useDeleteComment() {
-  const queryClient = useQueryClient()
-
-  return useMutation({
-    mutationFn: async (id: number) => {
-      await deleteComment(id)
-    },
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['comments'] })
-    },
-    onError: (error: any) => {
-      console.error('Failed to delete comment', error)
-    },
-  })
-}
-
-// Hook for updating a comment
-export function useUpdateComment() {
-  const queryClient = useQueryClient()
-
-  return useMutation({
-    mutationFn: async (data: UpdateComment) => {
-      const { id, body, user_id } = data
-      await request.patch(`${rootUrl}/${id}`).send({ body, user_id })
-    },
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['comments'] })
-    },
-    onError: (error: any) => {
-      console.error('Failed to update comment', error)
-    },
-  })
-}

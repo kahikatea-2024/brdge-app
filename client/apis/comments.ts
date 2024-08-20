@@ -44,14 +44,14 @@ export async function getCommentCountByPostId(id: number): Promise<number> {
 export async function addComment(
   comment: string,
   parent_id: number | null = null,
-  post_id: number,
+  feed_post_id: number,
 ) {
   const newComment = {
     body: comment,
     parent_id,
     user_id: 1, // Or obtain this from context/session
     created_at: new Date().toISOString(),
-    post_id,
+    feed_post_id,
   }
 
   const res = await request.post(rootUrl).send(newComment)
@@ -61,4 +61,38 @@ export async function addComment(
 // Delete a comment
 export async function deleteComment(id: number) {
   await request.delete(`${rootUrl}/${id}`)
+}
+// Hook for deleting a comment
+export function useDeleteComment() {
+  const queryClient = useQueryClient()
+
+  return useMutation({
+    mutationFn: async (id: number) => {
+      await deleteComment(id)
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['comments'] })
+    },
+    onError: (error: any) => {
+      console.error('Failed to delete comment', error)
+    },
+  })
+}
+
+// Hook for updating a comment
+export function useUpdateComment() {
+  const queryClient = useQueryClient()
+
+  return useMutation({
+    mutationFn: async (data: UpdateComment) => {
+      const { id, body, user_id } = data
+      await request.patch(`${rootUrl}/${id}`).send({ body, user_id })
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['comments'] })
+    },
+    onError: (error: any) => {
+      console.error('Failed to update comment', error)
+    },
+  })
 }
