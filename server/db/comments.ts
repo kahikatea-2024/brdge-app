@@ -6,12 +6,13 @@ export async function getAllComments() {
   const commentsWithReplies = await db('post_comments')
     .join('users', 'users.user_id', 'post_comments.user_id')
     .join('feed_posts', 'feed_posts.feed_post_id', 'post_comments.feed_post_id')
+    .join('profiles', 'profiles.user_id', 'users.user_id')
     .select(
       'post_comments.id as id',
       'post_comments.user_id as user_id',
       'post_comments.body as body',
       'users.username as user_name',
-      // 'users.img_url as img_url',
+      'profiles.avatar_image as img_url',
       'post_comments.parent_id as parent_id',
       'post_comments.created_at as created_at',
       'post_comments.feed_post_id as post_id',
