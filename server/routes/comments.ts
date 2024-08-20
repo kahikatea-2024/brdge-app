@@ -43,5 +43,45 @@ router.get('/posts/:post_id/count', async (req, res) => {
     res.status(500).json({ message: 'Something went wrong' })
   }
 })
+router.post('/', async (req, res) => {
+  try {
+    const newComment = req.body
+    const insertedComment = await db.addComment(newComment)
+
+    res.status(201).json(insertedComment)
+  } catch (error) {
+    console.error(`database error: ${error}`)
+    if (!res.headersSent) {
+      res.status(500).send('Internal Server Error')
+    }
+  }
+})
+
+router.delete('/:id', async (req, res) => {
+  try {
+    const id = Number(req.params.id)
+    await db.deleteComment(id)
+    res.sendStatus(200)
+  } catch (error) {
+    console.error(`database error: ${error}`)
+    res.sendStatus(500)
+  }
+})
+
+router.patch('/:id', async (req, res) => {
+  try {
+    const id = Number(req.params.id)
+    const updatedComment = req.body.body
+    // console.log('Updating comment with ID:', id)
+    // console.log('Update data:', updatedComment)
+
+    await db.updateComment(id, updatedComment)
+
+    res.sendStatus(200)
+  } catch (error) {
+    console.error(`Database error: ${error}`)
+    res.sendStatus(500)
+  }
+})
 
 export default router
