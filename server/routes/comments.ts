@@ -21,5 +21,27 @@ router.get('/:id', async (req, res, next) => {
     next(err)
   }
 })
+router.get('/posts/:post_id', async (req, res) => {
+  try {
+    const commentByPostId = await db.getCommentsByPostId(
+      Number(req.params.post_id),
+    )
+    res.json([commentByPostId]) //Update Wrap in an array
+  } catch (error) {
+    console.log(error)
+    res.status(500).json({ message: 'Something went wrong' })
+  }
+})
+
+router.get('/posts/:post_id/count', async (req, res) => {
+  try {
+    const postId = Number(req.params.post_id)
+    const commentCount = await db.getCommentCountByPostId(postId)
+    res.json({ count: commentCount })
+  } catch (error) {
+    console.log(error)
+    res.status(500).json({ message: 'Something went wrong' })
+  }
+})
 
 export default router
