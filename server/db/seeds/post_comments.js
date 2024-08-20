@@ -7,25 +7,28 @@ export async function seed(knex) {
   await knex('post_comments').del()
   await knex('post_comments').insert([
     {
-      comment_id: 1,
+      id: 1,
+      user_id: 1,
+      parent_id: null,
+      body: 'bleh bleh bleh',
+      created_at: '2024-08-16T23:00:33.010+02:00',
       feed_post_id: 1,
-      user_id: 2,
-      content: 'bleh bleh bleh',
-      timestamp: '2024-06-20 10:42:33',
     },
     {
-      comment_id: 2,
+      id: 1,
+      user_id: 1,
+      parent_id: 1,
+      body: 'reply the first comment',
+      created_at: '2024-08-16T23:00:33.010+02:00',
       feed_post_id: 1,
-      user_id: 2,
-      content: 'bleh bleh bleh',
-      timestamp: '2024-06-20 10:42:33',
     },
     {
-      comment_id: 3,
+      id: 1,
+      user_id: 1,
+      parent_id: null,
+      body: 'bleh bleh bleh',
+      created_at: '2024-08-16T23:00:33.010+02:00',
       feed_post_id: 1,
-      user_id: 2,
-      content: 'bleh bleh bleh',
-      timestamp: '2024-06-20 10:42:33',
     },
   ])
 }
