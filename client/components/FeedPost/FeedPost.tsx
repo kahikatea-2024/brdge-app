@@ -53,7 +53,11 @@ export default function FeedPost({
     if (isLoading) return <span>Loading comment count...</span>
     if (error) return <span>Error loading comment count</span>
 
-    return <span className="text-primary ">Comments: {commentCount || 0}</span>
+    return (
+      <span className="text-primary ">
+        &nbsp;Comments:&nbsp; {commentCount || 0}
+      </span>
+    )
   }
 
   return (
