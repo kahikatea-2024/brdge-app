@@ -46,12 +46,7 @@ const Comment: React.FC<CommentProps> = ({
   return (
     <div className="pb-4 pl-2 pr-2 pt-4" key={comment.id}>
       <div className="mb-2 mt-6   flex items-start gap-2">
-        <img
-          className="pb-2"
-          src={`./${comment.img_url}.png`}
-          alt="icon"
-          width="40px"
-        />
+        <img className="pb-2" src={comment.img_url} alt="icon" width="40px" />
         <div className="flex flex-col justify-center">
           <div className="text-lg">{comment.user_name}</div>
           <div className="pb-2 pt-1 text-xs text-gray-500">{createAt}</div>
@@ -59,7 +54,7 @@ const Comment: React.FC<CommentProps> = ({
       </div>
 
       {!isEditing && (
-        <div className="rounded-lg bg-gray-300 p-2 text-lg lg:w-[50%]">
+        <div className="rounded-lg bg-gray-100 p-2 text-lg text-black dark:bg-gray-700 dark:text-lightGrey lg:w-[50%]">
           {comment.body}
         </div>
       )}
@@ -75,30 +70,30 @@ const Comment: React.FC<CommentProps> = ({
       <div className="flex gap-2 text-sm ">
         {canReply && (
           <button
-            className="mt-2 rounded-md bg-green-300 p-2 text-sm hover:scale-105"
+            className="mt-2 rounded-full bg-gray-400 p-2 text-xs hover:scale-105"
             onClick={() =>
               setActiveComment({ id: comment.id, type: 'replying' })
             }
           >
-            Reply
+            <img src="/images/reply-c.png" className="w-4 " alt="reply" />
           </button>
         )}
         {canEdit && (
           <button
-            className="mt-2 rounded-md bg-orange-300 p-2 text-sm hover:scale-105"
+            className="mt-2  rounded-full bg-gray-400  p-2 text-sm hover:scale-105"
             onClick={() =>
               setActiveComment({ id: comment.id, type: 'editing' })
             }
           >
-            Edit
+            <img src="/images/edit-c.png" className="w-4" alt="edit" />
           </button>
         )}
         {canDelete && (
           <button
-            className="mt-2 rounded-md bg-red-400 p-2 text-sm hover:scale-105"
+            className="mt-2  rounded-full bg-gray-400  p-2 text-sm hover:scale-105"
             onClick={() => deleteComment(comment.id)}
           >
-            Delete
+            <img src="/images/del-c.png" className="w-4" alt="del" />
           </button>
         )}
       </div>

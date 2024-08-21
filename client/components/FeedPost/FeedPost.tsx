@@ -53,7 +53,7 @@ export default function FeedPost({
     if (isLoading) return <span>Loading comment count...</span>
     if (error) return <span>Error loading comment count</span>
 
-    return <span>Comments: {commentCount || 0}</span>
+    return <span className="text-primary ">Comments: {commentCount || 0}</span>
   }
 
   return (
@@ -81,10 +81,10 @@ export default function FeedPost({
           {image_url && <ImagePost className="size-full" src={image_url} />}
         </div>
         <div className="flex-rpw flex pt-2">
-          <CommentIcon className="h-14 w-14" src={comImage} />
+          {/* <CommentIcon className="h-14 w-14" src={comImage} />
           <div className="pt-5 text-extraLightGrey dark:text-dextraLightGrey">
             <p>Comment</p>
-          </div>
+          </div> */}
         </div>
         <div>
           {/* <DisqusThread
@@ -99,8 +99,8 @@ export default function FeedPost({
             <img
               src={
                 activePostId === postData.feed_post_id
-                  ? '../../../public/images/c2.png'
-                  : '../../../public/images/c1.png'
+                  ? '/images/d-c2.png'
+                  : '/images/d-c1.png'
               }
               alt={
                 activePostId === postData.feed_post_id

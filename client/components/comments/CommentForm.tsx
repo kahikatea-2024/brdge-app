@@ -39,10 +39,10 @@ export default function CommentForm({
           placeholder="Write a comment"
           value={text}
           onChange={(e) => setText(e.target.value)}
-          className="mb-2 mt-2 w-full  rounded-l  pl-2"
+          className="mb-2 mt-2 w-full  rounded-xl bg-darkGrey pl-2 dark:bg-lightGrey "
         />
         <button
-          className="rounded-md bg-green-300 p-2 text-sm hover:scale-105"
+          className="rounded-full bg-primary p-2 text-sm hover:scale-105"
           disabled={isTextareaDisabled}
         >
           {submitLabel}
