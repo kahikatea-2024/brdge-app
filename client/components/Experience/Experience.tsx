@@ -38,8 +38,8 @@ export default function Experience(propsData: Props) {
   if (isError) {
     return <span>Error...</span>
   }
-  const logoUrl = '../public/images/work.png'
-  const logoUrl2 = '../public/images/blackwork.png'
+  const logoUrl = '/images/work.png'
+  const logoUrl2 = '/images/blackwork.png'
   // If data does not exsit then display placeholderData
   const experienceData = data[0] || placeholderData
 

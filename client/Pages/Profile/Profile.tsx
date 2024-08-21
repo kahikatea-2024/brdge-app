@@ -12,9 +12,9 @@ import { useState } from 'react'
 import { IoMoon } from 'react-icons/io5'
 import { IoSunny } from 'react-icons/io5'
 
-const linkedin = '../public/images/linkedinlight.png'
-const github = '../public/images/githublight.png'
-const facebook = '../public/images/facebooklight.png'
+const linkedin = '/images/linkedinlight.png'
+const github = '/images/githublight.png'
+const facebook = '/images/facebooklight.png'
 
 // Mock data
 // const data = {

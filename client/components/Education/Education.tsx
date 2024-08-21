@@ -40,17 +40,17 @@ export default function Education(propsData: Props) {
   if (isError) {
     return <span>Error...</span>
   }
-  const logoUrl = '../public/images/education.png'
+  const logoUrl = '/images/education.png'
   // If data does not exsit then display placeholderData
   const educationData = data[0] || placeholderData
 
   return (
     <>
-      <div className="dark:bg-dlightGrey bg-lightGrey">
+      <div className="bg-lightGrey dark:bg-dlightGrey">
         <div className="flex flex-col">
           <div className="flex flex-row">
-            <ExperienceLogo className="w-16 ml-2 " src={logoUrl} />
-            <div className="dark:text-dextraLightGrey flex flex-col pl-5 pt-4 font-sans text-xl text-extraLightGrey">
+            <ExperienceLogo className="ml-2 w-16 " src={logoUrl} />
+            <div className="flex flex-col pl-5 pt-4 font-sans text-xl text-extraLightGrey dark:text-dextraLightGrey">
               <p>{educationData.position_or_qualification}</p>
               <p className="pb-0 pl-0 text-sm">{educationData.name_of_place}</p>
               <p className="pb-0 pl-0 text-sm">{educationData.location}</p>

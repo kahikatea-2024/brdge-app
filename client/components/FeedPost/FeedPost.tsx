@@ -14,6 +14,7 @@ import { useCommentCount } from '../../hooks/useComments'
 import { usePosts } from '../../hooks/usePosts'
 import Comments from '../comments/Comments'
 import c1 from '../../../public/images/c1.png'
+import { IfAuthenticated } from '../Authenticated'
 
 const comImage = 'images/comment-icon.png'
 
@@ -95,30 +96,35 @@ export default function FeedPost({
             url={'http://localhost:5173/'}
             identifier={'HomePage'}
           /> */}
+          <IfAuthenticated>
+            <button
+              className="flex cursor-pointer rounded-md border-none bg-transparent p-2 hover:scale-105 hover:bg-gray-200"
+              onClick={() => handleCommentsToggle(postData.feed_post_id)}
+            >
+              <img
+                src={
+                  activePostId === postData.feed_post_id
+                    ? '/images/d-c2.png'
+                    : '/images/d-c1.png'
+                }
+                alt={
+                  activePostId === postData.feed_post_id
+                    ? 'Hide Comments'
+                    : 'Show Comments'
+                }
+                className="h-6 w-6"
+              />
 
-          <button
-            className="flex cursor-pointer rounded-md border-none bg-transparent p-2 hover:scale-105 hover:bg-gray-200"
-            onClick={() => handleCommentsToggle(postData.feed_post_id)}
-          >
-            <img
-              src={
-                activePostId === postData.feed_post_id
-                  ? '/images/d-c2.png'
-                  : '/images/d-c1.png'
-              }
-              alt={
-                activePostId === postData.feed_post_id
-                  ? 'Hide Comments'
-                  : 'Show Comments'
-              }
-              className="h-6 w-6"
-            />
+              <CommentCount feed_post_id={postData.feed_post_id} />
+            </button>
 
-            <CommentCount feed_post_id={postData.feed_post_id} />
-          </button>
-          {activePostId === postData.feed_post_id && (
-            <Comments currentUserId={1} feed_post_id={postData.feed_post_id} />
-          )}
+            {activePostId === postData.feed_post_id && (
+              <Comments
+                currentUserId={1}
+                feed_post_id={postData.feed_post_id}
+              />
+            )}
+          </IfAuthenticated>
         </div>
       </div>
     </div>
