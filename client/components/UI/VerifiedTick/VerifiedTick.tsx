@@ -31,7 +31,7 @@ export default function VerifiedTick({
     <div className="flex -space-x-4">
       <img
         className={twMerge('h-12 w-12 rounded-full', imageSize, className)}
-        src="../public/images/tick-logocopy.png"
+        src="/images/tick-logocopy.png"
         alt="verified"
         {...rest}
       />

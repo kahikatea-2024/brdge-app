@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import Comments from '../components/comments/Comments'
 
 export default function Login() {
   return (
@@ -30,7 +31,7 @@ export default function Login() {
         <div className="flex w-full items-center justify-center bg-gray-300 sm:h-full lg:w-[60%]">
           <div className="pb-[40%] pt-[20%] md:pt-[40%] lg:pt-[40%]">
             <Link to="/home">
-              <button className=" h-16 rounded-md bg-teal-700 pl-20 pr-20 font-semibold  text-white">
+              <button className=" h-16 rounded-md bg-teal-700 pl-20 pr-20 font-semibold text-white  hover:bg-primary">
                 Get Started
               </button>
             </Link>
